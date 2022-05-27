@@ -1,0 +1,22 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../out-tsc/app",
+    "types": [],
+    "paths": {
+      "@muni-kypo-crp/statistical-visualizations": [
+        "../kypo-trainings-statistical-viz/src/public_api.ts"
+      ],
+      "@muni-kypo-crp/statistical-visualizations/*": [
+        "../kypo-trainings-statistical-viz/*/src/public_api.ts"
+      ]
+    }
+  },
+  "files": [
+    "src/main.ts",
+    "src/polyfills.ts"
+  ],
+  "include": [
+    "src/**/*.d.ts"
+  ]
+}

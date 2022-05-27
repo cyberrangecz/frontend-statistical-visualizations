@@ -9,13 +9,14 @@
     "lint": "ng lint && npm run prettier-check",
     "e2e": "ng e2e",
     "prettier-check": "prettier --check \"projects/**/*.ts\"",
-    "build-example-app": "ng build example-app --configuration production",
-    "build-library": "ng build kypo-trainings-statistical-viz-lib --configuration production && cp ./src/styles.css ./dist/kypo-trainings-statistical-viz-lib",
-    "create-package": "cd dist/kypo-trainings-statistical-viz-lib && npm pack",
+    "prettier-fix": "prettier --write \"./projects/**/*.ts\"",
+    "build-example-app": "ng build kypo-trainings-statistical-viz-example --configuration production",
+    "build-library": "ng build --configuration production kypo-trainings-statistical-viz",
+    "create-package": "cd dist/kypo-trainings-statistical-viz && npm pack",
     "build-and-pack": "npm install && npm run build-library && npm run create-package",
-    "ci-update-version": "cd ./projects/kypo-trainings-statistical-viz-lib/ && npm version $TAG_VERSION",
+    "ci-update-version": "cd projects/kypo-trainings-statistical-viz/ && npm version $TAG_VERSION",
     "ci-build-and-pack": "npm ci --cache .npm --prefer-offline && npm run build-library && npm run create-package",
-    "ci-publish-package": "cd dist/kypo-trainings-statistical-viz-lib && npm publish"
+    "ci-publish-package": "cd dist/kypo-trainings-statistical-viz && npm publish"
   },
   "husky": {
     "hooks": {
@@ -36,10 +37,14 @@
     "@angular/router": "^13.2.2",
     "@muni-kypo-crp/d3-service": "~13.0.0",
     "@sentinel/auth": "~13.0.0",
+    "@sentinel/common": "~13.0.1",
+    "@sentinel/layout": "~13.0.2",
     "angular-oauth2-oidc": "^13.0.1",
     "angular-oauth2-oidc-jwks": "^13.0.1",
+    "fast-levenshtein": "^3.0.0",
     "core-js": "^2.6.12",
     "d3": "^7.0.4",
+    "ngx-indexed-db": "^9.4.2",
     "rxjs": "~7.5.2",
     "tslib": "^2.3.1",
     "zone.js": "~0.11.4"
@@ -72,6 +77,7 @@
     "karma-jasmine-html-reporter": "^1.5.0",
     "ng-packagr": "^13.2.0",
     "protractor": "~7.0.0",
+    "husky": "^4.3.8",
     "ts-node": "~3.2.0",
     "prettier": "^2.5.1",
     "typescript": "~4.5.5"
