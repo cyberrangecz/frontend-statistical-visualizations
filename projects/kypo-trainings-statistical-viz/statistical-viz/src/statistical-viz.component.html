@@ -1,0 +1,60 @@
+<mat-sidenav-container >
+  <mat-sidenav-content>
+    <mat-expansion-panel>
+      <!-- FILTERS SELECTION  -->
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <b>Visualization filters</b>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="col-12" id="filterDiv">
+        <kypo-filter
+          [initialTrainingInstance]="trainingInstanceId"
+          [trainingInstances]="trainingInstanceStatistics$ | async"
+          (filterChange)="filterChange($event)">
+        </kypo-filter>
+      </div>
+    </mat-expansion-panel>
+    <mat-sidenav-content class="dashboard-container">
+      <div class="visualization-container" *ngIf="(filteredTrainingInstanceStatistics$ | async) as filteredTrainingInstanceStatistics">
+        <div class="col-6" id="combinedDiv">
+          <kypo-combined-diagram
+            [trainingInstanceStatistics]="filteredTrainingInstanceStatistics"
+            [highlightedInstances]="highlightedTrainingInstance$ | async"
+            (highlightInstance)="highlightChange($event)"
+          ></kypo-combined-diagram>
+        </div>
+
+        <div class="col-6" id="scatterplotDiv">
+          <kypo-scatterplot
+            [trainingInstanceStatistics]="filteredTrainingInstanceStatistics"
+            [highlightedInstances]="highlightedTrainingInstance$ | async"
+            [highlightedParticipants]="highlightedParticipants$ | async"
+            (highlightInstance)="highlightChange($event)"
+          >
+          </kypo-scatterplot>
+        </div>
+
+        <div class="col-6" id="barchartDiv">
+          <kypo-barchart
+            [trainingInstanceStatistics]="filteredTrainingInstanceStatistics"
+            [highlightedInstances]="highlightedTrainingInstance$ | async"
+            (highlightInstance)="highlightChange($event)"
+            (selectedLevelId)="selectedLevel($event)"
+          >
+          </kypo-barchart>
+        </div>
+
+        <div class="col-6" id="bubblechartDiv">
+          <kypo-bubblechart
+            [trainingInstanceStatistics]="filteredTrainingInstanceStatistics"
+            [selectedLevel]="selectedLevel$ | async"
+            (highlightInstances)="highlightChange($event)"
+            (highlightParticipants)="highlightParticipants($event)"
+          ></kypo-bubblechart>
+        </div>
+      </div>
+    </mat-sidenav-content>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

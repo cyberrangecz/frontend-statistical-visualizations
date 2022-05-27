@@ -1,21 +1,14 @@
 {
-  "compileOnSave": false,
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "baseUrl": "./projects/kypo-trainings-statistical-viz",
-    "outDir": "./dist/out-tsc",
-    "sourceMap": true,
-    "declaration": false,
-    "downlevelIteration": true,
-    "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "moduleResolution": "node",
-    "importHelpers": true,
-    "target": "es2017",
-    "module": "es2020",
+    "outDir": "../../out-tsc/lib",
+    "target": "es2018",
+    "declaration": true,
+    "inlineSources": true,
+    "types": [],
     "lib": [
-      "es2018",
-      "dom"
+      "dom",
+      "es2018"
     ],
     "paths": {
       "@muni-kypo-crp/statistical-visualizations/barchart": ["./barchart/src/public_api.ts"],
@@ -28,7 +21,12 @@
     }
   },
   "angularCompilerOptions": {
-    "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true
-  }
+    "skipTemplateCodegen": true,
+    "strictMetadataEmit": true,
+    "enableResourceInlining": true
+  },
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts"
+  ]
 }
