@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { BehaviorSubject, Observable, take } from 'rxjs';
 import { TrainingInstanceStatistics } from '@muni-kypo-crp/statistical-visualizations/internal';
 import { InstanceStatisticsService } from './services/instance-statistics.service';
@@ -17,6 +17,7 @@ export class StatisticalVizComponent implements OnInit {
   @Input() trainingDefinitionId: number;
   // instance id that should be selected in filters
   @Input() trainingInstanceId: number;
+  @Output() openDetailView: EventEmitter<number> = new EventEmitter();
 
   trainingInstanceStatistics$: Observable<TrainingInstanceStatistics[]>;
   filteredTrainingInstanceStatistics$: Observable<TrainingInstanceStatistics[]>;
@@ -59,6 +60,10 @@ export class StatisticalVizComponent implements OnInit {
 
   selectedLevel(levelId: number): void {
     this.selectedLevelSubject$.next(levelId);
+  }
+
+  detailView(instanceId: number): void {
+    this.openDetailView.emit(instanceId);
   }
 
   private loadData() {

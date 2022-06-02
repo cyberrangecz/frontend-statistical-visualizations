@@ -13,4 +13,8 @@ export class StatisticalOverviewPageComponent {
     this.trainingDefinitionId = 1;
     this.trainingInstanceId = 3;
   }
+
+  detailView(instanceId: number): void {
+    console.log(`Redirect to Instance with id: ${instanceId}`);
+  }
 }

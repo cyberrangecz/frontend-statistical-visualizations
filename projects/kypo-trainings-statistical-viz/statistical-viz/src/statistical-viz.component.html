@@ -11,6 +11,7 @@
         <kypo-filter
           [initialTrainingInstance]="trainingInstanceId"
           [trainingInstances]="trainingInstanceStatistics$ | async"
+          (detailView)="detailView($event)"
           (filterChange)="filterChange($event)">
         </kypo-filter>
       </div>
