@@ -14,7 +14,7 @@ export class FilterComponent implements OnInit, OnChanges {
   // Specifies an event emitter which communicates the onclick event
   // to the parent component and enables to define an arbitrary function
   // - to be called to handle onclick event - outside this component
-  @Output() iconClick: EventEmitter<any> = new EventEmitter();
+  @Output() detailView: EventEmitter<number> = new EventEmitter();
   @Output() filterChange: EventEmitter<IFilter[]> = new EventEmitter();
 
   @HostListener('window:resize') onResizeEvent() {
@@ -87,15 +87,12 @@ export class FilterComponent implements OnInit, OnChanges {
 
   /**
    * Processes the click events on chart icons
-   * Emits an event which enables to communicate the
+   * Emits instance id which enables to communicate the
    * click event to the parent component
-   * The parent component can define its own function
-   * to handle the event
-   * @param event - marks the click event, enables e.g.
-   *                to specify which icon has been clicked
+   * @param event - marks Ifilter object which contains the instance id
    */
-  public onClick(event: MouseEvent): void {
-    this.iconClick.emit(event);
+  public onClick(event: IFilter): void {
+    this.detailView.emit(event.instanceId);
   }
 
   /**

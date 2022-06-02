@@ -53,6 +53,10 @@ fa {
   cursor: pointer;
 }
 
+#detailView {
+  cursor: pointer;
+}
+
 @media only screen and (min-width: 500px) {
   #gridGroup1 {
     width: 8% !important;
