@@ -1,4 +1,14 @@
-import { Component, EventEmitter, HostListener, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  HostListener,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import * as d3 from 'd3';
 import {
   IFilter,
@@ -17,6 +27,7 @@ import {
   selector: 'kypo-barchart',
   templateUrl: './barchart.component.html',
   styleUrls: ['./barchart.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BarchartComponent implements OnInit, OnChanges {
   @Input() trainingInstanceStatistics: TrainingInstanceStatistics[];
@@ -365,7 +376,7 @@ export class BarchartComponent implements OnInit, OnChanges {
    * If nothing has been specified, uses a predefined text
    */
   private setTitle(): void {
-    d3.select('#barchartPlaceholder').select('mat-card-title').text('Wrong Flags Overview');
+    d3.select('#barchartPlaceholder').select('mat-card-title').text('Wrong Answers Overview');
   }
 
   /**
@@ -591,7 +602,7 @@ export class BarchartComponent implements OnInit, OnChanges {
       '#yAxisSvg',
       -this.margin,
       this.margin / 2,
-      'Number of submitted flags',
+      'Number of submitted answers',
       this.axesCreationService.getAxisTitleFontSize('#barchartPlaceholder')
     );
 
@@ -602,8 +613,11 @@ export class BarchartComponent implements OnInit, OnChanges {
       .selectAll('.tick')
       .attr('pointer-event', 'all')
       .style('cursor', 'pointer')
-      .on('mouseover', (d: any, i: number) => this.appendTootlipToXAxis(this.levels[i]))
-      .on('mouseout', this.handleMouseOut);
+      .on('mouseover', (d: any, i: string) => {
+        const index = Number(i.match(/\d+/)[0]) - 1; // - 1 because levels are counted from 0
+        this.appendTootlipToXAxis(this.levels[index]);
+      })
+      .on('mouseout', () => this.handleMouseOut());
   }
 
   /**
@@ -924,8 +938,8 @@ export class BarchartComponent implements OnInit, OnChanges {
     const levelAnswer: LevelAnswers = this.trainingInstanceStatistics[0].levelsAnswers[0];
     levelAnswers.push({
       id: levelAnswer.id,
-      wrongAnswers: levelAnswer.wrongAnswers.length,
-      correctAnswerSubmitted: levelAnswer.correctAnswerSubmitted,
+      wrongAnswers: 0,
+      correctAnswerSubmitted: 0,
     });
 
     this.trainingInstanceStatistics
@@ -950,7 +964,13 @@ export class BarchartComponent implements OnInit, OnChanges {
       // about the exact number of correct/wrong flags and attaches a dashed line
       // Calls the proper functions based on the actual settings of the barchart
       if (level.id == selectedLevel) {
-        numberOfWrongAnswersAtSelectedLevel = level.wrongAnswers;
+        numberOfWrongAnswersAtSelectedLevel = this.trainingInstanceStatistics
+          .map((statistics) =>
+            statistics.levelsAnswers
+              .filter((levelAnswer) => levelAnswer.id === selectedLevel)
+              .reduce((acc, cur) => acc + cur.wrongAnswers.length, 0)
+          )
+          .reduce((acc, cur) => acc + cur, 0);
         const wrongAnswerSubmittedBy: number = this.trainingInstanceStatistics
           .find((statistics) => statistics.instanceId == this.selectedInstanceId)
           .participants.map((participant) =>
@@ -958,7 +978,7 @@ export class BarchartComponent implements OnInit, OnChanges {
           )
           .reduce((acc, levels) => acc + (levels.wrongAnswerSubmitted.length > 0 ? 1 : 0), 0);
         if (this.chartType === 'stacked') {
-          this.createTextForSelectedLevel(selectedLevel, level.wrongAnswers, level.correctAnswerSubmitted);
+          this.createTextForSelectedLevel(selectedLevel, level.correctAnswerSubmitted, level.wrongAnswers);
           if (this.onlyWrongFlags) {
             this.attachDashedLine(wrongAnswerSubmittedBy);
           } else {
@@ -1101,7 +1121,7 @@ export class BarchartComponent implements OnInit, OnChanges {
         numberOfFlagsToVis = numberOfCorrectFlags + numberOfWrongFlags;
       }
     }
-    this.appendUpperTextToBar(selectedLevel, numberOfFlagsToVis, [numberOfWrongFlags + ' wrong', ' flags']);
+    this.appendUpperTextToBar(selectedLevel, numberOfFlagsToVis, [numberOfWrongFlags + ' wrong', ' answers']);
   }
 
   /**
@@ -1137,7 +1157,7 @@ export class BarchartComponent implements OnInit, OnChanges {
           numberOfFlags = level.correctAnswerSubmitted + level.wrongAnswers;
         }
       }
-      this.appendUpperTextToBar(level.id, numberOfFlags, [text, 'wrong flags']);
+      this.appendUpperTextToBar(level.id, numberOfFlags, [text, 'wrong answers']);
     });
   }
 
@@ -1159,7 +1179,7 @@ export class BarchartComponent implements OnInit, OnChanges {
       this.svgHeight - this.margin - 1.5 * fontSize,
       fontSize,
       this.barTextColor,
-      [numberOfCorrectFlags + ' correct', ' flags'],
+      [numberOfCorrectFlags + ' correct', ' answers'],
       [0, 0],
       [0, 1.2 * fontSize]
     );
@@ -1355,12 +1375,12 @@ export class BarchartComponent implements OnInit, OnChanges {
         `Training ${trainingId}:`,
         numberOfFlags.numberOfCorrectFlags + ' participants',
         'submitted',
-        'the correct flag',
+        'the correct answer',
       ];
     }
     return [
       `Training ${trainingId}:`,
-      numberOfFlags.numberOfWrongFlags + ' wrong flags',
+      numberOfFlags.numberOfWrongFlags + ' wrong answers',
       'submitted by',
       numberOfFlags.submittedBy + ' participants',
     ];
@@ -1435,12 +1455,8 @@ export class BarchartComponent implements OnInit, OnChanges {
     d3.select('#barchartPlaceholder').selectAll('.barchartTooltip').remove();
     d3.select('#chartSvg').selectAll('.groupedChartLine').remove();
 
-    try {
-      this.undoHighlightData();
-      this.highlightInstance.emit(null);
-    } catch (error) {
-      console.error(error);
-    }
+    this.undoHighlightData();
+    this.highlightInstance.emit(null);
   }
 
   /**
@@ -1491,7 +1507,7 @@ export class BarchartComponent implements OnInit, OnChanges {
         marginAndTrainingShift,
         this.legendCreationService.getLegendFontSize('#barchartPlaceholder'),
         '#000000',
-        ['Training ' + trainingIds[i], 'correct flags', 'wrong flags'],
+        ['Training ' + trainingIds[i], 'correct answers', 'wrong answers'],
         [0.1 * this.legendSvgWidth, 0.25 * this.legendSvgWidth, 0.25 * this.legendSvgWidth],
         [0, 2 * lineShift, 2 * lineShift],
         'left'

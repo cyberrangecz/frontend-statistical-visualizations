@@ -1,4 +1,14 @@
-import { Component, EventEmitter, HostListener, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  HostListener,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import * as d3 from 'd3';
 import { TrainingInstanceStatistics } from '@muni-kypo-crp/statistical-visualizations/internal';
 import { Participant } from '@muni-kypo-crp/statistical-visualizations/internal';
@@ -13,6 +23,7 @@ import {
   selector: 'kypo-scatterplot',
   templateUrl: './scatterplot.component.html',
   styleUrls: ['./scatterplot.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ScatterplotComponent implements OnInit, OnChanges {
   @Input() trainingInstanceStatistics: TrainingInstanceStatistics[];

@@ -9,7 +9,7 @@ export class LevelsMapper {
   static fromDTO(dto: LevelDTO): Level {
     const level = new Level();
     level.id = dto.level_id;
-    level.title = dto.title;
+    level.title = dto.level_title;
     level.score = dto.score;
     level.duration = dto.duration;
     level.hintsTaken = dto.hints_taken;
