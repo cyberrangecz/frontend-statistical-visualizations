@@ -13,18 +13,21 @@ module.exports = function() {
           "user_name" : "\"Demo Admin\"",
           "levels" : [ {
             "level_id" : 1,
+            "level_title": "Title of level 1",
             "hints_taken" : 1,
             "wrong_answers" : ["answer1", "answer2", "answer3", "answer4"],
             "duration" : 21337,
             "score" : 30
           }, {
             "level_id" : 2,
+            "level_title": "Title of level 2",
             "hints_taken" : 1,
             "wrong_answers" : ["booom"],
             "duration" : 8624,
             "score" : 90
           }, {
             "level_id" : 3,
+            "level_title": "Title of level 3",
             "hints_taken" : 0,
             "wrong_answers" : [],
             "duration" : 10896,
@@ -35,18 +38,21 @@ module.exports = function() {
           "user_name" : "\"Demo User\"",
           "levels" : [ {
             "level_id" : 1,
+            "level_title": "Title of level 1",
             "hints_taken" : 0,
             "wrong_answers" : ["flag", "answer1", "answer1", "answer1",],
             "duration" : 216205,
             "score" : 50
           }, {
             "level_id" : 2,
+            "level_title": "Title of level 2",
             "hints_taken" : 1,
             "wrong_answers" : [],
             "duration" : 23967,
             "score" : 90
           }, {
             "level_id" : 3,
+            "level_title": "Title of level 3",
             "hints_taken" : 2,
             "wrong_answers" : ["five"],
             "duration" : 8294,
@@ -82,18 +88,21 @@ module.exports = function() {
           "user_name" : "\"Joe Doe\"",
           "levels" : [ {
             "level_id" : 1,
+            "level_title": "Title of level 1",
             "hints_taken" : 1,
             "wrong_answers" : ["answer1", "answer4"],
             "duration" : 35337,
             "score" : 20
           }, {
             "level_id" : 2,
+            "level_title": "Title of level 2",
             "hints_taken" : 1,
             "wrong_answers" : ["booomd"],
             "duration" : 9524,
             "score" : 70
           }, {
             "level_id" : 3,
+            "level_title": "Title of level 3",
             "hints_taken" : 0,
             "wrong_answers" : [],
             "duration" : 15696,
@@ -104,18 +113,21 @@ module.exports = function() {
           "user_name" : "\"Jane Basic\"",
           "levels" : [ {
             "level_id" : 1,
+            "level_title": "Title of level 1",
             "hints_taken" : 0,
             "wrong_answers" : ["flag", "answer1", "answer2", "answer2"],
             "duration" : 216205,
             "score" : 30
           }, {
             "level_id" : 2,
+            "level_title": "Title of level 2",
             "hints_taken" : 0,
             "wrong_answers" : [],
             "duration" : 93967,
             "score" : 110
           }, {
             "level_id" : 3,
+            "level_title": "Title of level 2",
             "hints_taken" : 0,
             "wrong_answers" : ["six"],
             "duration" : 80294,

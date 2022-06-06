@@ -1,4 +1,14 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges, Output, EventEmitter, HostListener } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  OnChanges,
+  SimpleChanges,
+  Output,
+  EventEmitter,
+  HostListener,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import * as d3 from 'd3';
 import { TrainingInstanceStatistics } from '@muni-kypo-crp/statistical-visualizations/internal';
 import { LevelAnswers } from '@muni-kypo-crp/statistical-visualizations/internal';
@@ -15,6 +25,7 @@ import * as levenshtein from 'fast-levenshtein';
   selector: 'kypo-bubblechart',
   templateUrl: './bubblechart.component.html',
   styleUrls: ['./bubblechart.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BubblechartComponent implements OnInit, OnChanges {
   @Input() selectedLevel: number;
@@ -50,7 +61,7 @@ export class BubblechartComponent implements OnInit, OnChanges {
   // Marks the scale required for the creation of the chart
   private rScale: d3.ScaleLinear<number, number>;
 
-  private chartTitle = 'Wrong Flags Details';
+  private chartTitle = 'Wrong Answers Details';
   private componentWidth: string[] = ['100%', '100%'];
   private componentHeight: string[] = ['28vw', '50vw'];
   private circleColors: string[] = ['#46d246', '#999999', '#00000'];
@@ -77,7 +88,7 @@ export class BubblechartComponent implements OnInit, OnChanges {
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
-    if ('selectedLevel' in changes && !changes['selectedLevel'].isFirstChange()) {
+    if ('selectedLevel' in changes) {
       d3.select('#bubblechartPlaceholder').style('display', 'flex');
       if (this.selectedLevel) {
         this.initializeBubblechart();
@@ -362,7 +373,7 @@ export class BubblechartComponent implements OnInit, OnChanges {
    */
   private setTitle(selectedLevel: number): void {
     if (this.chartTitle === undefined) {
-      this.chartTitle = `Details of submitted flags for level ${selectedLevel}`;
+      this.chartTitle = `Details of submitted answers for level ${selectedLevel}`;
     }
     d3.select('#bubblechartPlaceholder').select('mat-card-title').text(this.chartTitle);
   }
@@ -600,7 +611,7 @@ export class BubblechartComponent implements OnInit, OnChanges {
         '#xAxisSvg',
         this.xAxisSvgWidth - 4,
         fontSize,
-        'Edit distance between the correct and wrong flags',
+        'Edit distance between the correct and wrong answers',
         fontSize
       );
     }
@@ -608,7 +619,7 @@ export class BubblechartComponent implements OnInit, OnChanges {
       '#correctFlagSvg',
       -fontSize,
       this.xAxisSvgHeight - fontSize,
-      'Flags count',
+      'Answers count',
       fontSize
     );
   }
@@ -918,7 +929,7 @@ export class BubblechartComponent implements OnInit, OnChanges {
       [
         this.wrongFlags.flags[index],
         'submitted ' + this.wrongFlags.numberOfSubmissions[index] + 'x',
-        '(by ' + this.wrongFlags.submittedBy[index] + ' players)',
+        '(by ' + this.wrongFlags.submittedBy[index] + ' participants)',
       ],
       [0, 1.5 * fontSize, 1.2 * fontSize],
       this.tooltipColors[1]
@@ -947,7 +958,7 @@ export class BubblechartComponent implements OnInit, OnChanges {
       this.svgHeight / 2 - 0.1 * this.legendSvgWidth + fontSize,
       fontSize,
       '#000000',
-      ['correct flag', 'wrong flag'],
+      ['correct answer', 'wrong answer'],
       [0, 0],
       [0, 0.2 * this.legendSvgWidth],
       'start'

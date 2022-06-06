@@ -1,4 +1,14 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges, HostListener } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  OnChanges,
+  SimpleChanges,
+  HostListener,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import * as d3 from 'd3';
 import { TrainingInstanceStatistics } from '@muni-kypo-crp/statistical-visualizations/internal';
 import { Participant } from '@muni-kypo-crp/statistical-visualizations/internal';
@@ -13,6 +23,7 @@ import {
   selector: 'kypo-combined-diagram',
   templateUrl: './combined-diagram.component.html',
   styleUrls: ['./combined-diagram.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CombinedDiagramComponent implements OnInit, OnChanges {
   @Input() trainingInstanceStatistics: TrainingInstanceStatistics[];

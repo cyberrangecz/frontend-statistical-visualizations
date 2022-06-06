@@ -1,4 +1,14 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges, HostListener } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  OnChanges,
+  SimpleChanges,
+  HostListener,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import * as d3 from 'd3';
 import { TrainingInstanceStatistics } from '@muni-kypo-crp/statistical-visualizations/internal';
 import { IFilter } from '@muni-kypo-crp/statistical-visualizations/internal';
@@ -7,6 +17,7 @@ import { IFilter } from '@muni-kypo-crp/statistical-visualizations/internal';
   selector: 'kypo-filter',
   templateUrl: './filter.component.html',
   styleUrls: ['./filter.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FilterComponent implements OnInit, OnChanges {
   @Input() initialTrainingInstance: number;
