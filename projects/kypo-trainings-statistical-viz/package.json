@@ -1,6 +1,6 @@
 {
   "name": "@muni-kypo-crp/statistical-visualizations",
-  "version": "13.0.1-rc.2",
+  "version": "13.0.1",
   "peerDependencies": {
     "@angular/common": "^13.2.2",
     "@angular/core": "^13.2.2",
