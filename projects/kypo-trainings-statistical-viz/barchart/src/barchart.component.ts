@@ -1135,10 +1135,18 @@ export class BarchartComponent implements OnInit, OnChanges {
   private createTextForOtherLevels(otherLevels: any, numberOfWrongFlagsAtSelectedLevel: number): void {
     otherLevels.forEach((level) => {
       // Compares each level to the selected one
-      const percentage: number = 100 - Math.round((level.wrongAnswers / numberOfWrongFlagsAtSelectedLevel) * 100);
+      let percentage = 0;
+      if (numberOfWrongFlagsAtSelectedLevel > 0) {
+        percentage = 100 - Math.round((level.wrongAnswers / numberOfWrongFlagsAtSelectedLevel) * 100);
+      }
       // Creates the text that should be attached to the bar
       let text = '';
-      if (percentage < 0) {
+      if (
+        level.wrongAnswers / numberOfWrongFlagsAtSelectedLevel === Number.POSITIVE_INFINITY ||
+        level.wrongAnswers / numberOfWrongFlagsAtSelectedLevel === Number.NEGATIVE_INFINITY
+      ) {
+        text = `Increase from Zero by ${level.wrongAnswers}`;
+      } else if (percentage < 0) {
         text = Math.abs(percentage) + '% more';
       } else {
         text = percentage + '% less';

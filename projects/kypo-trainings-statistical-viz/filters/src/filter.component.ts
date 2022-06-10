@@ -160,7 +160,8 @@ export class FilterComponent implements OnInit, OnChanges {
     this.tableData = [];
 
     this.trainingInstances.forEach((instance) => {
-      this.tableData.push('Training ' + instance.instanceId);
+      this.tableData.push(`${instance.instanceId}`);
+      this.tableData.push(instance.title);
       this.tableData.push(instance.date);
       this.tableData.push(this.hoursMinutesSeconds(instance.duration / 1000));
       this.tableData.push(String(instance.participants.length));

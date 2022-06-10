@@ -531,17 +531,38 @@ export class ScatterplotComponent implements OnInit, OnChanges {
     switch (this.zScaleValue) {
       case 'score':
         this.players.forEach((player: Participant, i: number) => {
-          this.addPoint(player.totalDuration, player.hintsTaken, player.totalScore, i, player.instanceId);
+          this.addPoint(
+            player.totalDuration,
+            player.hintsTaken,
+            player.totalScore,
+            i,
+            player.instanceId,
+            player.userRefId
+          );
         });
         break;
       case 'time':
         this.players.forEach((player: Participant, i: number) =>
-          this.addPoint(player.totalScore, player.hintsTaken, player.totalDuration, i, player.instanceId)
+          this.addPoint(
+            player.totalScore,
+            player.hintsTaken,
+            player.totalDuration,
+            i,
+            player.instanceId,
+            player.userRefId
+          )
         );
         break;
       case 'hint':
         this.players.forEach((player: Participant, i: number) =>
-          this.addPoint(player.totalDuration, player.totalScore, player.hintsTaken, i, player.instanceId)
+          this.addPoint(
+            player.totalDuration,
+            player.totalScore,
+            player.hintsTaken,
+            i,
+            player.instanceId,
+            player.userRefId
+          )
         );
         break;
     }
@@ -562,14 +583,23 @@ export class ScatterplotComponent implements OnInit, OnChanges {
    * @param index - index of the user from range [0, players.length] used to
    *                specify the individual players
    * @param trainingClass - specifies the training on which the user participated
+   * @param userRefId - specifies id of a user
    */
-  private addPoint(xValue: number, yValue: number, zValue: number, index: number, trainingClass: number): void {
+  private addPoint(
+    xValue: number,
+    yValue: number,
+    zValue: number,
+    index: number,
+    trainingClass: number,
+    userRefId: number
+  ): void {
     d3.select('#scatterplotSvg')
       .append('circle')
       .attr('class', () => {
         return 'legendGroup_' + this.zScaleToIndex(zValue) + ' trainingClass_' + `${trainingClass}`;
       })
       .attr('id', () => 'player_' + index)
+      .attr('userRefId', () => userRefId)
       .attr('cx', () => this.xScale(xValue))
       .attr('cy', () => this.yScale(yValue))
       .attr('r', '1%')
@@ -604,7 +634,15 @@ export class ScatterplotComponent implements OnInit, OnChanges {
         .select('#' + circleId)
         .attr('r', '1.3%')
         .style('opacity', 1);
-      this.createTooltip(Number(circleId.split('_')[1]));
+      this.createTooltip(
+        Number(circleId.split('_')[1]),
+        Number(
+          d3
+            .select('#scatterplotSvg')
+            .select('#' + circleId)
+            .attr('userRefId')
+        )
+      );
     }
     this.highlightInstance.emit([instanceId]);
   }
@@ -670,26 +708,27 @@ export class ScatterplotComponent implements OnInit, OnChanges {
    * (e.g. coordinates, width, height, text, font size...) based on
    * the actual settings of attribute mapping
    * Calls the appropriate services to attach the rectangle and the text
+   * @param index - index of selected player
    * @param playerId - represents the ID of the currently selected player,
    *                   tooltip should provide information about him/her
    */
-  private createTooltip(playerId: number): void {
-    const player: Participant = this.players[playerId];
+  private createTooltip(index: number, playerId: number): void {
+    const player: Participant = this.players[index];
     const size: { width: number; height: number } = this.tooltipCreationService.getTooltipSize(this.chartWidth);
     let x: number;
     let y: number;
     switch (this.zScaleValue) {
       case 'score':
-        x = this.xScale(this.players[playerId].totalDuration);
-        y = this.yScale(this.players[playerId].hintsTaken);
+        x = this.xScale(this.players[index].totalDuration);
+        y = this.yScale(this.players[index].hintsTaken);
         break;
       case 'time':
-        x = this.xScale(this.players[playerId].totalScore);
-        y = this.yScale(this.players[playerId].hintsTaken);
+        x = this.xScale(this.players[index].totalScore);
+        y = this.yScale(this.players[index].hintsTaken);
         break;
       case 'hint':
-        x = this.xScale(this.players[playerId].totalDuration);
-        y = this.yScale(this.players[playerId].totalScore);
+        x = this.xScale(this.players[index].totalDuration);
+        y = this.yScale(this.players[index].totalScore);
         break;
     }
     x > this.chartWidth / 2 ? (x = x - size.width - 10) : (x = x + 10);

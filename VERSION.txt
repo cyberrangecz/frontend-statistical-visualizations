@@ -1,3 +1,4 @@
+13.0.1 Fix scatterplot user id, add event name to filtering table. Combined diagram now shows instances by their id instead of event date. Fix percentage in barchart.
 13.0.1-rc.2 Renamed flag to answer in visualizations. Fixed console undefined errors. Fixed a bug in the computation of wrong answers.
 13.0.1-rc.1 Addressing issues found during the testing of the latest release.
 13.0.0 Initial implementation of statistical visualization.
