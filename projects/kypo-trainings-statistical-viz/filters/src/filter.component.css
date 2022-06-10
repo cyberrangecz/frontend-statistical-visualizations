@@ -45,6 +45,10 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   display: none !important;
 }
 
+#gridGroup2 ::ng-deep .mat-grid-tile-content {
+  text-align: center;
+}
+
 .boldText {
   font-weight: 580;
 }

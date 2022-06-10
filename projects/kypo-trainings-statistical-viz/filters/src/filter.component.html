@@ -4,7 +4,7 @@
       <!-- Represents the first column of the filter panel
       which contains checkboxes that specify the training
       instances to be displayed -->
-      <mat-grid-list cols="1" rowHeight="30px" id="gridGroup1">
+      <mat-grid-list cols="1" rowHeight="45px" id="gridGroup1">
         <mat-grid-tile class="boldText">Display</mat-grid-tile>
         <mat-grid-tile id="filterPanel" *ngFor="let item of checkboxes">
           <mat-checkbox
@@ -18,7 +18,8 @@
       </mat-grid-list>
       <!-- Specifies the middle columns of the filter panel
       which provide information about the individual trainings -->
-      <mat-grid-list cols="4" rowHeight="30px" id="gridGroup2">
+      <mat-grid-list cols="5" rowHeight="45px" id="gridGroup2">
+        <mat-grid-tile class="boldText">Event Id</mat-grid-tile>
         <mat-grid-tile class="boldText">Event name</mat-grid-tile>
         <mat-grid-tile class="boldText">Event date</mat-grid-tile>
         <mat-grid-tile class="boldText">Event duration</mat-grid-tile>
@@ -29,7 +30,7 @@
       </mat-grid-list>
       <!-- Defines the last column of the filter panel which contains icons
       The program enables to attach an arbitrary onclick function to this icon -->
-      <mat-grid-list cols="1" rowHeight="30px" id="gridGroup3">
+      <mat-grid-list cols="1" rowHeight="45px" id="gridGroup3">
         <mat-grid-tile class="boldText">Go to detailed view</mat-grid-tile>
         <mat-grid-tile *ngFor="let item of checkboxes">
           <mat-icon id="detailView" (click)="onClick(item)">poll</mat-icon>

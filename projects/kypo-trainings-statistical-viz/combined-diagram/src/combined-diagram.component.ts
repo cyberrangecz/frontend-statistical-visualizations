@@ -317,7 +317,7 @@ export class CombinedDiagramComponent implements OnInit, OnChanges {
 
     this.xScale = d3
       .scaleBand()
-      .domain(this.trainingInstanceStatistics.map((d) => d.date))
+      .domain(this.trainingInstanceStatistics.map((d) => String(d.instanceId)))
       .range([0, this.chartSvgWidth])
       .padding(0.3);
 
@@ -357,7 +357,7 @@ export class CombinedDiagramComponent implements OnInit, OnChanges {
     const xAxes: d3.Axis<string> = d3.axisBottom(
       d3
         .scaleBand()
-        .domain(this.trainingInstanceStatistics.map((instance) => instance.date))
+        .domain(this.trainingInstanceStatistics.map((instance) => `Training ${instance.instanceId}`))
         .range([0, this.chartSvgWidth])
         .padding(0.4)
     );
@@ -443,7 +443,7 @@ export class CombinedDiagramComponent implements OnInit, OnChanges {
       .append('rect')
       .attr('class', 'bars')
       .attr('id', (d: TrainingInstanceStatistics, i: number) => 'participants_' + i)
-      .attr('x', (d: TrainingInstanceStatistics) => this.xScale(d.date))
+      .attr('x', (d: TrainingInstanceStatistics) => this.xScale(String(d.instanceId)))
       .attr('y', (d: TrainingInstanceStatistics) =>
         Number.isNaN(this.leftYScale(d.participants.length)) ? 0 : this.leftYScale(d.participants.length)
       )
@@ -482,7 +482,7 @@ export class CombinedDiagramComponent implements OnInit, OnChanges {
       .append('circle')
       .attr('class', 'averageCircle')
       .attr('id', (d: TrainingInstanceStatistics, i: number) => 'average_' + i)
-      .attr('cx', (d: TrainingInstanceStatistics) => this.xScale(d.date) + this.xScale.bandwidth() / 2)
+      .attr('cx', (d: TrainingInstanceStatistics) => this.xScale(String(d.instanceId)) + this.xScale.bandwidth() / 2)
       .attr('cy', (d: TrainingInstanceStatistics) =>
         Number.isNaN(this.rightYScale(d.averageScore)) ? 0 : this.rightYScale(d.averageScore)
       )
@@ -517,7 +517,7 @@ export class CombinedDiagramComponent implements OnInit, OnChanges {
       .append('circle')
       .attr('class', 'medianCircle')
       .attr('id', (d: TrainingInstanceStatistics, i: number) => 'median_' + i)
-      .attr('cx', (d: TrainingInstanceStatistics) => this.xScale(d.date) + this.xScale.bandwidth() / 2)
+      .attr('cx', (d: TrainingInstanceStatistics) => this.xScale(String(d.instanceId)) + this.xScale.bandwidth() / 2)
       .attr('cy', (d: TrainingInstanceStatistics) =>
         Number.isNaN(this.rightYScale(d.medianScore)) ? 0 : this.rightYScale(d.medianScore)
       )
@@ -548,7 +548,7 @@ export class CombinedDiagramComponent implements OnInit, OnChanges {
     const yScale: d3.ScaleLinear<number, number> = this.rightYScale;
     const line: d3.Line<any> = d3
       .line<any>()
-      .x((d: any) => xScale(d.date) + xScale.bandwidth() / 2)
+      .x((d: any) => xScale(String(d.instanceId)) + xScale.bandwidth() / 2)
       .y((d: any) => (type === 'average' ? yScale(d.averageScore) : yScale(d.medianScore)));
 
     d3.select('#combinedDiagramChartSvg')
