@@ -82,16 +82,19 @@ export class BubblechartComponent implements OnInit, OnChanges {
    * by the barchart in case a level has been selected
    */
   public ngOnInit(): void {
-    d3.select('#bubblechartPlaceholder').style('display', 'none');
     this.checkInputs();
     this.setComponentSize();
+    this.setTitle(this.selectedLevel);
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
     if ('selectedLevel' in changes) {
-      d3.select('#bubblechartPlaceholder').style('display', 'flex');
       if (this.selectedLevel) {
+        d3.select('#bubblechartPlaceholder').style('display', 'flex');
+        this.displayComponents('inline');
         this.initializeBubblechart();
+      } else {
+        this.displayComponents('none');
       }
     }
   }
@@ -306,6 +309,16 @@ export class BubblechartComponent implements OnInit, OnChanges {
   public undoHighlightFlagsForTraining(): void {
     d3.select('#bubblechartPlaceholder').selectAll('circle').style('opacity', 1);
     d3.select('#bubblechartPlaceholder').selectAll('text').style('opacity', 1);
+  }
+
+  /**
+   * Sets components display style based on the @value
+   * @param value display style
+   */
+  private displayComponents(value: string): void {
+    d3.select('#bubblechartSvgPlaceholder').style('display', value);
+    d3.select('#bubblechartLegendPlaceholder').style('display', value);
+    d3.select('#xAxisSvg').style('display', value);
   }
 
   /**

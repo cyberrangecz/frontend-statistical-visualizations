@@ -20,6 +20,7 @@
     "paths": {
       "@muni-kypo-crp/statistical-visualizations/barchart": ["./barchart/src/public_api.ts"],
       "@muni-kypo-crp/statistical-visualizations/bubblechart": ["./bubblechart/src/public_api.ts"],
+      "@muni-kypo-crp/statistical-visualizations/clustering-wrapper": ["./clustering-wrapper/src/public_api.ts"],
       "@muni-kypo-crp/statistical-visualizations/combined-diagram": ["./combined-diagram/src/public_api.ts"],
       "@muni-kypo-crp/statistical-visualizations/scatterplot": ["./scatterplot/src/public_api.ts"],
       "@muni-kypo-crp/statistical-visualizations/filters": ["./filters/src/public_api.ts"],

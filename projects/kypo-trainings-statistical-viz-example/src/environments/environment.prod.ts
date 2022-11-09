@@ -24,7 +24,7 @@ export const environment = {
         backgroundColor: '#002776',
         oidcConfig: {
           // Url of the Identity Provider
-          issuer: 'https://172.19.0.22:8443/csirtmu-dummy-issuer-server/',
+          issuer: 'https://172.19.0.22:443/csirtmu-dummy-issuer-server/',
           // The SPA's id. The SPA is registered with this id at the config-server
           clientId: '0bf33f00-2700-4efb-ab09-186076f85c7d',
           // URL of the SPA to redirect the user after silent refresh
