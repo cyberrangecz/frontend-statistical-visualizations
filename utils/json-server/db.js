@@ -151,6 +151,257 @@ module.exports = function() {
           "wrong_answers" : [ "six" ]
         } ]
       }
-    ]
+    ],
+    clustering: {
+      final_results: {
+        estimated_time: 2135498,
+        max_participant_score: 230,
+        max_participant_training_score: 30,
+        max_participant_assessment_score: 200,
+        max_participant_time: 2635498,
+        average_time: 2535498,
+        average_score: 240,
+        average_training_score: 40,
+        average_assessment_score: 200,
+        player_data: [
+          {
+            id: 1,
+            name: 'Jane',
+            picture:
+              'iVBORw0KGgoAAAANSUhEUgAAAEsAAABLCAYAAAA4TnrqAAACIUlEQVR4Xu3Ysa3YQAwFQbfknuz+S/jOl2AwVnQAg0keoAUv1a+fn59f/+vP778/r+kbxBhED3lB3yDGIHrIC/oGMQbRQ17QN4gxiB7ygr5BjEH0kBf0DWIMooe8oG8QYxA95AV9gxiD6CEv6BvEGEQPeUHfIMYgesgL+gYxBtFDXtA3iDGIHvKCvkGMQfSQF/QNYgyih7ygbxBjOLsxnN0Yzm4MZzeGsxvD2Y3h7MZwdmM4uzGc3RjObgxnN4azG8PZjeHsPv2Taky0JdoSbYlPH/cQ0ZZoS7QlPn3cQ0Rboi3Rlvj0cQ8RbYm2RFvi08c9RLQl2hJtiU8f9xDRlmhLtCU+fdxDRFuiLdGW+PRxDxFtibZEW+LTxz1EtCXaEm2JTx/3ENGWaEu0JT593ENEW6It0Zb49HEPEW2JtkRb4tPHPUS0JdoSbYlPH/cQ0ZZoS7QlPn3cQ0Rboi3RlhixsxvD2Y3h7MZwdmM4uzGc3RjObgxnN4azG8PZjeHsxnB2Yzi7MZzdGM5uDKL/e0Rboi3RlhiD6CGiLdGWaEuMQfQQ0ZZoS7QlxiB6iGhLtCXaEmMQPUS0JdoSbYkxiB4i2hJtibbEGEQPEW2JtkRbYgyih4i2RFuiLTEG0UNEW6It0ZYYg+ghoi3RlmhLjEH0ENGWaEu0JcYgeohoS7Ql2hJjED1EtCXaEm2JMYgeItoSbYm2xBhEDxFtibZEW+IfusaIXHtR21cAAAAASUVORK5CYII=',
+            avatar_color: '#643165',
+            training_run_id: 1,
+            training_time: 2635498,
+            training_score: 30,
+            assessment_score: 200,
+            finished: true,
+          },
+          {
+            id: 2,
+            name: 'John',
+            picture:
+              'iVBORw0KGgoAAAANSUhEUgAAAEsAAABLCAYAAAA4TnrqAAACIUlEQVR4Xu3Ysa3YQAwFQbfknuz+S/jOl2AwVnQAg0keoAUv1a+fn59f/+vP778/r+kbxBhED3lB3yDGIHrIC/oGMQbRQ17QN4gxiB7ygr5BjEH0kBf0DWIMooe8oG8QYxA95AV9gxiD6CEv6BvEGEQPeUHfIMYgesgL+gYxBtFDXtA3iDGIHvKCvkGMQfSQF/QNYgyih7ygbxBjOLsxnN0Yzm4MZzeGsxvD2Y3h7MZwdmM4uzGc3RjObgxnN4azG8PZjeHsPv2Taky0JdoSbYlPH/cQ0ZZoS7QlPn3cQ0Rboi3Rlvj0cQ8RbYm2RFvi08c9RLQl2hJtiU8f9xDRlmhLtCU+fdxDRFuiLdGW+PRxDxFtibZEW+LTxz1EtCXaEm2JTx/3ENGWaEu0JT593ENEW6It0Zb49HEPEW2JtkRb4tPHPUS0JdoSbYlPH/cQ0ZZoS7QlPn3cQ0Rboi3RlhixsxvD2Y3h7MZwdmM4uzGc3RjObgxnN4azG8PZjeHsxnB2Yzi7MZzdGM5uDKL/e0Rboi3RlhiD6CGiLdGWaEuMQfQQ0ZZoS7QlxiB6iGhLtCXaEmMQPUS0JdoSbYkxiB4i2hJtibbEGEQPEW2JtkRbYgyih4i2RFuiLTEG0UNEW6It0ZYYg+ghoi3RlmhLjEH0ENGWaEu0JcYgeohoS7Ql2hJjED1EtCXaEm2JMYgeItoSbYm2xBhEDxFtibZEW+IfusaIXHtR21cAAAAASUVORK5CYII=',
+            avatar_color: '#100975',
+            training_run_id: 2,
+            training_time: 2635498,
+            training_score: 50,
+            assessment_score: 200,
+            finished: true,
+          },
+        ],
+      },
+      levels: [
+        {
+          id: 40,
+          order: 0,
+          level_type: 'INFO_LEVEL',
+          title: 'Info',
+          estimated_time: 0,
+          max_participant_score: 0,
+          max_participant_time: 4329,
+          average_time: 4329,
+          average_score: 0,
+          player_data: [
+            {
+              id: 1,
+              name: 'Jane',
+              picture:
+                'iVBORw0KGgoAAAANSUhEUgAAAEsAAABLCAYAAAA4TnrqAAACIUlEQVR4Xu3Ysa3YQAwFQbfknuz+S/jOl2AwVnQAg0keoAUv1a+fn59f/+vP778/r+kbxBhED3lB3yDGIHrIC/oGMQbRQ17QN4gxiB7ygr5BjEH0kBf0DWIMooe8oG8QYxA95AV9gxiD6CEv6BvEGEQPeUHfIMYgesgL+gYxBtFDXtA3iDGIHvKCvkGMQfSQF/QNYgyih7ygbxBjOLsxnN0Yzm4MZzeGsxvD2Y3h7MZwdmM4uzGc3RjObgxnN4azG8PZjeHsPv2Taky0JdoSbYlPH/cQ0ZZoS7QlPn3cQ0Rboi3Rlvj0cQ8RbYm2RFvi08c9RLQl2hJtiU8f9xDRlmhLtCU+fdxDRFuiLdGW+PRxDxFtibZEW+LTxz1EtCXaEm2JTx/3ENGWaEu0JT593ENEW6It0Zb49HEPEW2JtkRb4tPHPUS0JdoSbYlPH/cQ0ZZoS7QlPn3cQ0Rboi3RlhixsxvD2Y3h7MZwdmM4uzGc3RjObgxnN4azG8PZjeHsxnB2Yzi7MZzdGM5uDKL/e0Rboi3RlhiD6CGiLdGWaEuMQfQQ0ZZoS7QlxiB6iGhLtCXaEmMQPUS0JdoSbYkxiB4i2hJtibbEGEQPEW2JtkRbYgyih4i2RFuiLTEG0UNEW6It0ZYYg+ghoi3RlmhLjEH0ENGWaEu0JcYgeohoS7Ql2hJjED1EtCXaEm2JMYgeItoSbYm2xBhEDxFtibZEW+IfusaIXHtR21cAAAAASUVORK5CYII=',
+              avatar_color: '#643165',
+              training_run_id: 1,
+              training_time: 2635498,
+              participant_level_score: 30,
+              finished: true,
+            },
+            {
+              id: 2,
+              name: 'John',
+              picture:
+                'iVBORw0KGgoAAAANSUhEUgAAAEsAAABLCAYAAAA4TnrqAAACIUlEQVR4Xu3Ysa3YQAwFQbfknuz+S/jOl2AwVnQAg0keoAUv1a+fn59f/+vP778/r+kbxBhED3lB3yDGIHrIC/oGMQbRQ17QN4gxiB7ygr5BjEH0kBf0DWIMooe8oG8QYxA95AV9gxiD6CEv6BvEGEQPeUHfIMYgesgL+gYxBtFDXtA3iDGIHvKCvkGMQfSQF/QNYgyih7ygbxBjOLsxnN0Yzm4MZzeGsxvD2Y3h7MZwdmM4uzGc3RjObgxnN4azG8PZjeHsPv2Taky0JdoSbYlPH/cQ0ZZoS7QlPn3cQ0Rboi3Rlvj0cQ8RbYm2RFvi08c9RLQl2hJtiU8f9xDRlmhLtCU+fdxDRFuiLdGW+PRxDxFtibZEW+LTxz1EtCXaEm2JTx/3ENGWaEu0JT593ENEW6It0Zb49HEPEW2JtkRb4tPHPUS0JdoSbYlPH/cQ0ZZoS7QlPn3cQ0Rboi3RlhixsxvD2Y3h7MZwdmM4uzGc3RjObgxnN4azG8PZjeHsxnB2Yzi7MZzdGM5uDKL/e0Rboi3RlhiD6CGiLdGWaEuMQfQQ0ZZoS7QlxiB6iGhLtCXaEmMQPUS0JdoSbYkxiB4i2hJtibbEGEQPEW2JtkRbYgyih4i2RFuiLTEG0UNEW6It0ZYYg+ghoi3RlmhLjEH0ENGWaEu0JcYgeohoS7Ql2hJjED1EtCXaEm2JMYgeItoSbYm2xBhEDxFtibZEW+IfusaIXHtR21cAAAAASUVORK5CYII=',
+              avatar_color: '#100975',
+              training_run_id: 2,
+              training_time: 2635498,
+              participant_level_score: 50,
+              finished: true,
+            },
+          ],
+        },
+        {
+          id: 41,
+          order: 1,
+          level_type: 'TRAINING_LEVEL',
+          title: 'Finding open ports',
+          estimated_time: 600000,
+          max_participant_score: 30,
+          max_participant_time: 763290,
+          average_time: 760290,
+          average_score: 30,
+          player_data: [
+            {
+              id: 1,
+              name: 'Jane',
+              picture:
+                'iVBORw0KGgoAAAANSUhEUgAAAEsAAABLCAYAAAA4TnrqAAACIUlEQVR4Xu3Ysa3YQAwFQbfknuz+S/jOl2AwVnQAg0keoAUv1a+fn59f/+vP778/r+kbxBhED3lB3yDGIHrIC/oGMQbRQ17QN4gxiB7ygr5BjEH0kBf0DWIMooe8oG8QYxA95AV9gxiD6CEv6BvEGEQPeUHfIMYgesgL+gYxBtFDXtA3iDGIHvKCvkGMQfSQF/QNYgyih7ygbxBjOLsxnN0Yzm4MZzeGsxvD2Y3h7MZwdmM4uzGc3RjObgxnN4azG8PZjeHsPv2Taky0JdoSbYlPH/cQ0ZZoS7QlPn3cQ0Rboi3Rlvj0cQ8RbYm2RFvi08c9RLQl2hJtiU8f9xDRlmhLtCU+fdxDRFuiLdGW+PRxDxFtibZEW+LTxz1EtCXaEm2JTx/3ENGWaEu0JT593ENEW6It0Zb49HEPEW2JtkRb4tPHPUS0JdoSbYlPH/cQ0ZZoS7QlPn3cQ0Rboi3RlhixsxvD2Y3h7MZwdmM4uzGc3RjObgxnN4azG8PZjeHsxnB2Yzi7MZzdGM5uDKL/e0Rboi3RlhiD6CGiLdGWaEuMQfQQ0ZZoS7QlxiB6iGhLtCXaEmMQPUS0JdoSbYkxiB4i2hJtibbEGEQPEW2JtkRbYgyih4i2RFuiLTEG0UNEW6It0ZYYg+ghoi3RlmhLjEH0ENGWaEu0JcYgeohoS7Ql2hJjED1EtCXaEm2JMYgeItoSbYm2xBhEDxFtibZEW+IfusaIXHtR21cAAAAASUVORK5CYII=',
+              avatar_color: '#643165',
+              training_run_id: 1,
+              training_time: 763290,
+              participant_level_score: 30,
+              finished: true,
+            },
+            {
+              id: 2,
+              name: 'John',
+              picture:
+                'iVBORw0KGgoAAAANSUhEUgAAAEsAAABLCAYAAAA4TnrqAAACIUlEQVR4Xu3Ysa3YQAwFQbfknuz+S/jOl2AwVnQAg0keoAUv1a+fn59f/+vP778/r+kbxBhED3lB3yDGIHrIC/oGMQbRQ17QN4gxiB7ygr5BjEH0kBf0DWIMooe8oG8QYxA95AV9gxiD6CEv6BvEGEQPeUHfIMYgesgL+gYxBtFDXtA3iDGIHvKCvkGMQfSQF/QNYgyih7ygbxBjOLsxnN0Yzm4MZzeGsxvD2Y3h7MZwdmM4uzGc3RjObgxnN4azG8PZjeHsPv2Taky0JdoSbYlPH/cQ0ZZoS7QlPn3cQ0Rboi3Rlvj0cQ8RbYm2RFvi08c9RLQl2hJtiU8f9xDRlmhLtCU+fdxDRFuiLdGW+PRxDxFtibZEW+LTxz1EtCXaEm2JTx/3ENGWaEu0JT593ENEW6It0Zb49HEPEW2JtkRb4tPHPUS0JdoSbYlPH/cQ0ZZoS7QlPn3cQ0Rboi3RlhixsxvD2Y3h7MZwdmM4uzGc3RjObgxnN4azG8PZjeHsxnB2Yzi7MZzdGM5uDKL/e0Rboi3RlhiD6CGiLdGWaEuMQfQQ0ZZoS7QlxiB6iGhLtCXaEmMQPUS0JdoSbYkxiB4i2hJtibbEGEQPEW2JtkRbYgyih4i2RFuiLTEG0UNEW6It0ZYYg+ghoi3RlmhLjEH0ENGWaEu0JcYgeohoS7Ql2hJjED1EtCXaEm2JMYgeItoSbYm2xBhEDxFtibZEW+IfusaIXHtR21cAAAAASUVORK5CYII=',
+              avatar_color: '#100975',
+              training_run_id: 2,
+              training_time: 763290,
+              participant_level_score: 20,
+              finished: true,
+            },
+          ],
+        },
+        {
+          id: 42,
+          order: 2,
+          level_type: 'TRAINING_LEVEL',
+          title: 'Connecting via Telnet',
+          estimated_time: 600000,
+          max_participant_score: 0,
+          max_participant_time: 758743,
+          average_time: 752043,
+          average_score: 0,
+          player_data: [
+            {
+              id: 1,
+              name: 'Jane',
+              picture:
+                'iVBORw0KGgoAAAANSUhEUgAAAEsAAABLCAYAAAA4TnrqAAACIUlEQVR4Xu3Ysa3YQAwFQbfknuz+S/jOl2AwVnQAg0keoAUv1a+fn59f/+vP778/r+kbxBhED3lB3yDGIHrIC/oGMQbRQ17QN4gxiB7ygr5BjEH0kBf0DWIMooe8oG8QYxA95AV9gxiD6CEv6BvEGEQPeUHfIMYgesgL+gYxBtFDXtA3iDGIHvKCvkGMQfSQF/QNYgyih7ygbxBjOLsxnN0Yzm4MZzeGsxvD2Y3h7MZwdmM4uzGc3RjObgxnN4azG8PZjeHsPv2Taky0JdoSbYlPH/cQ0ZZoS7QlPn3cQ0Rboi3Rlvj0cQ8RbYm2RFvi08c9RLQl2hJtiU8f9xDRlmhLtCU+fdxDRFuiLdGW+PRxDxFtibZEW+LTxz1EtCXaEm2JTx/3ENGWaEu0JT593ENEW6It0Zb49HEPEW2JtkRb4tPHPUS0JdoSbYlPH/cQ0ZZoS7QlPn3cQ0Rboi3RlhixsxvD2Y3h7MZwdmM4uzGc3RjObgxnN4azG8PZjeHsxnB2Yzi7MZzdGM5uDKL/e0Rboi3RlhiD6CGiLdGWaEuMQfQQ0ZZoS7QlxiB6iGhLtCXaEmMQPUS0JdoSbYkxiB4i2hJtibbEGEQPEW2JtkRbYgyih4i2RFuiLTEG0UNEW6It0ZYYg+ghoi3RlmhLjEH0ENGWaEu0JcYgeohoS7Ql2hJjED1EtCXaEm2JMYgeItoSbYm2xBhEDxFtibZEW+IfusaIXHtR21cAAAAASUVORK5CYII=',
+              avatar_color: '#643165',
+              training_run_id: 1,
+              training_time: 758743,
+              participant_level_score: 0,
+              finished: true,
+            },
+            {
+              id: 2,
+              name: 'John',
+              picture:
+                'iVBORw0KGgoAAAANSUhEUgAAAEsAAABLCAYAAAA4TnrqAAACIUlEQVR4Xu3Ysa3YQAwFQbfknuz+S/jOl2AwVnQAg0keoAUv1a+fn59f/+vP778/r+kbxBhED3lB3yDGIHrIC/oGMQbRQ17QN4gxiB7ygr5BjEH0kBf0DWIMooe8oG8QYxA95AV9gxiD6CEv6BvEGEQPeUHfIMYgesgL+gYxBtFDXtA3iDGIHvKCvkGMQfSQF/QNYgyih7ygbxBjOLsxnN0Yzm4MZzeGsxvD2Y3h7MZwdmM4uzGc3RjObgxnN4azG8PZjeHsPv2Taky0JdoSbYlPH/cQ0ZZoS7QlPn3cQ0Rboi3Rlvj0cQ8RbYm2RFvi08c9RLQl2hJtiU8f9xDRlmhLtCU+fdxDRFuiLdGW+PRxDxFtibZEW+LTxz1EtCXaEm2JTx/3ENGWaEu0JT593ENEW6It0Zb49HEPEW2JtkRb4tPHPUS0JdoSbYlPH/cQ0ZZoS7QlPn3cQ0Rboi3RlhixsxvD2Y3h7MZwdmM4uzGc3RjObgxnN4azG8PZjeHsxnB2Yzi7MZzdGM5uDKL/e0Rboi3RlhiD6CGiLdGWaEuMQfQQ0ZZoS7QlxiB6iGhLtCXaEmMQPUS0JdoSbYkxiB4i2hJtibbEGEQPEW2JtkRbYgyih4i2RFuiLTEG0UNEW6It0ZYYg+ghoi3RlmhLjEH0ENGWaEu0JcYgeohoS7Ql2hJjED1EtCXaEm2JMYgeItoSbYm2xBhEDxFtibZEW+IfusaIXHtR21cAAAAASUVORK5CYII=',
+              avatar_color: '#100975',
+              training_run_id: 2,
+              training_time: 758743,
+              participant_level_score: 0,
+              finished: true,
+            },
+          ],
+        },
+        {
+          id: 43,
+          order: 3,
+          level_type: 'TRAINING_LEVEL',
+          title: 'Privilege Escalation',
+          estimated_time: 900000,
+          max_participant_score: 0,
+          max_participant_time: 1081137,
+          average_time: 1001137,
+          average_score: 0,
+          player_data: [
+            {
+              id: 1,
+              name: 'Jane',
+              picture:
+                'iVBORw0KGgoAAAANSUhEUgAAAEsAAABLCAYAAAA4TnrqAAACIUlEQVR4Xu3Ysa3YQAwFQbfknuz+S/jOl2AwVnQAg0keoAUv1a+fn59f/+vP778/r+kbxBhED3lB3yDGIHrIC/oGMQbRQ17QN4gxiB7ygr5BjEH0kBf0DWIMooe8oG8QYxA95AV9gxiD6CEv6BvEGEQPeUHfIMYgesgL+gYxBtFDXtA3iDGIHvKCvkGMQfSQF/QNYgyih7ygbxBjOLsxnN0Yzm4MZzeGsxvD2Y3h7MZwdmM4uzGc3RjObgxnN4azG8PZjeHsPv2Taky0JdoSbYlPH/cQ0ZZoS7QlPn3cQ0Rboi3Rlvj0cQ8RbYm2RFvi08c9RLQl2hJtiU8f9xDRlmhLtCU+fdxDRFuiLdGW+PRxDxFtibZEW+LTxz1EtCXaEm2JTx/3ENGWaEu0JT593ENEW6It0Zb49HEPEW2JtkRb4tPHPUS0JdoSbYlPH/cQ0ZZoS7QlPn3cQ0Rboi3RlhixsxvD2Y3h7MZwdmM4uzGc3RjObgxnN4azG8PZjeHsxnB2Yzi7MZzdGM5uDKL/e0Rboi3RlhiD6CGiLdGWaEuMQfQQ0ZZoS7QlxiB6iGhLtCXaEmMQPUS0JdoSbYkxiB4i2hJtibbEGEQPEW2JtkRbYgyih4i2RFuiLTEG0UNEW6It0ZYYg+ghoi3RlmhLjEH0ENGWaEu0JcYgeohoS7Ql2hJjED1EtCXaEm2JMYgeItoSbYm2xBhEDxFtibZEW+IfusaIXHtR21cAAAAASUVORK5CYII=',
+              avatar_color: '#643165',
+              training_run_id: 1,
+              training_time: 1081137,
+              participant_level_score: 0,
+              finished: true,
+            },
+            {
+              id: 2,
+              name: 'John',
+              picture:
+                'iVBORw0KGgoAAAANSUhEUgAAAEsAAABLCAYAAAA4TnrqAAACIUlEQVR4Xu3Ysa3YQAwFQbfknuz+S/jOl2AwVnQAg0keoAUv1a+fn59f/+vP778/r+kbxBhED3lB3yDGIHrIC/oGMQbRQ17QN4gxiB7ygr5BjEH0kBf0DWIMooe8oG8QYxA95AV9gxiD6CEv6BvEGEQPeUHfIMYgesgL+gYxBtFDXtA3iDGIHvKCvkGMQfSQF/QNYgyih7ygbxBjOLsxnN0Yzm4MZzeGsxvD2Y3h7MZwdmM4uzGc3RjObgxnN4azG8PZjeHsPv2Taky0JdoSbYlPH/cQ0ZZoS7QlPn3cQ0Rboi3Rlvj0cQ8RbYm2RFvi08c9RLQl2hJtiU8f9xDRlmhLtCU+fdxDRFuiLdGW+PRxDxFtibZEW+LTxz1EtCXaEm2JTx/3ENGWaEu0JT593ENEW6It0Zb49HEPEW2JtkRb4tPHPUS0JdoSbYlPH/cQ0ZZoS7QlPn3cQ0Rboi3RlhixsxvD2Y3h7MZwdmM4uzGc3RjObgxnN4azG8PZjeHsxnB2Yzi7MZzdGM5uDKL/e0Rboi3RlhiD6CGiLdGWaEuMQfQQ0ZZoS7QlxiB6iGhLtCXaEmMQPUS0JdoSbYkxiB4i2hJtibbEGEQPEW2JtkRbYgyih4i2RFuiLTEG0UNEW6It0ZYYg+ghoi3RlmhLjEH0ENGWaEu0JcYgeohoS7Ql2hJjED1EtCXaEm2JMYgeItoSbYm2xBhEDxFtibZEW+IfusaIXHtR21cAAAAASUVORK5CYII=',
+              avatar_color: '#100975',
+              training_run_id: 2,
+              training_time: 1081137,
+              participant_level_score: 0,
+              finished: true,
+            },
+          ],
+        },
+        {
+          id: 44,
+          order: 4,
+          level_type: 'ASSESSMENT_LEVEL',
+          title: 'Test Example',
+          estimated_time: 300000,
+          max_participant_score: 200,
+          max_participant_time: 20202,
+          average_time: 20202,
+          average_score: 200,
+          player_data: [
+            {
+              id: 1,
+              name: 'Jane',
+              picture:
+                'iVBORw0KGgoAAAANSUhEUgAAAEsAAABLCAYAAAA4TnrqAAACIUlEQVR4Xu3Ysa3YQAwFQbfknuz+S/jOl2AwVnQAg0keoAUv1a+fn59f/+vP778/r+kbxBhED3lB3yDGIHrIC/oGMQbRQ17QN4gxiB7ygr5BjEH0kBf0DWIMooe8oG8QYxA95AV9gxiD6CEv6BvEGEQPeUHfIMYgesgL+gYxBtFDXtA3iDGIHvKCvkGMQfSQF/QNYgyih7ygbxBjOLsxnN0Yzm4MZzeGsxvD2Y3h7MZwdmM4uzGc3RjObgxnN4azG8PZjeHsPv2Taky0JdoSbYlPH/cQ0ZZoS7QlPn3cQ0Rboi3Rlvj0cQ8RbYm2RFvi08c9RLQl2hJtiU8f9xDRlmhLtCU+fdxDRFuiLdGW+PRxDxFtibZEW+LTxz1EtCXaEm2JTx/3ENGWaEu0JT593ENEW6It0Zb49HEPEW2JtkRb4tPHPUS0JdoSbYlPH/cQ0ZZoS7QlPn3cQ0Rboi3RlhixsxvD2Y3h7MZwdmM4uzGc3RjObgxnN4azG8PZjeHsxnB2Yzi7MZzdGM5uDKL/e0Rboi3RlhiD6CGiLdGWaEuMQfQQ0ZZoS7QlxiB6iGhLtCXaEmMQPUS0JdoSbYkxiB4i2hJtibbEGEQPEW2JtkRbYgyih4i2RFuiLTEG0UNEW6It0ZYYg+ghoi3RlmhLjEH0ENGWaEu0JcYgeohoS7Ql2hJjED1EtCXaEm2JMYgeItoSbYm2xBhEDxFtibZEW+IfusaIXHtR21cAAAAASUVORK5CYII=',
+              avatar_color: '#643165',
+              training_run_id: 1,
+              training_time: 20202,
+              participant_level_score: 200,
+              finished: true,
+            },
+            {
+              id: 2,
+              name: 'John',
+              picture:
+                'iVBORw0KGgoAAAANSUhEUgAAAEsAAABLCAYAAAA4TnrqAAACIUlEQVR4Xu3Ysa3YQAwFQbfknuz+S/jOl2AwVnQAg0keoAUv1a+fn59f/+vP778/r+kbxBhED3lB3yDGIHrIC/oGMQbRQ17QN4gxiB7ygr5BjEH0kBf0DWIMooe8oG8QYxA95AV9gxiD6CEv6BvEGEQPeUHfIMYgesgL+gYxBtFDXtA3iDGIHvKCvkGMQfSQF/QNYgyih7ygbxBjOLsxnN0Yzm4MZzeGsxvD2Y3h7MZwdmM4uzGc3RjObgxnN4azG8PZjeHsPv2Taky0JdoSbYlPH/cQ0ZZoS7QlPn3cQ0Rboi3Rlvj0cQ8RbYm2RFvi08c9RLQl2hJtiU8f9xDRlmhLtCU+fdxDRFuiLdGW+PRxDxFtibZEW+LTxz1EtCXaEm2JTx/3ENGWaEu0JT593ENEW6It0Zb49HEPEW2JtkRb4tPHPUS0JdoSbYlPH/cQ0ZZoS7QlPn3cQ0Rboi3RlhixsxvD2Y3h7MZwdmM4uzGc3RjObgxnN4azG8PZjeHsxnB2Yzi7MZzdGM5uDKL/e0Rboi3RlhiD6CGiLdGWaEuMQfQQ0ZZoS7QlxiB6iGhLtCXaEmMQPUS0JdoSbYkxiB4i2hJtibbEGEQPEW2JtkRbYgyih4i2RFuiLTEG0UNEW6It0ZYYg+ghoi3RlmhLjEH0ENGWaEu0JcYgeohoS7Ql2hJjED1EtCXaEm2JMYgeItoSbYm2xBhEDxFtibZEW+IfusaIXHtR21cAAAAASUVORK5CYII=',
+              avatar_color: '#100975',
+              training_run_id: 2,
+              training_time: 20202,
+              participant_level_score: 200,
+              finished: true,
+            },
+          ],
+        },
+        {
+          id: 45,
+          order: 5,
+          level_type: 'ASSESSMENT_LEVEL',
+          title: 'Assessment Example',
+          estimated_time: 300000,
+          max_participant_score: 0,
+          max_participant_time: 7610,
+          average_time: 7610,
+          average_score: 0,
+          player_data: [
+            {
+              id: 1,
+              name: 'Jane',
+              picture:
+                'iVBORw0KGgoAAAANSUhEUgAAAEsAAABLCAYAAAA4TnrqAAACIUlEQVR4Xu3Ysa3YQAwFQbfknuz+S/jOl2AwVnQAg0keoAUv1a+fn59f/+vP778/r+kbxBhED3lB3yDGIHrIC/oGMQbRQ17QN4gxiB7ygr5BjEH0kBf0DWIMooe8oG8QYxA95AV9gxiD6CEv6BvEGEQPeUHfIMYgesgL+gYxBtFDXtA3iDGIHvKCvkGMQfSQF/QNYgyih7ygbxBjOLsxnN0Yzm4MZzeGsxvD2Y3h7MZwdmM4uzGc3RjObgxnN4azG8PZjeHsPv2Taky0JdoSbYlPH/cQ0ZZoS7QlPn3cQ0Rboi3Rlvj0cQ8RbYm2RFvi08c9RLQl2hJtiU8f9xDRlmhLtCU+fdxDRFuiLdGW+PRxDxFtibZEW+LTxz1EtCXaEm2JTx/3ENGWaEu0JT593ENEW6It0Zb49HEPEW2JtkRb4tPHPUS0JdoSbYlPH/cQ0ZZoS7QlPn3cQ0Rboi3RlhixsxvD2Y3h7MZwdmM4uzGc3RjObgxnN4azG8PZjeHsxnB2Yzi7MZzdGM5uDKL/e0Rboi3RlhiD6CGiLdGWaEuMQfQQ0ZZoS7QlxiB6iGhLtCXaEmMQPUS0JdoSbYkxiB4i2hJtibbEGEQPEW2JtkRbYgyih4i2RFuiLTEG0UNEW6It0ZYYg+ghoi3RlmhLjEH0ENGWaEu0JcYgeohoS7Ql2hJjED1EtCXaEm2JMYgeItoSbYm2xBhEDxFtibZEW+IfusaIXHtR21cAAAAASUVORK5CYII=',
+              avatar_color: '#643165',
+              training_run_id: 1,
+              training_time: 7610,
+              participant_level_score: 0,
+              finished: true,
+            },
+            {
+              id: 2,
+              name: 'John',
+              picture:
+                'iVBORw0KGgoAAAANSUhEUgAAAEsAAABLCAYAAAA4TnrqAAACIUlEQVR4Xu3Ysa3YQAwFQbfknuz+S/jOl2AwVnQAg0keoAUv1a+fn59f/+vP778/r+kbxBhED3lB3yDGIHrIC/oGMQbRQ17QN4gxiB7ygr5BjEH0kBf0DWIMooe8oG8QYxA95AV9gxiD6CEv6BvEGEQPeUHfIMYgesgL+gYxBtFDXtA3iDGIHvKCvkGMQfSQF/QNYgyih7ygbxBjOLsxnN0Yzm4MZzeGsxvD2Y3h7MZwdmM4uzGc3RjObgxnN4azG8PZjeHsPv2Taky0JdoSbYlPH/cQ0ZZoS7QlPn3cQ0Rboi3Rlvj0cQ8RbYm2RFvi08c9RLQl2hJtiU8f9xDRlmhLtCU+fdxDRFuiLdGW+PRxDxFtibZEW+LTxz1EtCXaEm2JTx/3ENGWaEu0JT593ENEW6It0Zb49HEPEW2JtkRb4tPHPUS0JdoSbYlPH/cQ0ZZoS7QlPn3cQ0Rboi3RlhixsxvD2Y3h7MZwdmM4uzGc3RjObgxnN4azG8PZjeHsxnB2Yzi7MZzdGM5uDKL/e0Rboi3RlhiD6CGiLdGWaEuMQfQQ0ZZoS7QlxiB6iGhLtCXaEmMQPUS0JdoSbYkxiB4i2hJtibbEGEQPEW2JtkRbYgyih4i2RFuiLTEG0UNEW6It0ZYYg+ghoi3RlmhLjEH0ENGWaEu0JcYgeohoS7Ql2hJjED1EtCXaEm2JMYgeItoSbYm2xBhEDxFtibZEW+IfusaIXHtR21cAAAAASUVORK5CYII=',
+              avatar_color: '#100975',
+              training_run_id: 2,
+              training_time: 7610,
+              participant_level_score: 0,
+              finished: true,
+            },
+          ],
+        },
+      ]
+    },
   }
 };

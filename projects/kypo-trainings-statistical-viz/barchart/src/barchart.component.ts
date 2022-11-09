@@ -1572,7 +1572,6 @@ export class BarchartComponent implements OnInit, OnChanges {
    */
   private createBubblechart(selectedLevel: number): void {
     if (selectedLevel == null) {
-      d3.select('kypo-bubblechart').style('display', 'none');
       this.selectedLevelId.emit(null);
     } else {
       d3.select('kypo-bubblechart').style('display', 'inline');

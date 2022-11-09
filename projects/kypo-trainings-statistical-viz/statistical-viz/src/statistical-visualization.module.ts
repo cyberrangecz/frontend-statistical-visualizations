@@ -15,6 +15,7 @@ import { CombinedDiagramModule } from '@muni-kypo-crp/statistical-visualizations
 import { ScatterplotModule } from '@muni-kypo-crp/statistical-visualizations/scatterplot';
 import { BarchartModule } from '@muni-kypo-crp/statistical-visualizations/barchart';
 import { BubblechartModule } from '@muni-kypo-crp/statistical-visualizations/bubblechart';
+import { ClusteringWrapperModule } from '@muni-kypo-crp/statistical-visualizations/clustering-wrapper';
 
 @NgModule({
   declarations: [StatisticalVizComponent],
@@ -28,6 +29,7 @@ import { BubblechartModule } from '@muni-kypo-crp/statistical-visualizations/bub
     ScatterplotModule,
     BarchartModule,
     BubblechartModule,
+    ClusteringWrapperModule,
   ],
   providers: [
     D3Service,
@@ -47,6 +49,7 @@ export class StatisticalVisualizationModule {
     return {
       ngModule: StatisticalVisualizationModule,
       providers: [
+        ClusteringWrapperModule.forRoot(config).providers,
         {
           provide: StatisticalVizConfig,
           useValue: config,

@@ -10,8 +10,8 @@ export class StatisticalOverviewPageComponent {
   trainingInstanceId: number;
 
   constructor() {
-    this.trainingDefinitionId = 1;
-    this.trainingInstanceId = 3;
+    this.trainingDefinitionId = 4;
+    this.trainingInstanceId = 10;
   }
 
   detailView(instanceId: number): void {

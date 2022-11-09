@@ -54,6 +54,12 @@
             (highlightParticipants)="highlightParticipants($event)"
           ></kypo-bubblechart>
         </div>
+
+        <div class="col-6" id="clusteringDiv">
+          <kypo-viz-statistical-clustering-wrapper [trainingInstanceStatistics]="filteredTrainingInstanceStatistics"
+                                                   [selectedLevel]="trainingInstanceId"
+          ></kypo-viz-statistical-clustering-wrapper>
+        </div>
       </div>
     </mat-sidenav-content>
 
