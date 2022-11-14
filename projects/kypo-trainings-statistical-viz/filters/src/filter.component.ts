@@ -180,9 +180,7 @@ export class FilterComponent implements OnInit, OnChanges {
     d3.select('#bubblechartPlaceholder').style('display', chartStyle);
     d3.select('#scatterplotPlaceholder').style('display', chartStyle);
     d3.select('#combinedDiagramPlaceholder').style('display', chartStyle);
-    if (chartStyle == 'none') {
-      d3.select('#clusteringPlaceholder').style('display', chartStyle);
-    }
+    d3.select('#clusteringPlaceholder').style('display', chartStyle);
   }
 
   private hoursMinutesSeconds(timestamp): string {

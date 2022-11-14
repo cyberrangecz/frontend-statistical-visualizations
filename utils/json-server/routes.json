@@ -1,4 +1,5 @@
 {
   "/kypo-rest-training/api/v1/visualizations/training-definitions/:definitionId": "/instances",
-  "/kypo-rest-training/api/v1/visualizations/training-instances/:instanceId/clustering": "/clustering"
+  "/kypo-rest-training/api/v1/visualizations/training-instances/:instanceId/clustering": "/clustering",
+  "/kypo-rest-training/api/v1/visualizations/training-instances/clustering?instanceIds=:ids": "/clustering"
 }
