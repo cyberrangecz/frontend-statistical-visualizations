@@ -1,3 +1,13 @@
+### 14.1.0 Add clustering and overview visualization.
+* 4824571 -- [CI/CD] Update packages.json version based on GitLab tag.
+* 977dc18 -- Tag version
+*   96028d2 -- Merge branch '7-integrate-ml-charts-into-the-dashboard-2' into 'master'
+|\  
+| * e3b9298 -- Resolve "Integrate ML charts into the dashboard"
+|/  
+* b8620a1 -- Fix styling problem
+* 8a81231 -- Merge branch '6-add-clustering-visualization-to-dashboard' into 'master'
+* 76cd235 -- Resolve "Add clustering visualization to dashboard"
 ### 14.0.0 Update to Angular 14
 * 8ea8674 -- [CI/CD] Update packages.json version based on GitLab tag.
 *   c71f520 -- Merge branch '5-update-to-angular-14' into 'master'
