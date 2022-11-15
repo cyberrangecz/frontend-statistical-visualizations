@@ -1,6 +1,7 @@
 #clusteringPlaceholder {
   box-sizing: border-box;
   padding: 0.5vw;
+  width: 100%;
 }
 
 mat-card {

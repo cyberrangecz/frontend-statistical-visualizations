@@ -56,12 +56,12 @@ export class BubblechartComponent implements OnInit, OnChanges {
   private correctAnswer: string;
   private numberOfCorrectAnswer: number;
   private correctFlagSubmittedBy: string[];
-  private wrongFlags: any;
+  private wrongFlags: any = [];
   private totalAmountOfSubmittedFlags: number;
   // Marks the scale required for the creation of the chart
   private rScale: d3.ScaleLinear<number, number>;
 
-  private chartTitle = 'Wrong Answers Details';
+  public chartTitle = '';
   private componentWidth: string[] = ['100%', '100%'];
   private componentHeight: string[] = ['28vw', '50vw'];
   private circleColors: string[] = ['#46d246', '#999999', '#00000'];
@@ -84,13 +84,13 @@ export class BubblechartComponent implements OnInit, OnChanges {
   public ngOnInit(): void {
     this.checkInputs();
     this.setComponentSize();
-    this.setTitle(this.selectedLevel);
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
     if ('selectedLevel' in changes) {
       if (this.selectedLevel) {
         d3.select('#bubblechartPlaceholder').style('display', 'flex');
+        this.chartTitle = this.selectedLevel !== null ? '(for <i>level ' + this.selectedLevel + '</i> only)' : '';
         this.displayComponents('inline');
         this.initializeBubblechart();
       } else {
@@ -134,7 +134,6 @@ export class BubblechartComponent implements OnInit, OnChanges {
       this.trainingInstanceStatistics.map((statistics) =>
         statistics.levelsAnswers.findIndex((levelAnswer) => levelAnswer.id == this.selectedLevel)
       )[0] + 1;
-    this.setTitle(levelIndex);
 
     const selectedLevelAnswers: LevelAnswers[] = this.trainingInstanceStatistics.map((statistics) =>
       statistics.levelsAnswers.find((levelAnswer) => levelAnswer.id == this.selectedLevel)
@@ -176,9 +175,6 @@ export class BubblechartComponent implements OnInit, OnChanges {
     // containing the title of the chart -> the predefined title contains the ID of
     // the currently selected level, and without reset, this title
     // would be the same for all the levels (the ID would not change)
-    if (this.chartTitle.includes(String(levelIndex))) {
-      this.chartTitle = undefined;
-    }
   }
 
   private createWrongFlagObject() {
@@ -377,18 +373,6 @@ export class BubblechartComponent implements OnInit, OnChanges {
         this.tooltipColors.push('#ffffff');
         break;
     }
-  }
-
-  /**
-   * Tests the value of 'chartTitle' input and sets the
-   * current title of the component
-   * If nothing has been specified, uses a predefined text
-   */
-  private setTitle(selectedLevel: number): void {
-    if (this.chartTitle === undefined) {
-      this.chartTitle = `Details of submitted answers for level ${selectedLevel}`;
-    }
-    d3.select('#bubblechartPlaceholder').select('mat-card-title').text(this.chartTitle);
   }
 
   /**
@@ -624,7 +608,7 @@ export class BubblechartComponent implements OnInit, OnChanges {
         '#xAxisSvg',
         this.xAxisSvgWidth - 4,
         fontSize,
-        'Edit distance between the correct and wrong answers',
+        'Difference between the correct and wrong answers',
         fontSize
       );
     }

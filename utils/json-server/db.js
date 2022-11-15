@@ -1,4 +1,5 @@
 module.exports = function() {
+  let clustering = require('./../../node_modules/@muni-kypo-crp/clustering-visualization/json-server/db').get;
   return {
     instances: [
       {
@@ -152,6 +153,12 @@ module.exports = function() {
         } ]
       }
     ],
+    clusters: clustering.clusters,
+    clusters2: clustering.clusters2,
+    radarChart: clustering.radarChart,
+    sse1: clustering.sse1,
+    sse2: clustering.sse2,
+    sseNDim: clustering.sseNDim,
     clustering: {
       final_results: {
         estimated_time: 2135498,
@@ -160,7 +167,7 @@ module.exports = function() {
         max_participant_training_score: 30,
         max_participant_assessment_score: 200,
         max_participant_time: 2635498,
-        average_time: 2535498,
+        average_time: 2335498,
         average_score: 150,
         average_training_score: 40,
         average_assessment_score: 200,
@@ -237,8 +244,8 @@ module.exports = function() {
           max_participant_score: 30,
           max_achievable_score: 30,
           max_participant_time: 763290,
-          average_time: 760290,
-          average_score: 20,
+          average_time: 260290,
+          average_score: 10,
           player_data: [
             {
               id: 1,
@@ -273,7 +280,7 @@ module.exports = function() {
           max_participant_score: 0,
           max_achievable_score: 20,
           max_participant_time: 758743,
-          average_time: 752043,
+          average_time: 702043,
           average_score: 0,
           player_data: [
             {
@@ -306,11 +313,11 @@ module.exports = function() {
           level_type: 'TRAINING_LEVEL',
           title: 'Privilege Escalation',
           estimated_time: 900000,
-          max_participant_score: 0,
+          max_participant_score: 10,
           max_achievable_score: 20,
           max_participant_time: 1081137,
-          average_time: 1001137,
-          average_score: 0,
+          average_time: 901137,
+          average_score: 5,
           player_data: [
             {
               id: 1,
@@ -320,7 +327,7 @@ module.exports = function() {
               avatar_color: '#643165',
               training_run_id: 1,
               training_time: 1081137,
-              participant_level_score: 0,
+              participant_level_score: 10,
               finished: true,
             },
             {
@@ -409,6 +416,6 @@ module.exports = function() {
           ],
         },
       ]
-    },
+    }
   }
 };

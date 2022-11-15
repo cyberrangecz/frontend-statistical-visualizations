@@ -1,17 +1,17 @@
 <div id="scatterplotPlaceholder">
   <mat-card>
-    <!-- Contains the title of the chart, 
+    <!-- Contains the title of the chart,
       which can be set manually when calling this component -->
     <mat-card-title></mat-card-title>
     <mat-divider></mat-divider>
     <!-- Contains the chart -->
     <mat-card-content>
       <mat-grid-list cols="12" rowHeight="5%">
-        <!-- Enables to set the property, that should be 
+        <!-- Enables to set the property, that should be
             visualized by the color scheme -->
         <mat-grid-tile colspan="12" rowspan="2" style="float: right;">
           <mat-radio-group>
-            <span id="radioButtonText">Color should represent:</span>
+            <span id="radioButtonText">Colors represent:</span>
             <mat-radio-button
               value="score"
               [checked]="zScaleValue === 'score'"

@@ -18,12 +18,11 @@
       </mat-grid-list>
       <!-- Specifies the middle columns of the filter panel
       which provide information about the individual trainings -->
-      <mat-grid-list cols="5" rowHeight="45px" id="gridGroup2">
-        <mat-grid-tile class="boldText">Event Id</mat-grid-tile>
-        <mat-grid-tile class="boldText">Event name</mat-grid-tile>
-        <mat-grid-tile class="boldText">Event date</mat-grid-tile>
-        <mat-grid-tile class="boldText">Event duration</mat-grid-tile>
-        <mat-grid-tile class="boldText">Participants</mat-grid-tile>
+      <mat-grid-list cols="4" rowHeight="45px" id="gridGroup2">
+        <mat-grid-tile class="boldText">TI Title</mat-grid-tile>
+        <mat-grid-tile class="boldText">Date</mat-grid-tile>
+        <mat-grid-tile class="boldText">Event Duration<br>(hh:mm:ss)</mat-grid-tile>
+        <mat-grid-tile class="boldText">No. of Participants</mat-grid-tile>
         <mat-grid-tile *ngFor="let item of tableData">
           {{ item }}
         </mat-grid-tile>

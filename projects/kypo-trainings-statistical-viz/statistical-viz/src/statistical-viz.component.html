@@ -42,8 +42,7 @@
             [highlightedInstances]="highlightedTrainingInstance$ | async"
             (highlightInstance)="highlightChange($event)"
             (selectedLevelId)="selectedLevel($event)"
-          >
-          </kypo-barchart>
+          ></kypo-barchart>
         </div>
 
         <div class="col-6" id="bubblechartDiv">
@@ -55,11 +54,28 @@
           ></kypo-bubblechart>
         </div>
 
+        <div class="col-6" id="scatterClusterDiv">
+          <kypo-scatter-clusters-wrapper
+            [trainingDefinitionId]="trainingDefinitionId"
+            [trainingInstanceStatistics]="filteredTrainingInstanceStatistics"
+            [level]="selectedLevel$ | async"
+          ></kypo-scatter-clusters-wrapper>
+        </div>
+
         <div class="col-6" id="clusteringDiv">
           <kypo-viz-statistical-clustering-wrapper [trainingInstanceStatistics]="filteredTrainingInstanceStatistics"
                                                    [selectedLevel]="trainingInstanceId"
           ></kypo-viz-statistical-clustering-wrapper>
         </div>
+
+        <div class="col-12" id="radarchartDiv">
+          <kypo-radar-chart-wrapper
+            [trainingDefinitionId]="trainingDefinitionId"
+            [trainingInstanceStatistics]="filteredTrainingInstanceStatistics"
+            [level]="selectedLevel$ | async"
+          ></kypo-radar-chart-wrapper>
+        </div>
+
       </div>
     </mat-sidenav-content>
 

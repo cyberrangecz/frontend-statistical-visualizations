@@ -4,6 +4,10 @@
   padding: 0.5vw;
 }
 
+::ng-deep #scatterplotLegendSvg .scatterplotLegendText:nth-child(2) tspan.scatterplotLegendSvg {
+ letter-spacing: 3px;
+}
+
 mat-card {
   width: calc(100% - 32px);
   height: 100%;

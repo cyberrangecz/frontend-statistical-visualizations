@@ -8,6 +8,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [],
@@ -21,6 +24,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatDividerModule,
     MatSidenavModule,
     MatExpansionModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   exports: [
     MatProgressBarModule,
@@ -31,6 +36,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatDividerModule,
     MatSidenavModule,
     MatExpansionModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
 })
 export class StatisticalVizMaterialModule {}
