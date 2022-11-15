@@ -1,3 +1,4 @@
+14.1.0 Add clustering and overview visualization.
 14.0.0 Update to Angular 14
 13.0.1 Fix scatterplot user id, add event name to filtering table. Combined diagram now shows instances by their id instead of event date. Fix percentage in barchart.
 13.0.1-rc.2 Renamed flag to answer in visualizations. Fixed console undefined errors. Fixed a bug in the computation of wrong answers.
