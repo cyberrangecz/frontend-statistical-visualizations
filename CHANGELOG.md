@@ -1,3 +1,7 @@
+### 14.1.1 Update clustering with new API calls
+* f3d9d1a -- [CI/CD] Update packages.json version based on GitLab tag.
+* 506eeb6 -- Merge branch '8-update-clustering-vis-version-with-new-api' into 'master'
+* 15f90af -- Resolve "Update clustering vis version with new API"
 ### 14.1.0 Add clustering and overview visualization.
 * 4824571 -- [CI/CD] Update packages.json version based on GitLab tag.
 * 977dc18 -- Tag version
