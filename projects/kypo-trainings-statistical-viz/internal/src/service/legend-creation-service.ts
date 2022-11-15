@@ -88,7 +88,7 @@ export class LegendCreationService {
     for (let i = 0; i < text.length; i++) {
       basicTextElement
         .append('tspan')
-        .attr('class', placeholderId)
+        .attr('class', placeholderId.slice(1, placeholderId.length))
         .attr('x', x + xShift[i])
         .attr('dy', yShift[i])
         .text(text[i]);

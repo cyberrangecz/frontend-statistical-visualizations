@@ -26,7 +26,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CombinedDiagramComponent implements OnInit, OnChanges {
-  @Input() trainingInstanceStatistics: TrainingInstanceStatistics[];
+  @Input() trainingInstanceStatistics: TrainingInstanceStatistics[] = [];
   @Input() highlightedInstances: number[];
   @Output() highlightInstance: EventEmitter<number[]> = new EventEmitter();
 
@@ -55,8 +55,8 @@ export class CombinedDiagramComponent implements OnInit, OnChanges {
   private originalPlayers: Participant[];
   // Contains data after filtration, transformed to
   // the most suitable form for visualization
-  private totalNumerOfParticipants: number;
-  private maxScore: number;
+  private totalNumerOfParticipants = 0;
+  private maxScore = 0;
   // Marks the scales required for the creation of the chart
   private xScale: d3.ScaleBand<string>;
   private leftYScale: d3.ScaleLinear<number, number>;
@@ -361,12 +361,7 @@ export class CombinedDiagramComponent implements OnInit, OnChanges {
         .range([0, this.chartSvgWidth])
         .padding(0.4)
     );
-    const leftYAxes: d3.Axis<
-      | number
-      | {
-          valueOf(): number;
-        }
-    > = d3
+    const leftYAxes: d3.Axis<number | { valueOf(): number }> = d3
       .axisLeft(this.leftYScale)
       .tickValues(this.getTickValues(this.totalNumerOfParticipants))
       .tickFormat(d3.format('.0f'));
@@ -549,7 +544,10 @@ export class CombinedDiagramComponent implements OnInit, OnChanges {
     const line: d3.Line<any> = d3
       .line<any>()
       .x((d: any) => xScale(String(d.instanceId)) + xScale.bandwidth() / 2)
-      .y((d: any) => (type === 'average' ? yScale(d.averageScore) : yScale(d.medianScore)));
+      .y((d: any) => {
+        const y = type === 'average' ? yScale(d.averageScore) : yScale(d.medianScore);
+        return Number.isNaN(y) ? 0 : y;
+      });
 
     d3.select('#combinedDiagramChartSvg')
       .append('path')

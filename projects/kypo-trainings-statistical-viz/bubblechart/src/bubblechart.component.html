@@ -2,12 +2,15 @@
   <mat-card>
     <!-- Contains the title of the chart,
     which can be set manually when calling this component -->
-    <mat-card-title></mat-card-title>
-    <mat-divider></mat-divider>
+      <mat-card-title [style.display]=" selectedLevel ? 'block' : 'none'">
+        Details of submitted answers <span [innerHTML]=chartTitle></span>
+      </mat-card-title>
+      <mat-divider [style.display]=" selectedLevel ? 'block' : 'none'"></mat-divider>
     <!-- Contains the chart -->
     <mat-card-content>
       <div class="info-container" *ngIf="!selectedLevel">
-        <h3>*Select bar from Wrong Answers Overview</h3>
+        <h3 style="color: #3d3d3d">Select bar from the <i>Wrong Answers Overview</i> to view details for the specific level.
+          The chart will show all the answers submitted by the trainees and how different they were from the correct answer. </h3>
       </div>
       <mat-grid-list cols="13" rowHeight="12.5%">
         <mat-grid-tile colspan="11" rowspan="7" id="bubblechartSvgPlaceholder">

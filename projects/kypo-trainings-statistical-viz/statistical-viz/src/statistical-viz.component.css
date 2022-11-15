@@ -32,8 +32,9 @@
 
 #scatterplotDiv,
 #barchartDiv,
-#clusteringDiv,
-#bubblechartDiv {
+#bubblechartDiv,
+#radarchartDiv,
+#clusteringDiv {
   padding: 5px 0;
 }
 
@@ -56,11 +57,23 @@
   }
 
   #clusteringDiv {
-    padding-left: 0.5vw;
+    padding: 0.5vw 0.5vw 0vw 0vw;
   }
 
   #bubblechartDiv {
     padding: 0.5vw 0.5vw 0.5vw 0;
+  }
+
+  #radarchartDiv {
+    padding: 0.5vw 1vw 0.5vw 1vw;
+  }
+
+  #scatterClusterDiv {
+    padding: 1vw 0.5vw 1vw 1vw;
+  }
+
+  #helperDiv {
+    padding: 0.5vw 1vw 0.5vw 1vw;
   }
 
   .col-1 {

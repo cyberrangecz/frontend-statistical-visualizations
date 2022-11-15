@@ -18,7 +18,9 @@
       "@muni-kypo-crp/statistical-visualizations/scatterplot": ["./scatterplot/src/public_api.ts"],
       "@muni-kypo-crp/statistical-visualizations/filters": ["./filters/src/public_api.ts"],
       "@muni-kypo-crp/statistical-visualizations/statistical-viz": ["./statistical-viz/src/public_api.ts"],
-      "@muni-kypo-crp/statistical-visualizations/internal": ["./internal/src/public_api.ts"]
+      "@muni-kypo-crp/statistical-visualizations/internal": ["./internal/src/public_api.ts"],
+      "@muni-kypo-crp/statistical-visualizations/scatter-clusters-wrapper": ["./scatter-clusters-wrapper/src/public_api.ts"],
+      "@muni-kypo-crp/statistical-visualizations/radar-chart-wrapper": ["./radar-chart-wrapper/src/public_api.ts"]
     }
   },
   "angularCompilerOptions": {

@@ -12,9 +12,11 @@ import { InstanceStatisticsDefaultApiService } from './services/api/instance-sta
 import { InstanceStatisticsService } from './services/instance-statistics.service';
 import { FilterModule } from '@muni-kypo-crp/statistical-visualizations/filters';
 import { CombinedDiagramModule } from '@muni-kypo-crp/statistical-visualizations/combined-diagram';
-import { ScatterplotModule } from '@muni-kypo-crp/statistical-visualizations/scatterplot';
 import { BarchartModule } from '@muni-kypo-crp/statistical-visualizations/barchart';
 import { BubblechartModule } from '@muni-kypo-crp/statistical-visualizations/bubblechart';
+import { RadarChartWrapperModule } from '@muni-kypo-crp/statistical-visualizations/radar-chart-wrapper';
+import { ScatterClustersWrapperModule } from '@muni-kypo-crp/statistical-visualizations/scatter-clusters-wrapper';
+import { ScatterplotModule } from '@muni-kypo-crp/statistical-visualizations/scatterplot';
 import { ClusteringWrapperModule } from '@muni-kypo-crp/statistical-visualizations/clustering-wrapper';
 
 @NgModule({
@@ -29,6 +31,8 @@ import { ClusteringWrapperModule } from '@muni-kypo-crp/statistical-visualizatio
     ScatterplotModule,
     BarchartModule,
     BubblechartModule,
+    RadarChartWrapperModule,
+    ScatterClustersWrapperModule,
     ClusteringWrapperModule,
   ],
   providers: [
@@ -49,6 +53,16 @@ export class StatisticalVisualizationModule {
     return {
       ngModule: StatisticalVisualizationModule,
       providers: [
+        RadarChartWrapperModule.forRoot(config).providers,
+        {
+          provide: StatisticalVizConfig,
+          useValue: config,
+        },
+        ScatterClustersWrapperModule.forRoot(config).providers,
+        {
+          provide: StatisticalVizConfig,
+          useValue: config,
+        },
         ClusteringWrapperModule.forRoot(config).providers,
         {
           provide: StatisticalVizConfig,

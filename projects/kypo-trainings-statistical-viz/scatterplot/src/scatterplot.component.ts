@@ -832,7 +832,7 @@ export class ScatterplotComponent implements OnInit, OnChanges {
       d3.select('#scatterplotLegendSvg')
         .append('rect')
         .attr('id', this.zScaleToIndex(actualRanges[i + indexShift]))
-        .attr('x', 0.43 * this.legendWidth)
+        .attr('x', 0.45 * this.legendWidth)
         .attr('y', y + i * yShift)
         .attr('width', this.legendWidth / 10)
         .attr('height', yShift)
