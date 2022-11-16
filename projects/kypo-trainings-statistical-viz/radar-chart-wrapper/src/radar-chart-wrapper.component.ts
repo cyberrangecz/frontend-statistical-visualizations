@@ -50,8 +50,8 @@ export class RadarChartWrapperComponent implements OnChanges, AfterContentChecke
     }
   }
 
-  hideChart(hide: boolean) {
-    console.log('hide');
-    d3.select('#radarchartDiv').style('display', hide ? 'none' : 'block');
+  hideChart(item) {
+    console.log(item);
+    d3.select('#radarchartDiv').style('display', item.hide ? 'none' : 'block');
   }
 }

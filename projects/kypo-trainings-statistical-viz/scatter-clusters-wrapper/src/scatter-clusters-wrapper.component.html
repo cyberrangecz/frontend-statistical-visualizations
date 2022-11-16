@@ -13,12 +13,14 @@
           <label id="radioButtonText">Select features: </label>
           <mat-radio-group aria-label="Select features comparison">
             <mat-radio-button
+              *ngIf="!unavailableFeatures.has(1)"
               value="1"
               [checked]="plotFeatures === 1"
               (change)="onRadioChange(1)">
               Wrong flags per time played
             </mat-radio-button>
             <mat-radio-button
+              *ngIf="!unavailableFeatures.has(0)"
               value="2"
               [checked]="plotFeatures === 0"
               (change)="onRadioChange(0)">
