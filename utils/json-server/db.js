@@ -158,7 +158,7 @@ module.exports = function() {
     radarChart: clustering.radarChart,
     sse1: clustering.sse1,
     sse2: clustering.sse2,
-    sseNDim: clustering.sseNDim,
+    sseNDim: clustering.sseWrong,
     clustering: {
       final_results: {
         estimated_time: 2135498,

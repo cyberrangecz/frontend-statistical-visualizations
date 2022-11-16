@@ -26,7 +26,8 @@
             [trainingInstanceIds]="trainingInstanceIds"
             [numOfClusters]="numOfClusters"
             [level]="level"
-            (viewOpen)="toggleView($event)">
+            (viewOpen)="toggleView($event)"
+            (chartIsHidden)="hideChart($event)">
           </kypo-clustering-visualization>
         </mat-grid-tile>
       </mat-grid-list>

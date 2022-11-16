@@ -32,7 +32,7 @@
                    min="1"
                    class="scatter-input-field"
                    (change)="clusterChange($event)"
-                   [value]="numOfClusters">
+                   [value]="numOfClusters.toString()">
           </mat-form-field>
 
           <kypo-clustering-visualization
@@ -42,7 +42,8 @@
             [trainingInstanceIds]="trainingInstanceIds"
             [numOfClusters]="numOfClusters"
             (viewOpen)="toggleView($event)"
-            [level]="level">
+            (chartIsHidden)="hideChart($event)"
+            [level]="+level">
           </kypo-clustering-visualization>
         </mat-grid-tile>
       </mat-grid-list>

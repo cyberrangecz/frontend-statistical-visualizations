@@ -55,4 +55,8 @@ export class ScatterClustersWrapperComponent implements OnChanges, AfterContentC
       return box.getBoundingClientRect().height + 24;
     }
   }
+
+  hideChart(hide: boolean) {
+    console.log('hide scatter');
+  }
 }
