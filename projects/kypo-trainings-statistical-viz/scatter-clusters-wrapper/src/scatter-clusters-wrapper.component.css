@@ -65,6 +65,15 @@ mat-radio-button {
   pointer-events: initial;
 }
 
+.cluster-no-data-message {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left:33%;
+  justify-content: center;
+  cursor: default;
+}
+
 /** line chart **/
 
 ::ng-deep #scatterClustersSvgPlaceholder .main-clustering-line-div text {

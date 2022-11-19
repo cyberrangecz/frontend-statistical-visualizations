@@ -1,4 +1,12 @@
-import { AfterContentChecked, ApplicationRef, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import {
+  AfterContentChecked,
+  ApplicationRef,
+  ChangeDetectorRef,
+  Component,
+  Input,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 import { TrainingInstanceStatistics } from '@muni-kypo-crp/statistical-visualizations/internal';
 import * as d3 from 'd3';
 
@@ -12,46 +20,26 @@ export class ScatterClustersWrapperComponent implements OnChanges, AfterContentC
   @Input() trainingDefinitionId: number;
   @Input() trainingInstanceStatistics: TrainingInstanceStatistics[];
 
-  appRef;
+  readonly appRef;
   public numOfClusters = 5;
   public trainingInstanceIds: number[] = [];
   public cardHeight = 150;
   public plotFeatures = 1;
-  public unavailableFeatures = new Set();
   public levelTitle = '';
-  private checkedFeatures = new Set();
-  private initialFeature = 1;
-
   public readonly info =
     'The chart shows a relation between two distinct groups of actions or behavior, helps to identify connections between them.';
 
-  constructor(appRef: ApplicationRef) {
+  constructor(appRef: ApplicationRef, changeDetectorRef: ChangeDetectorRef) {
     this.appRef = appRef;
   }
 
   ngAfterContentChecked() {
     this.cardHeight = document.querySelector('kypo-clustering-visualization').getBoundingClientRect().height;
-    this.checkedFeatures.add(this.plotFeatures);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.initialFeatureCheck();
     this.trainingInstanceIds = this.trainingInstanceStatistics.map((ti) => ti.instanceId);
     this.levelTitle = this.level !== null ? '(for <i>level ' + this.level + '</i> only)' : '';
-  }
-
-  initialFeatureCheck() {
-    if (this.checkedFeatures.size !== 2) {
-      if (!this.checkedFeatures.has(0)) {
-        this.plotFeatures = 0;
-      } else if (!this.checkedFeatures.has(1)) {
-        this.plotFeatures = 1;
-      }
-    } else {
-      this.plotFeatures = this.initialFeature;
-    }
-    console.log('check');
-    console.log(this.checkedFeatures);
   }
 
   public onRadioChange(value: number): void {
@@ -67,27 +55,30 @@ export class ScatterClustersWrapperComponent implements OnChanges, AfterContentC
   }
 
   /**
-   * In this visualization, we first need to make sure that for both feature sets, the chart doesn't show anything.
-   * Only then we can hide the card. Therefore, we first switch both views and then hide one or both, according to
+   * In this visualization, we first need to make sure that for both feature sets the chart does show something.
+   * If not, we can hide the card. Therefore, we first switch both views and then hide one or both, according to
    * their state.
    * @param item tells if we should hide the current view and what feature it is
    */
-  hideChart(item) {
-    if (item.hide && !this.unavailableFeatures.has(item.features)) {
-      this.unavailableFeatures.add(item.features);
-    }
-    console.log('hide');
-    console.log(item);
-    console.log(this.unavailableFeatures);
-    /*console.log(item);
-    console.log(this.unavailableFeatures);
-    console.log(this.unavailableFeatures.has(this.plotFeatures))
-    if (item.hide && !this.unavailableFeatures.has(item.features)) {
-      this.unavailableFeatures.add(item.features);
-      this.plotFeatures = item.features === 0 ? 1 : 0;
-    } else if (!item.hide) {
-      this.unavailableFeatures.delete(item.features);
-    }
-    d3.select('#scatterClusterDiv').style('display', this.unavailableFeatures.size === 2 ? 'none' : 'block');*/
+  hideChart(items: { hide: boolean; feature: any }[]) {
+    const feature = this.plotFeatures,
+      missingFeatures = items.filter((value) => value.hide).map((val) => val.feature);
+
+    // completely hide line chart for the missing view
+    d3.select('#scatterClusterDiv .clustering-feature-' + feature + ' kypo-viz-clustering-line-chart').style(
+      'display',
+      missingFeatures.includes(feature) ? 'none' : 'block'
+    );
+
+    // change styling of main plot to ensure the chart div does not interfere with other elements
+    d3.select('#scatterClusterDiv .clustering-feature-' + feature + ' kypo-viz-clustering-scatter-plot')
+      .style('opacity', missingFeatures.includes(feature) ? '0' : '1')
+      .style('pointer-events', missingFeatures.includes(feature) ? 'none' : 'initial');
+
+    // if only one feature is available, shiw a message for the other
+    d3.select('#scatterClusterDiv .cluster-no-data-message').style(
+      'display',
+      missingFeatures.includes(feature) ? 'block' : 'none'
+    );
   }
 }

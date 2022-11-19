@@ -156,8 +156,8 @@ module.exports = function() {
     clusters: clustering.clusters,
     clusters2: clustering.clusters2,
     radarChart: clustering.radarChart,
-    sse1: clustering.sseWrong,
-    sse2: clustering.sse2,
+    sse1: clustering.sse1,
+    sse2: clustering.sseWrong,
     sseNDim: clustering.sseNDim,
     clustering: {
       final_results: {

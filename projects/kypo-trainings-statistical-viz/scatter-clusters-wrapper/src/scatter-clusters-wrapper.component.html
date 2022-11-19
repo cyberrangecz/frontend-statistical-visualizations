@@ -13,14 +13,14 @@
           <label id="radioButtonText">Select features: </label>
           <mat-radio-group aria-label="Select features comparison">
             <mat-radio-button
-              *ngIf="!unavailableFeatures.has(1)"
+              class="radio-wf"
               value="1"
               [checked]="plotFeatures === 1"
               (change)="onRadioChange(1)">
               Wrong flags per time played
             </mat-radio-button>
             <mat-radio-button
-              *ngIf="!unavailableFeatures.has(0)"
+              class="radio-ts"
               value="2"
               [checked]="plotFeatures === 0"
               (change)="onRadioChange(0)">
@@ -37,7 +37,7 @@
                    [value]="numOfClusters.toString()">
           </mat-form-field>
 
-          <kypo-clustering-visualization
+          <kypo-clustering-visualization [attr.class]="'clustering-feature-' + plotFeatures"
             [selectedComponent]="0"
             [selectedFeature]="plotFeatures"
             [trainingDefinitionId]="trainingDefinitionId"
@@ -47,6 +47,8 @@
             (chartIsHidden)="hideChart($event)"
             [level]="+level">
           </kypo-clustering-visualization>
+
+          <p class="cluster-no-data-message">No data available for the current view</p>
         </mat-grid-tile>
       </mat-grid-list>
     </mat-card-content>
