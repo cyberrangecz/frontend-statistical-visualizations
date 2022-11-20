@@ -33,10 +33,10 @@ export class TooltipCreationService {
       .attr('y', y)
       .attr('width', width)
       .attr('height', height)
-      .attr('rx', 8)
-      .attr('ry', 8)
+      .attr('rx', 5)
+      .attr('ry', 5)
       .style('fill', color)
-      .style('opacity', 0.8)
+      .style('opacity', 0.7)
       .style('stroke', color)
       .style('stroke-width', 1);
   }

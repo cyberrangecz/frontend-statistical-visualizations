@@ -55,10 +55,8 @@ export class ScatterClustersWrapperComponent implements OnChanges, AfterContentC
   }
 
   /**
-   * In this visualization, we first need to make sure that for both feature sets the chart does show something.
-   * If not, we can hide the card. Therefore, we first switch both views and then hide one or both, according to
-   * their state.
-   * @param item tells if we should hide the current view and what feature it is
+   * In this visualization, we first need to make sure the chart does show something. If not, we can hide it.
+   * @param items is an array of views that were checked for information, so that we know if we should hide it or not
    */
   hideChart(items: { hide: boolean; feature: any }[]) {
     const feature = this.plotFeatures,
