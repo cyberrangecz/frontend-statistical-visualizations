@@ -172,8 +172,8 @@ export class CombinedDiagramComponent implements OnInit, OnChanges {
     // Hides the other trainings
     d3.select('#combinedDiagramChartSvg')
       .selectAll('rect')
-      .filter(function() {
-        return !d3.select(this).classed('combinedDiagramTooltip')
+      .filter(function () {
+        return !d3.select(this).classed('combinedDiagramTooltip');
       })
       .style('opacity', 0.2);
     // Highlights the seleted one
