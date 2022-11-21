@@ -13,12 +13,14 @@
           <label id="radioButtonText">Select features: </label>
           <mat-radio-group aria-label="Select features comparison">
             <mat-radio-button
+              class="radio-wf"
               value="1"
               [checked]="plotFeatures === 1"
               (change)="onRadioChange(1)">
               Wrong flags per time played
             </mat-radio-button>
             <mat-radio-button
+              class="radio-ts"
               value="2"
               [checked]="plotFeatures === 0"
               (change)="onRadioChange(0)">
@@ -32,18 +34,21 @@
                    min="1"
                    class="scatter-input-field"
                    (change)="clusterChange($event)"
-                   [value]="numOfClusters">
+                   [value]="numOfClusters.toString()">
           </mat-form-field>
 
-          <kypo-clustering-visualization
+          <kypo-clustering-visualization [attr.class]="'clustering-feature-' + plotFeatures"
             [selectedComponent]="0"
             [selectedFeature]="plotFeatures"
             [trainingDefinitionId]="trainingDefinitionId"
             [trainingInstanceIds]="trainingInstanceIds"
             [numOfClusters]="numOfClusters"
             (viewOpen)="toggleView($event)"
-            [level]="level">
+            (chartIsHidden)="hideChart($event)"
+            [level]="+level">
           </kypo-clustering-visualization>
+
+          <p class="cluster-no-data-message">No data available for the current view</p>
         </mat-grid-tile>
       </mat-grid-list>
     </mat-card-content>

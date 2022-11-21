@@ -1,3 +1,10 @@
+#scatterClustersPlaceholder {
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 0.5vw;
+  width: 100%;
+}
+
 mat-card {
   width: calc(100% - 32px);
   height: 100%;
@@ -56,6 +63,15 @@ mat-radio-button {
 #scatterClustersPlaceholder mat-grid-tile {
   top: -24px;
   pointer-events: initial;
+}
+
+.cluster-no-data-message {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left:33%;
+  justify-content: center;
+  cursor: default;
 }
 
 /** line chart **/

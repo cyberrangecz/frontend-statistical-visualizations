@@ -181,6 +181,8 @@ export class FilterComponent implements OnInit, OnChanges {
     d3.select('#scatterplotPlaceholder').style('display', chartStyle);
     d3.select('#combinedDiagramPlaceholder').style('display', chartStyle);
     d3.select('#clusteringPlaceholder').style('display', chartStyle);
+    d3.select('#scatterClustersPlaceholder').style('display', chartStyle);
+    d3.select('#radarchartPlaceholder').style('display', chartStyle);
   }
 
   private hoursMinutesSeconds(timestamp): string {

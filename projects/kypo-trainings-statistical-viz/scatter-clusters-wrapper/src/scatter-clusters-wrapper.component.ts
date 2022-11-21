@@ -1,4 +1,12 @@
-import { AfterContentChecked, ApplicationRef, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import {
+  AfterContentChecked,
+  ApplicationRef,
+  ChangeDetectorRef,
+  Component,
+  Input,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 import { TrainingInstanceStatistics } from '@muni-kypo-crp/statistical-visualizations/internal';
 import * as d3 from 'd3';
 
@@ -8,11 +16,11 @@ import * as d3 from 'd3';
   styleUrls: ['./scatter-clusters-wrapper.component.css'],
 })
 export class ScatterClustersWrapperComponent implements OnChanges, AfterContentChecked {
-  @Input() level = '';
+  @Input() level;
   @Input() trainingDefinitionId: number;
   @Input() trainingInstanceStatistics: TrainingInstanceStatistics[];
 
-  appRef;
+  readonly appRef;
   public numOfClusters = 5;
   public trainingInstanceIds: number[] = [];
   public cardHeight = 150;
@@ -21,7 +29,7 @@ export class ScatterClustersWrapperComponent implements OnChanges, AfterContentC
   public readonly info =
     'The chart shows a relation between two distinct groups of actions or behavior, helps to identify connections between them.';
 
-  constructor(appRef: ApplicationRef) {
+  constructor(appRef: ApplicationRef, changeDetectorRef: ChangeDetectorRef) {
     this.appRef = appRef;
   }
 
@@ -46,13 +54,29 @@ export class ScatterClustersWrapperComponent implements OnChanges, AfterContentC
     this.numOfClusters = change.target.value;
   }
 
-  getBBox() {
-    const box = document.querySelector(
-      '#scatterClustersPlaceholder kypo-clustering-visualization'
-    ) as HTMLElement | null;
+  /**
+   * In this visualization, we first need to make sure the chart does show something. If not, we can hide it.
+   * @param items is an array of views that were checked for information, so that we know if we should hide it or not
+   */
+  hideChart(items: { hide: boolean; feature: any }[]) {
+    const feature = this.plotFeatures,
+      missingFeatures = items.filter((value) => value.hide).map((val) => val.feature);
 
-    if (box != null) {
-      return box.getBoundingClientRect().height + 24;
-    }
+    // completely hide line chart for the missing view
+    d3.select('#scatterClusterDiv .clustering-feature-' + feature + ' kypo-viz-clustering-line-chart').style(
+      'display',
+      missingFeatures.includes(feature) ? 'none' : 'block'
+    );
+
+    // change styling of main plot to ensure the chart div does not interfere with other elements
+    d3.select('#scatterClusterDiv .clustering-feature-' + feature + ' kypo-viz-clustering-scatter-plot')
+      .style('opacity', missingFeatures.includes(feature) ? '0' : '1')
+      .style('pointer-events', missingFeatures.includes(feature) ? 'none' : 'initial');
+
+    // if only one feature is available, shiw a message for the other
+    d3.select('#scatterClusterDiv .cluster-no-data-message').style(
+      'display',
+      missingFeatures.includes(feature) ? 'block' : 'none'
+    );
   }
 }

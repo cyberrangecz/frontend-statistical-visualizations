@@ -1,5 +1,6 @@
 import { AfterContentChecked, ApplicationRef, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { TrainingInstanceStatistics } from '@muni-kypo-crp/statistical-visualizations/internal';
+import * as d3 from 'd3';
 
 @Component({
   selector: 'kypo-radar-chart-wrapper',
@@ -47,5 +48,9 @@ export class RadarChartWrapperComponent implements OnChanges, AfterContentChecke
     if (box != null) {
       return box.getBoundingClientRect().height + 24;
     }
+  }
+
+  hideChart(item) {
+    d3.select('#radarchartDiv').style('display', item[0].hide ? 'none' : 'block');
   }
 }
