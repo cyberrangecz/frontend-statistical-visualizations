@@ -1,3 +1,13 @@
+### 14.1.2 Enable card hiding if there is insufficient data for clustering
+* 47c7fc3 -- [CI/CD] Update packages.json version based on GitLab tag.
+* 5da8a50 -- Merge branch '9-hide-chart-views-when-empty' into 'master'
+* 1911e3d -- Update package-lock
+* ff74413 -- Satisfy prettier
+* 4ef6dad -- Fix chart display on wrong data, repair tooltip
+* 453a042 -- Fix scatterplot chart display without data
+* 8653068 -- Add function to hide scatter
+* 03a93e9 -- Enable radar chart wrapper hiding
+* 2e17ec1 -- Hide empty clusters without TI
 ### 14.1.1 Update clustering with new API calls
 * f3d9d1a -- [CI/CD] Update packages.json version based on GitLab tag.
 * 506eeb6 -- Merge branch '8-update-clustering-vis-version-with-new-api' into 'master'
