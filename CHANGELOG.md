@@ -1,3 +1,7 @@
+### 15.0.0 Update to Angular 15
+* aa86695 -- [CI/CD] Update packages.json version based on GitLab tag.
+* a4c26fe -- Merge branch '10-update-to-angular-15' into 'master'
+* 3870ef0 -- Update to Angular 15
 ### 14.1.2 Enable card hiding if there is insufficient data for clustering
 * 47c7fc3 -- [CI/CD] Update packages.json version based on GitLab tag.
 * 5da8a50 -- Merge branch '9-hide-chart-views-when-empty' into 'master'
