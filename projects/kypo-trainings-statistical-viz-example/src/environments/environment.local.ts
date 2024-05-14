@@ -2,39 +2,38 @@
 // `ng build ---prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+const AUTH_URL = 'https://172.19.0.22';
+// in BASE_URL, change value to AUTH_URL for data form local demo or to 'http://localhost:3000' for mocked json server
+const BASE_URL = 'http://localhost:3000';
 const HOME_URL = 'https://localhost:4200';
 
 export const environment = {
   production: false,
-
   statisticalVizConfig: {
-    trainingServiceUrl: 'http://localhost:3000/kypo-rest-training/api/v1/',
+    trainingServiceUrl: BASE_URL + '/kypo-rest-training/api/v1/',
   },
   authConfig: {
     guardMainPageRedirect: 'visualization',
     guardLoginPageRedirect: 'login',
-    interceptorAllowedUrls: ['https://172.19.0.22', 'http://localhost', 'https://localhost'],
+    interceptorAllowedUrls: [AUTH_URL, 'http://localhost', 'https://localhost'],
     authorizationStrategyConfig: {
-      authorizationUrl: 'https://172.19.0.22/kypo-rest-user-and-group/api/v1/users/info',
+      authorizationUrl: AUTH_URL + '/kypo-rest-user-and-group/api/v1/users/info',
     },
     // OIDC SETTINGS
     providers: [
       {
-        label: 'Login with MUNI',
+        label: 'Login with local issuer',
         textColor: 'white',
         backgroundColor: '#002776',
         oidcConfig: {
-          // Url of the Identity Provider
-          issuer: 'https://172.19.0.22:443/csirtmu-dummy-issuer-server/',
-          // The SPA's id. The SPA is registered with this id at the config-server
-          clientId: '51d53826-3252-4db5-a4a1-51c51588efed',
-          // URL of the SPA to redirect the user after silent refresh
+          requireHttps: true,
+          issuer: AUTH_URL + '/keycloak/realms/KYPO',
+          clientId: 'KYPO-client',
           redirectUri: HOME_URL,
-          // set the scope for the permissions the client should request
-          scope: 'openid email profile',
-          logoutUrl: 'https://172.19.0.22/csirtmu-dummy-issuer-server/endsession',
-          // URL of the SPA to redirect the user to after login
-          postLogoutRedirectUri: HOME_URL,
+          scope: 'openid email profile offline_access',
+          logoutUrl: AUTH_URL + '/keycloak/realms/KYPO/protocol/openid-connect/logout',
+          silentRefreshRedirectUri: AUTH_URL + '/silent-refresh.html',
+          postLogoutRedirectUri: HOME_URL + '/logout-confirmed',
           clearHashAfterLogin: true,
         },
       },
