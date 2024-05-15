@@ -26,7 +26,7 @@ export class RadarChartWrapperComponent implements OnChanges, AfterContentChecke
   }
 
   ngAfterContentChecked() {
-    this.cardHeight = this.getBBox();
+    this.cardHeight = this.getBBox() * 3;
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -38,12 +38,13 @@ export class RadarChartWrapperComponent implements OnChanges, AfterContentChecke
     this.appRef.tick();
   }
 
-  clusterChange(change) {
+  clusterChange(change: any) {
     this.numOfClusters = change.target.value;
   }
 
   getBBox() {
     const box = document.querySelector('#radarchartSvgPlaceholder kypo-clustering-visualization') as HTMLElement | null;
+    //console.log(box.getBoundingClientRect());
 
     if (box != null) {
       return box.getBoundingClientRect().height + 24;
@@ -51,6 +52,7 @@ export class RadarChartWrapperComponent implements OnChanges, AfterContentChecke
   }
 
   hideChart(item) {
+    console.log(item);
     d3.select('#radarchartDiv').style('display', item[0].hide ? 'none' : 'block');
   }
 }
