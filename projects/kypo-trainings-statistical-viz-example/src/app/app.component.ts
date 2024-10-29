@@ -10,7 +10,7 @@ export class AppComponent implements OnInit {
   agendaContainers: AgendaContainer[];
 
   ngOnInit(): void {
-    const containers = [new Agenda('statistical-page viz', 'statistical-page')];
+    const containers = [new Agenda('Statistics', 'statistical-page')];
     this.agendaContainers = [new AgendaContainer('Visualizations', containers)];
   }
 }

@@ -1,5 +1,5 @@
 module.exports = function() {
-  let clustering = require('./../../node_modules/@muni-kypo-crp/clustering-visualization/json-server/db').get;
+  let clustering = require('./../../node_modules/@muni-kypo-crp/clustering-visualization/json-server/db.js').get;
   return {
     instances: [
       {

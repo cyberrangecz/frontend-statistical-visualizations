@@ -79,7 +79,7 @@ export class ScatterplotComponent implements OnInit, OnChanges {
     private axesCreationService: AxesCreationService,
     private tooltipCreationService: TooltipCreationService,
     private svgConfigurationService: SvgConfigurationService,
-    private legendCreationService: LegendCreationService
+    private legendCreationService: LegendCreationService,
   ) {}
 
   /**
@@ -189,9 +189,9 @@ export class ScatterplotComponent implements OnInit, OnChanges {
     return Math.max(
       ...this.trainingInstanceStatistics
         .map((instance) =>
-          instance.participants.map((participant) => participant.levels.reduce((a, b) => a + b.duration, 0))
+          instance.participants.map((participant) => participant.levels.reduce((a, b) => a + b.duration, 0)),
         )
-        .reduce((a, b) => (Math.max(...a) > Math.max(...b) ? a : b))
+        .reduce((a, b) => (Math.max(...a) > Math.max(...b) ? a : b)),
     );
   }
 
@@ -199,9 +199,9 @@ export class ScatterplotComponent implements OnInit, OnChanges {
     return Math.min(
       ...this.trainingInstanceStatistics
         .map((instance) =>
-          instance.participants.map((participant) => participant.levels.reduce((a, b) => a + b.duration, 0))
+          instance.participants.map((participant) => participant.levels.reduce((a, b) => a + b.duration, 0)),
         )
-        .reduce((a, b) => (Math.min(...a) < Math.min(...b) ? a : b))
+        .reduce((a, b) => (Math.min(...a) < Math.min(...b) ? a : b)),
     );
   }
 
@@ -209,9 +209,9 @@ export class ScatterplotComponent implements OnInit, OnChanges {
     return Math.max(
       ...this.trainingInstanceStatistics
         .map((instance) =>
-          instance.participants.map((participant) => participant.levels.reduce((a, b) => a + b.score, 0))
+          instance.participants.map((participant) => participant.levels.reduce((a, b) => a + b.score, 0)),
         )
-        .reduce((a, b) => (Math.max(...a) > Math.max(...b) ? a : b))
+        .reduce((a, b) => (Math.max(...a) > Math.max(...b) ? a : b)),
     );
   }
 
@@ -219,9 +219,9 @@ export class ScatterplotComponent implements OnInit, OnChanges {
     return Math.max(
       ...this.trainingInstanceStatistics
         .map((instance) =>
-          instance.participants.map((participant) => participant.levels.reduce((a, b) => a + b.hintsTaken, 0))
+          instance.participants.map((participant) => participant.levels.reduce((a, b) => a + b.hintsTaken, 0)),
         )
-        .reduce((a, b) => (Math.max(...a) > Math.max(...b) ? a : b))
+        .reduce((a, b) => (Math.max(...a) > Math.max(...b) ? a : b)),
     );
   }
 
@@ -492,21 +492,21 @@ export class ScatterplotComponent implements OnInit, OnChanges {
       yAxis,
       '0, ' + (this.svgHeight - this.margin),
       1.8 * this.margin + ', 0',
-      this.axesCreationService.getAxisFontSize('#scatterplotPlaceholder')
+      this.axesCreationService.getAxisFontSize('#scatterplotPlaceholder'),
     );
     this.axesCreationService.createXAxesTitle(
       '#scatterplotSvg',
       this.chartWidth - this.margin,
       this.svgHeight,
       xTitle,
-      this.axesCreationService.getAxisTitleFontSize('#scatterplotPlaceholder')
+      this.axesCreationService.getAxisTitleFontSize('#scatterplotPlaceholder'),
     );
     this.axesCreationService.createYAxesTitle(
       '#scatterplotSvg',
       -this.margin,
       this.margin / 2,
       yTitle,
-      this.axesCreationService.getAxisTitleFontSize('#scatterplotPlaceholder')
+      this.axesCreationService.getAxisTitleFontSize('#scatterplotPlaceholder'),
     );
   }
 
@@ -537,7 +537,7 @@ export class ScatterplotComponent implements OnInit, OnChanges {
             player.totalScore,
             i,
             player.instanceId,
-            player.userRefId
+            player.userRefId,
           );
         });
         break;
@@ -549,8 +549,8 @@ export class ScatterplotComponent implements OnInit, OnChanges {
             player.totalDuration,
             i,
             player.instanceId,
-            player.userRefId
-          )
+            player.userRefId,
+          ),
         );
         break;
       case 'hint':
@@ -561,8 +561,8 @@ export class ScatterplotComponent implements OnInit, OnChanges {
             player.hintsTaken,
             i,
             player.instanceId,
-            player.userRefId
-          )
+            player.userRefId,
+          ),
         );
         break;
     }
@@ -591,7 +591,7 @@ export class ScatterplotComponent implements OnInit, OnChanges {
     zValue: number,
     index: number,
     trainingClass: number,
-    userRefId: number
+    userRefId: number,
   ): void {
     d3.select('#scatterplotSvg')
       .append('circle')
@@ -640,8 +640,8 @@ export class ScatterplotComponent implements OnInit, OnChanges {
           d3
             .select('#scatterplotSvg')
             .select('#' + circleId)
-            .attr('userRefId')
-        )
+            .attr('userRefId'),
+        ),
       );
     }
     this.highlightInstance.emit([instanceId]);
@@ -731,8 +731,16 @@ export class ScatterplotComponent implements OnInit, OnChanges {
         y = this.yScale(this.players[index].totalScore);
         break;
     }
-    x > this.chartWidth / 2 ? (x = x - size.width - 10) : (x = x + 10);
-    y > this.svgHeight / 2 ? (y = y - size.height - 10) : (y = y + 10);
+    if (x > this.chartWidth / 2) {
+      x = x - size.width - 10;
+    } else {
+      x = x + 10;
+    }
+    if (y > this.svgHeight / 2) {
+      y = y - size.height - 10;
+    } else {
+      y = y + 10;
+    }
 
     this.tooltipCreationService.createTooltipRect(
       '#scatterplotSvg',
@@ -741,7 +749,7 @@ export class ScatterplotComponent implements OnInit, OnChanges {
       y,
       size.width,
       size.height,
-      this.tooltipColors[0]
+      this.tooltipColors[0],
     );
     this.tooltipCreationService.addTooltipText(
       '#scatterplotSvg',
@@ -756,7 +764,7 @@ export class ScatterplotComponent implements OnInit, OnChanges {
         'Hints taken: ' + player.hintsTaken,
       ],
       [0, 0.3 * size.height, 0.2 * size.height, 0.2 * size.height],
-      this.tooltipColors[1]
+      this.tooltipColors[1],
     );
   }
 
@@ -792,7 +800,7 @@ export class ScatterplotComponent implements OnInit, OnChanges {
       '#000000',
       text,
       xShift,
-      yShift
+      yShift,
     );
     const shift: number = Math.round(0.3 * (this.svgHeight - 2 * this.margin - 6 * fontSize));
     // Attaches the text for individual scale levels
@@ -806,7 +814,7 @@ export class ScatterplotComponent implements OnInit, OnChanges {
       ranges,
       [0, 0, 0, 0, 0],
       [0, shift, shift, shift, shift],
-      'start'
+      'start',
     );
     this.createLegendBars(this.margin + 5 * fontSize, shift);
   }

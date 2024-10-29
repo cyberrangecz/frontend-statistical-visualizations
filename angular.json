@@ -119,21 +119,21 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "kypo-trainings-statistical-viz-example:build"
+            "buildTarget": "kypo-trainings-statistical-viz-example:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "kypo-trainings-statistical-viz-example:build:production"
+              "buildTarget": "kypo-trainings-statistical-viz-example:build:production"
             },
             "local": {
-              "browserTarget": "kypo-trainings-statistical-viz-example:build:local"
+              "buildTarget": "kypo-trainings-statistical-viz-example:build:local"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "kypo-trainings-statistical-viz-example:build"
+            "buildTarget": "kypo-trainings-statistical-viz-example:build"
           }
         },
         "test": {

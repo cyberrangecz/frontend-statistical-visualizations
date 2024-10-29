@@ -103,7 +103,7 @@ export class SvgConfigurationService {
   private setSvgSize(
     canvas: d3.Selection<d3.BaseType, unknown, HTMLElement, any>,
     width: number,
-    height: number
+    height: number,
   ): void {
     canvas
       .attr('width', width)

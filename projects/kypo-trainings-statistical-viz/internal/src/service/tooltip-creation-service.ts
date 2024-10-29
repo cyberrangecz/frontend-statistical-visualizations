@@ -21,7 +21,7 @@ export class TooltipCreationService {
     y: number,
     width: number,
     height: number,
-    color?: string
+    color?: string,
   ): void {
     if (color === undefined) {
       color = '#000000';
@@ -63,7 +63,7 @@ export class TooltipCreationService {
     fontSize: number,
     text: string[],
     yShift: number[],
-    color?: string
+    color?: string,
   ): void {
     if (color === undefined) {
       color = '#ffffff';

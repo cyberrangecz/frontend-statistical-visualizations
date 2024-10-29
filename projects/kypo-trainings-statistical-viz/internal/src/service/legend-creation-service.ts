@@ -27,7 +27,7 @@ export class LegendCreationService {
     y: number[],
     width: number,
     height: number,
-    opacity: number[]
+    opacity: number[],
   ): void {
     for (let i = 0; i < y.length; i++) {
       d3.select(placeholder)
@@ -69,7 +69,7 @@ export class LegendCreationService {
     text: string[],
     xShift: number[],
     yShift: number[],
-    textAnchor?: string
+    textAnchor?: string,
   ): void {
     textAnchor = textAnchor == undefined ? 'middle' : textAnchor;
     // Creates the main text element which contains the tspan elements

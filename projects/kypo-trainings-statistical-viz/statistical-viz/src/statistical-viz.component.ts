@@ -44,9 +44,9 @@ export class StatisticalVizComponent implements OnInit {
     this.filteredTrainingInstanceStatistics$ = this.trainingInstanceStatistics$.pipe(
       map((trainingInstanceStatistics) =>
         trainingInstanceStatistics.filter((statistics) =>
-          this.filters.some((filter) => filter.instanceId == statistics.instanceId && filter.checked)
-        )
-      )
+          this.filters.some((filter) => filter.instanceId == statistics.instanceId && filter.checked),
+        ),
+      ),
     );
   }
 

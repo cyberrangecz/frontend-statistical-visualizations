@@ -89,7 +89,7 @@ export class BarchartComponent implements OnInit, OnChanges {
     private axesCreationService: AxesCreationService,
     private tooltipCreationService: TooltipCreationService,
     private svgConfigurationService: SvgConfigurationService,
-    private legendCreationService: LegendCreationService
+    private legendCreationService: LegendCreationService,
   ) {}
 
   /**
@@ -181,7 +181,7 @@ export class BarchartComponent implements OnInit, OnChanges {
     this.levels = [];
     this.trainingInstanceStatistics.map((statistics) => this.originalPlayers.push(...statistics.participants));
     this.trainingInstanceStatistics.map((statistics) =>
-      statistics.participants.map((participant) => this.levels.push(...participant.levels))
+      statistics.participants.map((participant) => this.levels.push(...participant.levels)),
     );
     this.originalLevels.filter((level, index, self) => index === self.findIndex((t) => t.id === level.id));
     this.initializeBarchartData(true);
@@ -206,17 +206,17 @@ export class BarchartComponent implements OnInit, OnChanges {
     this.filters = filters;
     this.trainingInstanceStatistics.map((statistics) => this.players.push(...statistics.participants));
     this.trainingInstanceStatistics.forEach((statistics) =>
-      statistics.participants.forEach((participant) => this.levels.concat(participant.levels))
+      statistics.participants.forEach((participant) => this.levels.concat(participant.levels)),
     );
     this.levels = this.levels.filter((level, index, self) => index === self.findIndex((t) => t.id === level.id));
     this.stackedData = this.createStackedObject();
     // Gets the key attributes from 'stackedData' which are required to create the
     // stacked bars and sorts them -> keys represent the individual layers of the bars
     this.trainingInstanceStatistics.forEach((statistics) =>
-      this.keys.push(`number_of_wrong_flags_${statistics.instanceId}`)
+      this.keys.push(`number_of_wrong_flags_${statistics.instanceId}`),
     );
     this.trainingInstanceStatistics.forEach((statistics) =>
-      this.keys.push(`number_of_correct_flags_${statistics.instanceId}`)
+      this.keys.push(`number_of_correct_flags_${statistics.instanceId}`),
     );
     this.keys = this.keys.sort();
     this.createChart();
@@ -268,7 +268,7 @@ export class BarchartComponent implements OnInit, OnChanges {
       trainingInstanceIds = this.trainingInstanceStatistics
         .filter(
           (statistics) =>
-            statistics.levelsAnswers.filter((levelAnswer) => levelAnswer.correctAnswerSubmitted > 0).length > 0
+            statistics.levelsAnswers.filter((levelAnswer) => levelAnswer.correctAnswerSubmitted > 0).length > 0,
         )
         .map((statistics) => statistics.instanceId);
     }
@@ -474,7 +474,7 @@ export class BarchartComponent implements OnInit, OnChanges {
         .domain([
           0,
           Math.max(
-            ...this.trainingInstanceStatistics[0].levelsAnswers.map((level) => this.maxNumberOfFlagsForLevel(level.id))
+            ...this.trainingInstanceStatistics[0].levelsAnswers.map((level) => this.maxNumberOfFlagsForLevel(level.id)),
           ),
         ])
         .nice()
@@ -493,8 +493,8 @@ export class BarchartComponent implements OnInit, OnChanges {
           0,
           Math.max(
             ...this.trainingInstanceStatistics.map((statistics) =>
-              this.maxNumberOfFlagsForSingleLevel(statistics.levelsAnswers)
-            )
+              this.maxNumberOfFlagsForSingleLevel(statistics.levelsAnswers),
+            ),
           ),
         ])
         .nice()
@@ -569,10 +569,10 @@ export class BarchartComponent implements OnInit, OnChanges {
         d3
           .scaleBand()
           .domain(
-            this.trainingInstanceStatistics[0].levelsAnswers.map((d: LevelAnswers, i: number) => `Level ${i + 1}`)
+            this.trainingInstanceStatistics[0].levelsAnswers.map((d: LevelAnswers, i: number) => `Level ${i + 1}`),
           )
           .range([0, this.chartSvgWidth])
-          .padding(0.3)
+          .padding(0.3),
       );
       yAxes = d3.axisLeft(this.yScale).ticks(5);
     } else {
@@ -580,10 +580,10 @@ export class BarchartComponent implements OnInit, OnChanges {
         d3
           .scaleBand()
           .domain(
-            this.trainingInstanceStatistics[0].levelsAnswers.map((d: LevelAnswers, i: number) => `Level ${i + 1}`)
+            this.trainingInstanceStatistics[0].levelsAnswers.map((d: LevelAnswers, i: number) => `Level ${i + 1}`),
           )
           .rangeRound([0, this.chartSvgWidth])
-          .paddingInner(0.1)
+          .paddingInner(0.1),
       );
       yAxes = d3.axisLeft(this.yScale).ticks(5);
     }
@@ -595,7 +595,7 @@ export class BarchartComponent implements OnInit, OnChanges {
       yAxes,
       '0, ' + (this.svgHeight - this.margin),
       0.98 * this.yAxisSvgWidth + ', 0',
-      this.axesCreationService.getAxisFontSize('#barchartPlaceholder')
+      this.axesCreationService.getAxisFontSize('#barchartPlaceholder'),
     );
 
     this.axesCreationService.createYAxesTitle(
@@ -603,7 +603,7 @@ export class BarchartComponent implements OnInit, OnChanges {
       -this.margin,
       this.margin / 2,
       'Number of submitted answers',
-      this.axesCreationService.getAxisTitleFontSize('#barchartPlaceholder')
+      this.axesCreationService.getAxisTitleFontSize('#barchartPlaceholder'),
     );
 
     // Attaches a mousover and mouseout event
@@ -968,13 +968,13 @@ export class BarchartComponent implements OnInit, OnChanges {
           .map((statistics) =>
             statistics.levelsAnswers
               .filter((levelAnswer) => levelAnswer.id === selectedLevel)
-              .reduce((acc, cur) => acc + cur.wrongAnswers.length, 0)
+              .reduce((acc, cur) => acc + cur.wrongAnswers.length, 0),
           )
           .reduce((acc, cur) => acc + cur, 0);
         const wrongAnswerSubmittedBy: number = this.trainingInstanceStatistics
           .find((statistics) => statistics.instanceId == this.selectedInstanceId)
           .participants.map((participant) =>
-            participant.levels.map((level) => level).find((level) => level.id == Number(selectedLevel))
+            participant.levels.map((level) => level).find((level) => level.id == Number(selectedLevel)),
           )
           .reduce((acc, levels) => acc + (levels.wrongAnswerSubmitted.length > 0 ? 1 : 0), 0);
         if (this.chartType === 'stacked') {
@@ -990,7 +990,7 @@ export class BarchartComponent implements OnInit, OnChanges {
             selectedLevel,
             level.correctAnswerSubmitted,
             numberOfWrongAnswersAtSelectedLevel,
-            maxNumberOfFlags
+            maxNumberOfFlags,
           );
           this.attachDashedLine(Math.max(level.correctAnswerSubmitted, wrongAnswerSubmittedBy));
         }
@@ -1047,7 +1047,7 @@ export class BarchartComponent implements OnInit, OnChanges {
   private maxNumberOfFlagsForLevel(levelId: number): number {
     let maxNumberOfFlags = -1;
     const levelAnswers: LevelAnswers[] = this.trainingInstanceStatistics.map((statistics) =>
-      statistics.levelsAnswers.find((levelAnswer) => levelAnswer.id === levelId)
+      statistics.levelsAnswers.find((levelAnswer) => levelAnswer.id === levelId),
     );
     levelAnswers.forEach((levelAnswer: LevelAnswers) => {
       if (this.onlyWrongFlags) {
@@ -1055,7 +1055,7 @@ export class BarchartComponent implements OnInit, OnChanges {
       } else {
         maxNumberOfFlags = Math.max(
           maxNumberOfFlags,
-          levelAnswer.correctAnswerSubmitted + levelAnswer.wrongAnswers.length
+          levelAnswer.correctAnswerSubmitted + levelAnswer.wrongAnswers.length,
         );
       }
     });
@@ -1099,7 +1099,7 @@ export class BarchartComponent implements OnInit, OnChanges {
     selectedLevel: number,
     numberOfCorrectFlags,
     numberOfWrongFlags,
-    maxNumberOfFlags?: number
+    maxNumberOfFlags?: number,
   ): void {
     // Lower text represent the correct flags
     // In case only the wrong flags should be
@@ -1189,7 +1189,7 @@ export class BarchartComponent implements OnInit, OnChanges {
       this.barTextColor,
       [numberOfCorrectFlags + ' correct', ' answers'],
       [0, 0],
-      [0, 1.2 * fontSize]
+      [0, 1.2 * fontSize],
     );
   }
 
@@ -1230,7 +1230,7 @@ export class BarchartComponent implements OnInit, OnChanges {
       this.barTextColor,
       text,
       xShift,
-      yShift
+      yShift,
     );
   }
 
@@ -1267,7 +1267,7 @@ export class BarchartComponent implements OnInit, OnChanges {
     const tooltipText: string[] = this.getTooltipText(
       infoToBeVisualized.showCorrectFlags,
       Number(infoToBeVisualized.trainingId),
-      infoToBeVisualized.numberOfFlags
+      infoToBeVisualized.numberOfFlags,
     );
     const size: { width: number; height: number } = this.tooltipCreationService.getTooltipSize(this.chartSvgWidth);
     const coordinates: {
@@ -1340,10 +1340,10 @@ export class BarchartComponent implements OnInit, OnChanges {
     }
 
     const selectedTrainingStatistics: TrainingInstanceStatistics = this.trainingInstanceStatistics.find(
-      (statistics) => statistics.instanceId === Number(selectedTraining)
+      (statistics) => statistics.instanceId === Number(selectedTraining),
     );
     const selectedTrainingLevelStatistics: LevelAnswers = selectedTrainingStatistics.levelsAnswers.find(
-      (level) => level.id === Number(selectedLevel)
+      (level) => level.id === Number(selectedLevel),
     );
     const wrongAnswerSubmittedBy: number = selectedTrainingStatistics.participants
       .map((participant) => participant.levels.map((level) => level).find((level) => level.id == Number(selectedLevel)))
@@ -1376,7 +1376,7 @@ export class BarchartComponent implements OnInit, OnChanges {
       numberOfCorrectFlags: number;
       numberOfWrongFlags: number;
       submittedBy: number;
-    }
+    },
   ): string[] {
     if (showCorrectFlags) {
       return [
@@ -1413,7 +1413,7 @@ export class BarchartComponent implements OnInit, OnChanges {
     height: number,
     textY: number,
     text: string[],
-    yShift: number[]
+    yShift: number[],
   ): void {
     this.tooltipCreationService.createTooltipRect(
       '#chartSvg',
@@ -1422,7 +1422,7 @@ export class BarchartComponent implements OnInit, OnChanges {
       y,
       width,
       height,
-      this.tooltipColors[0]
+      this.tooltipColors[0],
     );
     this.tooltipCreationService.addTooltipText(
       '#chartSvg',
@@ -1432,7 +1432,7 @@ export class BarchartComponent implements OnInit, OnChanges {
       this.tooltipCreationService.getTooltipFontSize('#barchartPlaceholder'),
       text,
       yShift,
-      this.tooltipColors[1]
+      this.tooltipColors[1],
     );
   }
 
@@ -1445,9 +1445,11 @@ export class BarchartComponent implements OnInit, OnChanges {
     // The 'event' contains different attributes in case of a bar and a legend,
     // so the class attribute of the element can be found in different ways
     let layersClass: string[];
-    (<any>(<HTMLElement>event.target).className).baseVal === 'barchartRect'
-      ? (layersClass = (<any>(<HTMLElement>event.target).parentElement.className).baseVal.split('_'))
-      : (layersClass = (<any>(<HTMLElement>event.target).className).baseVal.split('_'));
+    if ((<any>(<HTMLElement>event.target).className).baseVal === 'barchartRect') {
+      layersClass = (<any>(<HTMLElement>event.target).parentElement.className).baseVal.split('_');
+    } else {
+      layersClass = (<any>(<HTMLElement>event.target).className).baseVal.split('_');
+    }
     return Number(layersClass.pop());
   }
 
@@ -1518,7 +1520,7 @@ export class BarchartComponent implements OnInit, OnChanges {
         ['Training ' + trainingIds[i], 'correct answers', 'wrong answers'],
         [0.1 * this.legendSvgWidth, 0.25 * this.legendSvgWidth, 0.25 * this.legendSvgWidth],
         [0, 2 * lineShift, 2 * lineShift],
-        'left'
+        'left',
       );
       this.legendCreationService.createLegendRect(
         '.legendForTraining_' + trainingIds[i],
@@ -1528,7 +1530,7 @@ export class BarchartComponent implements OnInit, OnChanges {
         [marginAndTrainingShift + lineShift, marginAndTrainingShift + 3 * lineShift],
         0.03 * this.svgHeight,
         0.03 * this.svgHeight,
-        [1, 0.4]
+        [1, 0.4],
       );
 
       // Disables the pointer events for the text and the rectangles (that
