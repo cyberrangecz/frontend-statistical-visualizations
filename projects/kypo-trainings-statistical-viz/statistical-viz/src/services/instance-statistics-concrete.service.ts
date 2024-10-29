@@ -19,8 +19,8 @@ export class InstanceStatisticsConcreteService extends InstanceStatisticsService
         },
         (err) => {
           // an error occurred when obtaining data
-        }
-      )
+        },
+      ),
     );
   }
 }

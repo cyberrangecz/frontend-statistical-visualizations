@@ -65,7 +65,7 @@ export class ScatterClustersWrapperComponent implements OnChanges, AfterContentC
     // completely hide line chart for the missing view
     d3.select('#scatterClusterDiv .clustering-feature-' + feature + ' kypo-viz-clustering-line-chart').style(
       'display',
-      missingFeatures.includes(feature) ? 'none' : 'block'
+      missingFeatures.includes(feature) ? 'none' : 'block',
     );
 
     // change styling of main plot to ensure the chart div does not interfere with other elements
@@ -76,7 +76,7 @@ export class ScatterClustersWrapperComponent implements OnChanges, AfterContentC
     // if only one feature is available, shiw a message for the other
     d3.select('#scatterClusterDiv .cluster-no-data-message').style(
       'display',
-      missingFeatures.includes(feature) ? 'block' : 'none'
+      missingFeatures.includes(feature) ? 'block' : 'none',
     );
   }
 }

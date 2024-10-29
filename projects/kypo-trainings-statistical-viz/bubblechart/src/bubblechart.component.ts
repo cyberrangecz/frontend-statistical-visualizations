@@ -71,7 +71,7 @@ export class BubblechartComponent implements OnInit, OnChanges {
     private axesCreationService: AxesCreationService,
     private tooltipCreationService: TooltipCreationService,
     private svgConfigurationService: SvgConfigurationService,
-    private legendCreationService: LegendCreationService
+    private legendCreationService: LegendCreationService,
   ) {}
 
   /**
@@ -132,11 +132,11 @@ export class BubblechartComponent implements OnInit, OnChanges {
   public initializeBubblechart(): void {
     const levelIndex: number =
       this.trainingInstanceStatistics.map((statistics) =>
-        statistics.levelsAnswers.findIndex((levelAnswer) => levelAnswer.id == this.selectedLevel)
+        statistics.levelsAnswers.findIndex((levelAnswer) => levelAnswer.id == this.selectedLevel),
       )[0] + 1;
 
     const selectedLevelAnswers: LevelAnswers[] = this.trainingInstanceStatistics.map((statistics) =>
-      statistics.levelsAnswers.find((levelAnswer) => levelAnswer.id == this.selectedLevel)
+      statistics.levelsAnswers.find((levelAnswer) => levelAnswer.id == this.selectedLevel),
     );
     this.selectedLevelAnswer = new LevelAnswers();
     this.selectedLevelAnswer.wrongAnswers = [];
@@ -154,7 +154,7 @@ export class BubblechartComponent implements OnInit, OnChanges {
       .map((participants) =>
         participants
           .map((participant) => participant.levels.find((level) => level.id == this.selectedLevel))
-          .map((level) => (level.wrongAnswerSubmitted.length > 0 ? wrongAnswerSubmittedBy++ : wrongAnswerSubmittedBy))
+          .map((level) => (level.wrongAnswerSubmitted.length > 0 ? wrongAnswerSubmittedBy++ : wrongAnswerSubmittedBy)),
       );
     // .reduce((acc, levels) => acc + (levels.wrongAnswerSubmitted ? 1 : 0), 0);
 
@@ -162,12 +162,12 @@ export class BubblechartComponent implements OnInit, OnChanges {
     this.numberOfCorrectAnswer = this.selectedLevelAnswer.correctAnswerSubmitted;
     this.correctFlagSubmittedBy = Array.from(
       { length: this.selectedLevelAnswer.correctAnswerSubmitted },
-      () => this.correctAnswer
+      () => this.correctAnswer,
     );
     this.wrongFlags = this.createWrongFlagObject();
     this.totalAmountOfSubmittedFlags = selectedLevelAnswers.reduce(
       (acc, answer) => acc + answer.correctAnswerSubmitted + answer.wrongAnswers.length,
-      0
+      0,
     );
 
     this.createChart();
@@ -188,14 +188,14 @@ export class BubblechartComponent implements OnInit, OnChanges {
     };
 
     const correctAnswer = this.trainingInstanceStatistics[0].levelsAnswers.find(
-      (level) => level.id === this.selectedLevel
+      (level) => level.id === this.selectedLevel,
     ).correctAnswer;
 
     const wrongAnswersForLevel = [];
     this.trainingInstanceStatistics.map((statistics) =>
       statistics.levelsAnswers
         .filter((level) => level.id === this.selectedLevel)
-        .forEach((level) => wrongAnswersForLevel.push(...level.wrongAnswers))
+        .forEach((level) => wrongAnswersForLevel.push(...level.wrongAnswers)),
     );
 
     const flagsSet = new Set(wrongAnswersForLevel);
@@ -210,9 +210,9 @@ export class BubblechartComponent implements OnInit, OnChanges {
           participant.levels
             .filter((level) => level.id === this.selectedLevel)
             .map((level) =>
-              level.wrongAnswerSubmitted.find((answer) => answer === flag) ? submittedBy++ : submittedBy
-            )
-        )
+              level.wrongAnswerSubmitted.find((answer) => answer === flag) ? submittedBy++ : submittedBy,
+            ),
+        ),
       );
       wrongFlags.submittedBy.push(submittedBy);
 
@@ -230,10 +230,10 @@ export class BubblechartComponent implements OnInit, OnChanges {
             (participant) =>
               participant.levels.filter(
                 (level) =>
-                  level.id === this.selectedLevel && level.wrongAnswerSubmitted.find((answer) => answer === flag)
-              ).length > 0
-          )
-        )
+                  level.id === this.selectedLevel && level.wrongAnswerSubmitted.find((answer) => answer === flag),
+              ).length > 0,
+          ),
+        ),
       );
       wrongFlags.playerIds.push(participants);
 
@@ -242,9 +242,10 @@ export class BubblechartComponent implements OnInit, OnChanges {
         .filter((statistic) =>
           statistic.participants.filter((participant) =>
             participant.levels.filter(
-              (level) => level.id === this.selectedLevel && level.wrongAnswerSubmitted.find((answer) => answer === flag)
-            )
-          )
+              (level) =>
+                level.id === this.selectedLevel && level.wrongAnswerSubmitted.find((answer) => answer === flag),
+            ),
+          ),
         )
         .map((statistics) => statistics.instanceId);
       wrongFlags.trainingIds.push(instances);
@@ -424,7 +425,7 @@ export class BubblechartComponent implements OnInit, OnChanges {
           parseInt(
             (
               d3.select('#bubblechartPlaceholder').select('mat-grid-list').select('div').node() as any
-            ).getBoundingClientRect().width
+            ).getBoundingClientRect().width,
           ),
       ]);
   }
@@ -442,13 +443,13 @@ export class BubblechartComponent implements OnInit, OnChanges {
     // it will be represented by the biggest circle
     const maxNumberOfSubmissions: number = Math.max(
       this.numberOfCorrectAnswer,
-      Math.max(...this.wrongFlags.numberOfSubmissions)
+      Math.max(...this.wrongFlags.numberOfSubmissions),
     );
     // Gets the flag with the lowest number of submissions ->
     // it will be represented by the smallest circle
     const minNumberOfSubmissions: number = Math.min(
       this.numberOfCorrectAnswer,
-      Math.min(...this.wrongFlags.numberOfSubmissions)
+      Math.min(...this.wrongFlags.numberOfSubmissions),
     );
     const minCircleR = 10;
     // If the biggest circle does not fit
@@ -536,7 +537,7 @@ export class BubblechartComponent implements OnInit, OnChanges {
       parseInt(
         (
           d3.select('#bubblechartPlaceholder').select('mat-grid-list').select('div').node() as any
-        ).getBoundingClientRect().width
+        ).getBoundingClientRect().width,
       );
     const sumOfWidths: number = this.xAxisSvgHeight + this.correctFlagSvgWidth + this.wrongFlagsSvgWidth;
     this.xAxisSvgWidth = gridWidth > sumOfWidths ? sumOfWidths : gridWidth;
@@ -597,7 +598,7 @@ export class BubblechartComponent implements OnInit, OnChanges {
       this.xAxisSvgHeight - 4,
       this.xAxisSvgHeight - 4,
       1.05 * this.svgHeight + 4,
-      4
+      4,
     );
 
     const fontSize: number = this.axesCreationService.getAxisTitleFontSize('#bubblechartPlaceholder');
@@ -609,7 +610,7 @@ export class BubblechartComponent implements OnInit, OnChanges {
         this.xAxisSvgWidth - 4,
         fontSize,
         'Difference between the correct and wrong answers',
-        fontSize
+        fontSize,
       );
     }
     this.axesCreationService.createYAxesTitle(
@@ -617,7 +618,7 @@ export class BubblechartComponent implements OnInit, OnChanges {
       -fontSize,
       this.xAxisSvgHeight - fontSize,
       'Answers count',
-      fontSize
+      fontSize,
     );
   }
 
@@ -669,13 +670,13 @@ export class BubblechartComponent implements OnInit, OnChanges {
         helperForWrongFlags.flags[actualIndex],
         x,
         numberOfSubmissions,
-        this.circleColors[1]
+        this.circleColors[1],
       );
       this.addVisiblePartOfTextToBubble(
         'wrongFlagsSvg',
         helperForWrongFlags.flags[actualIndex],
         x,
-        2 * this.rScale(numberOfSubmissions)
+        2 * this.rScale(numberOfSubmissions),
       );
       // Sets the actual element's edit distance to -1, which enables
       // to find those records which have the same edit distance as the
@@ -698,14 +699,14 @@ export class BubblechartComponent implements OnInit, OnChanges {
       this.correctAnswer,
       this.correctFlagSvgWidth / 2 + this.xAxisSvgHeight,
       this.numberOfCorrectAnswer,
-      this.circleColors[0]
+      this.circleColors[0],
     );
 
     this.addVisiblePartOfTextToBubble(
       'correctFlagSvg',
       this.correctAnswer,
       this.rScale(this.numberOfCorrectAnswer) + this.xAxisSvgHeight,
-      2 * this.rScale(this.numberOfCorrectAnswer)
+      2 * this.rScale(this.numberOfCorrectAnswer),
     );
   }
 
@@ -782,7 +783,7 @@ export class BubblechartComponent implements OnInit, OnChanges {
     const splitPoint: number = (<HTMLElement>event.srcElement).id.indexOf('_');
     const actualId: string = (<HTMLElement>event.srcElement).id.slice(
       splitPoint + 1,
-      (<HTMLElement>event.srcElement).id.length
+      (<HTMLElement>event.srcElement).id.length,
     );
 
     if (actualId === this.correctAnswer) {
@@ -798,9 +799,9 @@ export class BubblechartComponent implements OnInit, OnChanges {
       this.trainingInstanceStatistics.map((statistic) =>
         participants.push(
           ...statistic.participants.filter(
-            (participant) => participant.levels.filter((level) => level.id === this.selectedLevel).length > 0
-          )
-        )
+            (participant) => participant.levels.filter((level) => level.id === this.selectedLevel).length > 0,
+          ),
+        ),
       );
 
       this.highlightInstances.emit(this.trainingInstanceStatistics.map((statistics) => statistics.instanceId));
@@ -845,7 +846,7 @@ export class BubblechartComponent implements OnInit, OnChanges {
     // The longest row of the text determines the tooltip's width
     const maxTextLength: number = Math.max(
       this.correctAnswer.length + 6,
-      this.numberOfCorrectAnswer.toString().length + 11
+      this.numberOfCorrectAnswer.toString().length + 11,
     );
     const width: number = 0.6 * Math.ceil(maxTextLength * fontSize);
     const height: number = Math.round(3.5 * fontSize);
@@ -865,7 +866,7 @@ export class BubblechartComponent implements OnInit, OnChanges {
       y,
       width,
       height,
-      this.tooltipColors[0]
+      this.tooltipColors[0],
     );
     this.tooltipCreationService.addTooltipText(
       '#correctFlagSvg',
@@ -875,7 +876,7 @@ export class BubblechartComponent implements OnInit, OnChanges {
       fontSize,
       [this.correctAnswer, 'submitted ' + this.numberOfCorrectAnswer + 'x'],
       [0, 1.5 * fontSize],
-      this.tooltipColors[1]
+      this.tooltipColors[1],
     );
   }
 
@@ -895,7 +896,7 @@ export class BubblechartComponent implements OnInit, OnChanges {
     const maxTextLength: number = Math.max(
       this.wrongFlags.flags[index].length + 6,
       this.wrongFlags.numberOfSubmissions[index].toString().length + 11,
-      this.wrongFlags.submittedBy[index].toString().length + 14
+      this.wrongFlags.submittedBy[index].toString().length + 14,
     );
     const width: number = 0.6 * Math.ceil(maxTextLength * fontSize);
     const height: number = 4.5 * fontSize;
@@ -915,7 +916,7 @@ export class BubblechartComponent implements OnInit, OnChanges {
       y,
       width,
       height,
-      this.tooltipColors[0]
+      this.tooltipColors[0],
     );
     this.tooltipCreationService.addTooltipText(
       '#wrongFlagsSvg',
@@ -929,7 +930,7 @@ export class BubblechartComponent implements OnInit, OnChanges {
         '(by ' + this.wrongFlags.submittedBy[index] + ' participants)',
       ],
       [0, 1.5 * fontSize, 1.2 * fontSize],
-      this.tooltipColors[1]
+      this.tooltipColors[1],
     );
   }
 
@@ -958,7 +959,7 @@ export class BubblechartComponent implements OnInit, OnChanges {
       ['correct answer', 'wrong answer'],
       [0, 0],
       [0, 0.2 * this.legendSvgWidth],
-      'start'
+      'start',
     );
     this.legendCreationService.createLegendRect(
       '#bubblechartLegendSvg',
@@ -968,7 +969,7 @@ export class BubblechartComponent implements OnInit, OnChanges {
       [this.svgHeight / 2 - 0.1 * this.legendSvgWidth, this.svgHeight / 2 + 0.1 * this.legendSvgWidth],
       fontSize,
       fontSize,
-      [1, 1]
+      [1, 1],
     );
   }
 }

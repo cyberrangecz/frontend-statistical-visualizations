@@ -10,14 +10,18 @@ import { TrainingInstanceStatistics } from '@muni-kypo-crp/statistical-visualiza
 
 @Injectable()
 export class InstanceStatisticsDefaultApiService extends InstanceStatisticsApiService {
-  private readonly trainingInstancesEndpoint = this.config.trainingServiceUrl + 'visualizations';
+  private trainingInstancesEndpoint: string;
 
-  constructor(private http: HttpClient, private config: StatisticalVizConfig) {
+  constructor(
+    private http: HttpClient,
+    config: StatisticalVizConfig,
+  ) {
     super();
-    if (this.config.trainingServiceUrl === undefined || this.config.trainingServiceUrl === null) {
+    this.trainingInstancesEndpoint = config.trainingServiceUrl + '/training-instances';
+    if (config.trainingServiceUrl === undefined || config.trainingServiceUrl === null) {
       throw new Error(
         'StatisticalVizConfig is null or undefined. Please provide it in forRoot() method of StatisticalVisualizationModule' +
-          ' or provide own implementation of API services'
+          ' or provide own implementation of API services',
       );
     }
   }

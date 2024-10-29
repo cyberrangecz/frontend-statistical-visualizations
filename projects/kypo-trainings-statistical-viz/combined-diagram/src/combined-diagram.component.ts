@@ -66,7 +66,7 @@ export class CombinedDiagramComponent implements OnInit, OnChanges {
     private axesCreationService: AxesCreationService,
     private svgConfigurationService: SvgConfigurationService,
     private legendCreationService: LegendCreationService,
-    private tooltipCreationService: TooltipCreationService
+    private tooltipCreationService: TooltipCreationService,
   ) {}
 
   /**
@@ -149,9 +149,9 @@ export class CombinedDiagramComponent implements OnInit, OnChanges {
     this.maxScore = Math.max(
       ...this.trainingInstanceStatistics
         .map((instance) =>
-          instance.participants.map((participant) => participant.levels.reduce((a, b) => a + b.score, 0))
+          instance.participants.map((participant) => participant.levels.reduce((a, b) => a + b.score, 0)),
         )
-        .reduce((a, b) => (Math.max(...a) > Math.max(...b) ? a : b))
+        .reduce((a, b) => (Math.max(...a) > Math.max(...b) ? a : b)),
     );
     this.roundRanges();
     this.createChart();
@@ -364,7 +364,7 @@ export class CombinedDiagramComponent implements OnInit, OnChanges {
         .scaleBand()
         .domain(this.trainingInstanceStatistics.map((instance) => `Training ${instance.instanceId}`))
         .range([0, this.chartSvgWidth])
-        .padding(0.4)
+        .padding(0.4),
     );
     const leftYAxes: d3.Axis<number | { valueOf(): number }> = d3
       .axisLeft(this.leftYScale)
@@ -387,7 +387,7 @@ export class CombinedDiagramComponent implements OnInit, OnChanges {
       `${0.98 * this.leftAxisSvgWidth}, 0`,
       this.axesCreationService.getAxisFontSize('#combinedDiagramPlaceholder'),
       '#rightAxisSvg',
-      rightYAxes
+      rightYAxes,
     );
 
     this.axesCreationService.createXAxesTitle(
@@ -396,21 +396,21 @@ export class CombinedDiagramComponent implements OnInit, OnChanges {
       this.svgHeight,
       'Training events',
       this.axesCreationService.getAxisTitleFontSize('#combinedDiagramPlaceholder'),
-      'middle'
+      'middle',
     );
     this.axesCreationService.createYAxesTitle(
       '#leftAxisSvg',
       -this.margin,
       this.margin / 2,
       'Number of participants',
-      this.axesCreationService.getAxisTitleFontSize('#combinedDiagramPlaceholder')
+      this.axesCreationService.getAxisTitleFontSize('#combinedDiagramPlaceholder'),
     );
     this.axesCreationService.createYAxesTitle(
       '#rightAxisSvg',
       -this.margin,
       this.rightAxisSvgWidth,
       'Gained score',
-      this.axesCreationService.getAxisTitleFontSize('#combinedDiagramPlaceholder')
+      this.axesCreationService.getAxisTitleFontSize('#combinedDiagramPlaceholder'),
     );
   }
 
@@ -445,7 +445,7 @@ export class CombinedDiagramComponent implements OnInit, OnChanges {
       .attr('id', (d: TrainingInstanceStatistics, i: number) => 'participants_' + i)
       .attr('x', (d: TrainingInstanceStatistics) => this.xScale(String(d.instanceId)))
       .attr('y', (d: TrainingInstanceStatistics) =>
-        Number.isNaN(this.leftYScale(d.participants.length)) ? 0 : this.leftYScale(d.participants.length)
+        Number.isNaN(this.leftYScale(d.participants.length)) ? 0 : this.leftYScale(d.participants.length),
       )
       .attr('height', (d: TrainingInstanceStatistics) => {
         const leftYScaleValue = Number.isNaN(this.leftYScale(d.participants.length))
@@ -484,7 +484,7 @@ export class CombinedDiagramComponent implements OnInit, OnChanges {
       .attr('id', (d: TrainingInstanceStatistics, i: number) => 'average_' + i)
       .attr('cx', (d: TrainingInstanceStatistics) => this.xScale(String(d.instanceId)) + this.xScale.bandwidth() / 2)
       .attr('cy', (d: TrainingInstanceStatistics) =>
-        Number.isNaN(this.rightYScale(d.averageScore)) ? 0 : this.rightYScale(d.averageScore)
+        Number.isNaN(this.rightYScale(d.averageScore)) ? 0 : this.rightYScale(d.averageScore),
       )
       .attr('r', '1%')
       .attr('fill', this.colors[1])
@@ -519,7 +519,7 @@ export class CombinedDiagramComponent implements OnInit, OnChanges {
       .attr('id', (d: TrainingInstanceStatistics, i: number) => 'median_' + i)
       .attr('cx', (d: TrainingInstanceStatistics) => this.xScale(String(d.instanceId)) + this.xScale.bandwidth() / 2)
       .attr('cy', (d: TrainingInstanceStatistics) =>
-        Number.isNaN(this.rightYScale(d.medianScore)) ? 0 : this.rightYScale(d.medianScore)
+        Number.isNaN(this.rightYScale(d.medianScore)) ? 0 : this.rightYScale(d.medianScore),
       )
       .attr('r', '1%')
       .attr('fill', this.colors[2])
@@ -617,7 +617,7 @@ export class CombinedDiagramComponent implements OnInit, OnChanges {
       y,
       width,
       height,
-      this.tooltipColors[0]
+      this.tooltipColors[0],
     );
     this.tooltipCreationService.addTooltipText(
       '#combinedDiagramChartSvg',
@@ -627,7 +627,7 @@ export class CombinedDiagramComponent implements OnInit, OnChanges {
       this.tooltipCreationService.getTooltipFontSize('#combinedDiagramPlaceholder'),
       text,
       [0, 1.5 * yShift, yShift],
-      this.tooltipColors[1]
+      this.tooltipColors[1],
     );
   }
 
@@ -698,7 +698,7 @@ export class CombinedDiagramComponent implements OnInit, OnChanges {
       ['Number of participants', 'Average gained score', 'Median of gained score'],
       [0, 0, 0],
       [0, 2.5 * fontSize, 2.5 * fontSize],
-      'left'
+      'left',
     );
     // Creates a marker for the bars (it is represented by a square)
     this.legendCreationService.createLegendRect(
@@ -709,7 +709,7 @@ export class CombinedDiagramComponent implements OnInit, OnChanges {
       [0.1 * this.svgHeight],
       0.08 * this.legendSvgWidth,
       0.08 * this.legendSvgWidth,
-      [1]
+      [1],
     );
     // Creates markers for the lines (they are represented
     // by flatter rectangles than the bars)
@@ -721,7 +721,7 @@ export class CombinedDiagramComponent implements OnInit, OnChanges {
       [0.12 * this.svgHeight + 2.5 * fontSize, 0.12 * this.svgHeight + 5 * fontSize],
       0.08 * this.legendSvgWidth,
       0.01 * this.legendSvgWidth,
-      [1, 1]
+      [1, 1],
     );
   }
 }

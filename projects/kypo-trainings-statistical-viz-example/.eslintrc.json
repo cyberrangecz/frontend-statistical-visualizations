@@ -8,9 +8,6 @@
         "*.ts"
       ],
       "parserOptions": {
-        "project": [
-          "projects/kypo-trainings-statistical-viz-example/tsconfig.*?.json"
-        ],
         "createDefaultProgram": true
       },
       "rules": {

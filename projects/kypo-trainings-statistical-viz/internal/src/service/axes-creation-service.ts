@@ -33,7 +33,7 @@ export class AxesCreationService {
     translateY: string,
     fontSize: number,
     multipleAxisCanvasId?: string,
-    multipleAxis?: any
+    multipleAxis?: any,
   ): void {
     d3.select(xCanvasId)
       .append('g')
