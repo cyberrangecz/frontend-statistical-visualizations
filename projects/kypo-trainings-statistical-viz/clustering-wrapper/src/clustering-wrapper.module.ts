@@ -1,8 +1,8 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ClusteringWrapperComponent } from './clustering-wrapper.component';
-import { StatisticalVizConfig } from '@muni-kypo-crp/statistical-visualizations/internal';
-import { KypoTrainingsVisualizationOverviewLibModule } from '@muni-kypo-crp/overview-visualization';
+import { StatisticalVizConfig } from '@cyberrangecz-platform/statistical-visualizations/internal';
+import { KypoTrainingsVisualizationOverviewLibModule } from '@cyberrangecz-platform/overview-visualization';
 import { ClusteringWrapperMaterialModule } from './clustering-wrapper-material.module';
 
 @NgModule({

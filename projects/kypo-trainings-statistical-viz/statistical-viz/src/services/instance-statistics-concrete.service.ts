@@ -1,6 +1,6 @@
 import { InstanceStatisticsService } from './instance-statistics.service';
 import { Observable, tap } from 'rxjs';
-import { TrainingInstanceStatistics } from '@muni-kypo-crp/statistical-visualizations/internal';
+import { TrainingInstanceStatistics } from '@cyberrangecz-platform/statistical-visualizations/internal';
 import { InstanceStatisticsApiService } from './api/instance-statistics-api.service';
 import { Injectable } from '@angular/core';
 

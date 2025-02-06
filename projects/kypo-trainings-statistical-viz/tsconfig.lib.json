@@ -1,35 +1,55 @@
 {
-  "extends": "../../tsconfig.json",
-  "compilerOptions": {
-    "outDir": "../../out-tsc/lib",
-    "target": "es2020",
-    "declaration": true,
-    "inlineSources": true,
-    "types": [],
-    "lib": [
-      "dom",
-      "es2018"
-    ],
-    "paths": {
-      "@muni-kypo-crp/statistical-visualizations/barchart": ["./barchart/src/public_api.ts"],
-      "@muni-kypo-crp/statistical-visualizations/bubblechart": ["./bubblechart/src/public_api.ts"],
-      "@muni-kypo-crp/statistical-visualizations/clustering-wrapper": ["./clustering-wrapper/src/public_api.ts"],
-      "@muni-kypo-crp/statistical-visualizations/combined-diagram": ["./combined-diagram/src/public_api.ts"],
-      "@muni-kypo-crp/statistical-visualizations/scatterplot": ["./scatterplot/src/public_api.ts"],
-      "@muni-kypo-crp/statistical-visualizations/filters": ["./filters/src/public_api.ts"],
-      "@muni-kypo-crp/statistical-visualizations/statistical-viz": ["./statistical-viz/src/public_api.ts"],
-      "@muni-kypo-crp/statistical-visualizations/internal": ["./internal/src/public_api.ts"],
-      "@muni-kypo-crp/statistical-visualizations/scatter-clusters-wrapper": ["./scatter-clusters-wrapper/src/public_api.ts"],
-      "@muni-kypo-crp/statistical-visualizations/radar-chart-wrapper": ["./radar-chart-wrapper/src/public_api.ts"]
-    }
-  },
-  "angularCompilerOptions": {
-    "skipTemplateCodegen": true,
-    "strictMetadataEmit": true,
-    "enableResourceInlining": true
-  },
-  "exclude": [
-    "test.ts",
-    "**/*.spec.ts"
-  ]
+    "extends": "../../tsconfig.json",
+    "compilerOptions": {
+        "outDir": "../../out-tsc/lib",
+        "target": "es2020",
+        "declaration": true,
+        "inlineSources": true,
+        "types": [],
+        "lib": [
+            "dom",
+            "es2018"
+        ],
+        "paths": {
+            "@cyberrangecz-platform/statistical-visualizations/barchart": [
+                "./barchart/src/public_api.ts"
+            ],
+            "@cyberrangecz-platform/statistical-visualizations/bubblechart": [
+                "./bubblechart/src/public_api.ts"
+            ],
+            "@cyberrangecz-platform/statistical-visualizations/clustering-wrapper": [
+                "./clustering-wrapper/src/public_api.ts"
+            ],
+            "@cyberrangecz-platform/statistical-visualizations/combined-diagram": [
+                "./combined-diagram/src/public_api.ts"
+            ],
+            "@cyberrangecz-platform/statistical-visualizations/scatterplot": [
+                "./scatterplot/src/public_api.ts"
+            ],
+            "@cyberrangecz-platform/statistical-visualizations/filters": [
+                "./filters/src/public_api.ts"
+            ],
+            "@cyberrangecz-platform/statistical-visualizations/statistical-viz": [
+                "./statistical-viz/src/public_api.ts"
+            ],
+            "@cyberrangecz-platform/statistical-visualizations/internal": [
+                "./internal/src/public_api.ts"
+            ],
+            "@cyberrangecz-platform/statistical-visualizations/scatter-clusters-wrapper": [
+                "./scatter-clusters-wrapper/src/public_api.ts"
+            ],
+            "@cyberrangecz-platform/statistical-visualizations/radar-chart-wrapper": [
+                "./radar-chart-wrapper/src/public_api.ts"
+            ]
+        }
+    },
+    "angularCompilerOptions": {
+        "skipTemplateCodegen": true,
+        "strictMetadataEmit": true,
+        "enableResourceInlining": true
+    },
+    "exclude": [
+        "test.ts",
+        "**/*.spec.ts"
+    ]
 }

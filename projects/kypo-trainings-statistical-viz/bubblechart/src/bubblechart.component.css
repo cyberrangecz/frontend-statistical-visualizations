@@ -1,55 +1,56 @@
 :host {
-  display: flex;
+    display: flex;
 }
+
 #bubblechartPlaceholder {
-  box-sizing: border-box;
-  display: inline-block;
-  padding: 0.5vw;
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 0.5vw;
 }
 
 .info-container {
-  padding-top: 20px;
-  padding-left: 10px;
-  color: gainsboro;
+    padding-top: 20px;
+    padding-left: 10px;
+    color: gainsboro;
 }
 
 mat-card {
-  width: calc(100% - 32px);
-  height: 100%;
-  padding-top: calc(5px + 0.5vw);
-  padding-bottom: calc(5px + 0.5vw);
+    width: calc(100% - 32px);
+    height: 100%;
+    padding-top: calc(5px + 0.5vw);
+    padding-bottom: calc(5px + 0.5vw);
 }
 
 mat-card-title {
-  padding: calc(5px + 0.2vw);
-  margin-bottom: calc(2px + 0.2vw);
-  font-size: calc(8px + 0.5vw) !important;
-  overflow-y: visible;
+    padding: calc(5px + 0.2vw);
+    margin-bottom: calc(2px + 0.2vw);
+    font-size: calc(8px + 0.5vw) !important;
+    overflow-y: visible;
 }
 
 mat-card-content {
-  height: 90%;
+    height: 90%;
 }
 
 mat-grid-tile {
-  overflow: visible;
+    overflow: visible;
 }
 
 mat-grid-tile > ::ng-deep figure {
-  justify-content: flex-start !important;
+    justify-content: flex-start !important;
 }
 
 #correctFlagSvg,
 #wrongFlagsSvg,
 #xAxisSvg {
-  overflow: visible;
+    overflow: visible;
 }
 
 #bubblechartSvgPlaceholder {
-  position: absolute;
-  z-index: 10;
+    position: absolute;
+    z-index: 10;
 }
 
 .horizontallyScrollable {
-  overflow-x: scroll;
+    overflow-x: scroll;
 }

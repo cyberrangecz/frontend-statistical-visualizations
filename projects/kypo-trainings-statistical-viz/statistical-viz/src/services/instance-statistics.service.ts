@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { TrainingInstanceStatistics } from '@muni-kypo-crp/statistical-visualizations/internal';
+import { TrainingInstanceStatistics } from '@cyberrangecz-platform/statistical-visualizations/internal';
 
 @Injectable()
 export abstract class InstanceStatisticsService {

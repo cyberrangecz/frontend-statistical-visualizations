@@ -6,11 +6,11 @@ import {
   LegendCreationService,
   SvgConfigurationService,
   TooltipCreationService,
-} from '@muni-kypo-crp/statistical-visualizations/internal';
+} from '@cyberrangecz-platform/statistical-visualizations/internal';
 import {
   ClusteringVisualizationConfig,
   KypoTrainingsClusteringVizLibModule,
-} from '@muni-kypo-crp/clustering-visualization';
+} from '@cyberrangecz-platform/clustering-visualization';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatGridListModule } from '@angular/material/grid-list';

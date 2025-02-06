@@ -1,8 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { BehaviorSubject, Observable, take } from 'rxjs';
-import { TrainingInstanceStatistics } from '@muni-kypo-crp/statistical-visualizations/internal';
+import { IFilter, TrainingInstanceStatistics } from '@cyberrangecz-platform/statistical-visualizations/internal';
 import { InstanceStatisticsService } from './services/instance-statistics.service';
-import { IFilter } from '@muni-kypo-crp/statistical-visualizations/internal';
 import { map } from 'rxjs/operators';
 
 @Component({

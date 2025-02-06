@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { StatisticalOverviewPageComponent } from './statistical-overview-page.component';
 import { StatisticalRoutingPageModule } from './statistical-routing-page.module';
 import { environment } from '../../environments/environment';
-import { StatisticalVisualizationModule } from '@muni-kypo-crp/statistical-visualizations/statistical-viz';
+import { StatisticalVisualizationModule } from '@cyberrangecz-platform/statistical-visualizations/statistical-viz';
 
 @NgModule({
   declarations: [StatisticalOverviewPageComponent],

@@ -1,193 +1,193 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1,
-  "newProjectRoot": "projects",
-  "projects": {
-    "kypo-trainings-statistical-viz": {
-      "root": "projects/kypo-trainings-statistical-viz",
-      "sourceRoot": "projects/kypo-trainings-statistical-viz/src",
-      "projectType": "library",
-      "prefix": "kypo-viz-statistical",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "tsConfig": "projects/kypo-trainings-statistical-viz/tsconfig.lib.json",
-            "project": "projects/kypo-trainings-statistical-viz/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/kypo-trainings-statistical-viz/tsconfig.lib.prod.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/kypo-trainings-statistical-viz/src/test.ts",
-            "tsConfig": "projects/kypo-trainings-statistical-viz/tsconfig.spec.json",
-            "karmaConfig": "projects/kypo-trainings-statistical-viz/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-eslint/builder:lint",
-          "options": {
-            "lintFilePatterns": [
-              "projects/kypo-trainings-statistical-viz/**/*.ts",
-              "projects/kypo-trainings-statistical-viz/**/*.component.html"
-            ]
-          }
-        }
-      }
-    },
-    "kypo-trainings-statistical-viz-example": {
-      "root": "projects/kypo-trainings-statistical-viz-example",
-      "sourceRoot": "projects/kypo-trainings-statistical-viz-example/src",
-      "projectType": "application",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/kypo-trainings-statistical-viz-example",
-            "index": "projects/kypo-trainings-statistical-viz-example/src/index.html",
-            "main": "projects/kypo-trainings-statistical-viz-example/src/main.ts",
-            "polyfills": "projects/kypo-trainings-statistical-viz-example/src/polyfills.ts",
-            "tsConfig": "projects/kypo-trainings-statistical-viz-example/tsconfig.app.json",
-            "assets": [
-              "projects/kypo-trainings-statistical-viz-example/src/favicon.ico",
-              "projects/kypo-trainings-statistical-viz-example/src/assets"
-            ],
-            "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "projects/kypo-trainings-statistical-viz-example/src/theme.scss",
-              "projects/kypo-trainings-statistical-viz-example/src/variables.scss",
-              "projects/kypo-trainings-statistical-viz-example/src/styles.scss"
-            ],
-            "scripts": [],
-            "vendorChunk": true,
-            "extractLicenses": false,
-            "buildOptimizer": false,
-            "sourceMap": true,
-            "optimization": false,
-            "namedChunks": true
-          },
-          "configurations": {
-            "production": {
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "version": 1,
+    "newProjectRoot": "projects",
+    "projects": {
+        "kypo-trainings-statistical-viz": {
+            "root": "projects/kypo-trainings-statistical-viz",
+            "sourceRoot": "projects/kypo-trainings-statistical-viz/src",
+            "projectType": "library",
+            "prefix": "kypo-viz-statistical",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:ng-packagr",
+                    "options": {
+                        "tsConfig": "projects/kypo-trainings-statistical-viz/tsconfig.lib.json",
+                        "project": "projects/kypo-trainings-statistical-viz/ng-package.json"
+                    },
+                    "configurations": {
+                        "production": {
+                            "tsConfig": "projects/kypo-trainings-statistical-viz/tsconfig.lib.prod.json"
+                        }
+                    }
                 },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "projects/kypo-trainings-statistical-viz/src/test.ts",
+                        "tsConfig": "projects/kypo-trainings-statistical-viz/tsconfig.spec.json",
+                        "karmaConfig": "projects/kypo-trainings-statistical-viz/karma.conf.js"
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-eslint/builder:lint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "projects/kypo-trainings-statistical-viz/**/*.ts",
+                            "projects/kypo-trainings-statistical-viz/**/*.component.html"
+                        ]
+                    }
                 }
-              ],
-              "fileReplacements": [
-                {
-                  "replace": "projects/kypo-trainings-statistical-viz-example/src/environments/environment.ts",
-                  "with": "projects/kypo-trainings-statistical-viz-example/src/environments/environment.prod.ts"
-                }
-              ]
-            },
-            "local": {
-              "budgets": [
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb"
-                }
-              ],
-              "fileReplacements": [
-                {
-                  "replace": "projects/kypo-trainings-statistical-viz-example/src/environments/environment.ts",
-                  "with": "projects/kypo-trainings-statistical-viz-example/src/environments/environment.local.ts"
-                }
-              ]
             }
-          },
-          "defaultConfiguration": ""
         },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "buildTarget": "kypo-trainings-statistical-viz-example:build"
-          },
-          "configurations": {
-            "production": {
-              "buildTarget": "kypo-trainings-statistical-viz-example:build:production"
-            },
-            "local": {
-              "buildTarget": "kypo-trainings-statistical-viz-example:build:local"
+        "kypo-trainings-statistical-viz-example": {
+            "root": "projects/kypo-trainings-statistical-viz-example",
+            "sourceRoot": "projects/kypo-trainings-statistical-viz-example/src",
+            "projectType": "application",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:browser",
+                    "options": {
+                        "outputPath": "dist/kypo-trainings-statistical-viz-example",
+                        "index": "projects/kypo-trainings-statistical-viz-example/src/index.html",
+                        "main": "projects/kypo-trainings-statistical-viz-example/src/main.ts",
+                        "polyfills": "projects/kypo-trainings-statistical-viz-example/src/polyfills.ts",
+                        "tsConfig": "projects/kypo-trainings-statistical-viz-example/tsconfig.app.json",
+                        "assets": [
+                            "projects/kypo-trainings-statistical-viz-example/src/favicon.ico",
+                            "projects/kypo-trainings-statistical-viz-example/src/assets"
+                        ],
+                        "styles": [
+                            "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+                            "projects/kypo-trainings-statistical-viz-example/src/theme.scss",
+                            "projects/kypo-trainings-statistical-viz-example/src/variables.scss",
+                            "projects/kypo-trainings-statistical-viz-example/src/styles.scss"
+                        ],
+                        "scripts": [],
+                        "vendorChunk": true,
+                        "extractLicenses": false,
+                        "buildOptimizer": false,
+                        "sourceMap": true,
+                        "optimization": false,
+                        "namedChunks": true
+                    },
+                    "configurations": {
+                        "production": {
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "namedChunks": false,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "buildOptimizer": true,
+                            "budgets": [
+                                {
+                                    "type": "initial",
+                                    "maximumWarning": "2mb",
+                                    "maximumError": "5mb"
+                                },
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "6kb",
+                                    "maximumError": "10kb"
+                                }
+                            ],
+                            "fileReplacements": [
+                                {
+                                    "replace": "projects/kypo-trainings-statistical-viz-example/src/environments/environment.ts",
+                                    "with": "projects/kypo-trainings-statistical-viz-example/src/environments/environment.prod.ts"
+                                }
+                            ]
+                        },
+                        "local": {
+                            "budgets": [
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "6kb"
+                                }
+                            ],
+                            "fileReplacements": [
+                                {
+                                    "replace": "projects/kypo-trainings-statistical-viz-example/src/environments/environment.ts",
+                                    "with": "projects/kypo-trainings-statistical-viz-example/src/environments/environment.local.ts"
+                                }
+                            ]
+                        }
+                    },
+                    "defaultConfiguration": ""
+                },
+                "serve": {
+                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "options": {
+                        "buildTarget": "kypo-trainings-statistical-viz-example:build"
+                    },
+                    "configurations": {
+                        "production": {
+                            "buildTarget": "kypo-trainings-statistical-viz-example:build:production"
+                        },
+                        "local": {
+                            "buildTarget": "kypo-trainings-statistical-viz-example:build:local"
+                        }
+                    }
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "buildTarget": "kypo-trainings-statistical-viz-example:build"
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "projects/kypo-trainings-statistical-viz-example/src/test.ts",
+                        "karmaConfig": "./karma.conf.js",
+                        "polyfills": "projects/kypo-trainings-statistical-viz-example/src/polyfills.ts",
+                        "tsConfig": "projects/kypo-trainings-statistical-viz-example/tsconfig.spec.json",
+                        "scripts": [],
+                        "styles": [
+                            "projects/kypo-trainings-statistical-viz-example/src/styles.css"
+                        ],
+                        "assets": [
+                            "projects/kypo-trainings-statistical-viz-example/src/assets",
+                            "projects/kypo-trainings-statistical-viz-example/src/favicon.ico"
+                        ]
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-eslint/builder:lint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "projects/kypo-trainings-statistical-viz-example/**/*.ts",
+                            "projects/kypo-trainings-statistical-viz-example/**/*.component.html"
+                        ]
+                    }
+                }
             }
-          }
         },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "buildTarget": "kypo-trainings-statistical-viz-example:build"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/kypo-trainings-statistical-viz-example/src/test.ts",
-            "karmaConfig": "./karma.conf.js",
-            "polyfills": "projects/kypo-trainings-statistical-viz-example/src/polyfills.ts",
-            "tsConfig": "projects/kypo-trainings-statistical-viz-example/tsconfig.spec.json",
-            "scripts": [],
-            "styles": [
-              "projects/kypo-trainings-statistical-viz-example/src/styles.css"
-            ],
-            "assets": [
-              "projects/kypo-trainings-statistical-viz-example/src/assets",
-              "projects/kypo-trainings-statistical-viz-example/src/favicon.ico"
-            ]
-          }
-        },
-        "lint": {
-          "builder": "@angular-eslint/builder:lint",
-          "options": {
-            "lintFilePatterns": [
-              "projects/kypo-trainings-statistical-viz-example/**/*.ts",
-              "projects/kypo-trainings-statistical-viz-example/**/*.component.html"
-            ]
-          }
+        "kypo-trainings-statistical-viz-example-e2e": {
+            "root": "e2e",
+            "sourceRoot": "e2e",
+            "projectType": "application",
+            "architect": {
+                "e2e": {
+                    "builder": "@angular-devkit/build-angular:protractor",
+                    "options": {
+                        "protractorConfig": "./protractor.conf.js",
+                        "devServerTarget": "kypo-trainings-statistical-viz-example:serve:development"
+                    }
+                }
+            }
         }
-      }
     },
-    "kypo-trainings-statistical-viz-example-e2e": {
-      "root": "e2e",
-      "sourceRoot": "e2e",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "kypo-trainings-statistical-viz-example:serve:development"
-          }
+    "schematics": {
+        "@angular-eslint/schematics:application": {
+            "setParserOptionsProject": true
+        },
+        "@angular-eslint/schematics:library": {
+            "setParserOptionsProject": true
         }
-      }
-    }
-  },
-  "schematics": {
-    "@angular-eslint/schematics:application": {
-      "setParserOptionsProject": true
     },
-    "@angular-eslint/schematics:library": {
-      "setParserOptionsProject": true
+    "cli": {
+        "analytics": false
     }
-  },
-  "cli": {
-    "analytics": false
-  }
 }

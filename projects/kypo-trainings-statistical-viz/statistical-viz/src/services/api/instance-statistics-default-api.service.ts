@@ -2,11 +2,10 @@ import { InstanceStatisticsApiService } from './instance-statistics-api.service'
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { StatisticalVizConfig } from '@muni-kypo-crp/statistical-visualizations/internal';
+import { StatisticalVizConfig, TrainingInstanceStatistics } from '@cyberrangecz-platform/statistical-visualizations/internal';
 import { map } from 'rxjs/operators';
 import { TrainingInstanceMapper } from '../mappers/training-instance-mapper';
 import { TrainingInstanceStatisticsDTO } from '../../DTOs/training-instance-statistics-dto';
-import { TrainingInstanceStatistics } from '@muni-kypo-crp/statistical-visualizations/internal';
 
 @Injectable()
 export class InstanceStatisticsDefaultApiService extends InstanceStatisticsApiService {

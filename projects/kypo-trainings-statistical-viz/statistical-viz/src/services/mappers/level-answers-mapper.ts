@@ -1,5 +1,5 @@
 import { LevelAnswersDTO } from '../../DTOs/level-answers-dto';
-import { LevelAnswers } from '@muni-kypo-crp/statistical-visualizations/internal';
+import { LevelAnswers } from '@cyberrangecz-platform/statistical-visualizations/internal';
 
 export class LevelAnswersMapper {
   static fromDTOs(dtos: LevelAnswersDTO[]): LevelAnswers[] {

@@ -1,5 +1,5 @@
 import { LevelDTO } from '../../DTOs/level-dto';
-import { Level } from '@muni-kypo-crp/statistical-visualizations/internal';
+import { Level } from '@cyberrangecz-platform/statistical-visualizations/internal';
 
 export class LevelsMapper {
   static fromDTOs(dtos: LevelDTO[]): Level[] {

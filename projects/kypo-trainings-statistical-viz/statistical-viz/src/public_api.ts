@@ -1,5 +1,5 @@
 /*
- * Public API Surface of @muni-kypo-crp/statistical-visualizations/statistical-viz
+ * Public API Surface of @cyberrangecz-platform/statistical-visualizations/statistical-viz
  */
 
 export * from './statistical-viz.component';

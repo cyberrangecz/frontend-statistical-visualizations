@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs';
-import { TrainingInstanceStatistics } from '@muni-kypo-crp/statistical-visualizations/internal';
+import { TrainingInstanceStatistics } from '@cyberrangecz-platform/statistical-visualizations/internal';
 
 export abstract class InstanceStatisticsApiService {
   /**

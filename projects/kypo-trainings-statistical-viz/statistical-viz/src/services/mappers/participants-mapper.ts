@@ -1,5 +1,5 @@
 import { ParticipantDTO } from '../../DTOs/participant-dto';
-import { Participant } from '@muni-kypo-crp/statistical-visualizations/internal';
+import { Participant } from '@cyberrangecz-platform/statistical-visualizations/internal';
 import { LevelsMapper } from './levels-mapper';
 
 export class ParticipantsMapper {

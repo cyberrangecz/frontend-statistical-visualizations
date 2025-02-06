@@ -7,7 +7,7 @@ import {
   LegendCreationService,
   SvgConfigurationService,
   TooltipCreationService,
-} from '@muni-kypo-crp/statistical-visualizations/internal';
+} from '@cyberrangecz-platform/statistical-visualizations/internal';
 
 @NgModule({
   declarations: [CombinedDiagramComponent],

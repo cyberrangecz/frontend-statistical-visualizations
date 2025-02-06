@@ -1,4 +1,4 @@
-import { TrainingInstanceStatistics } from '@muni-kypo-crp/statistical-visualizations/internal';
+import { TrainingInstanceStatistics } from '@cyberrangecz-platform/statistical-visualizations/internal';
 import { TrainingInstanceStatisticsDTO } from '../../DTOs/training-instance-statistics-dto';
 import { ParticipantsMapper } from './participants-mapper';
 import { LevelAnswersMapper } from './level-answers-mapper';

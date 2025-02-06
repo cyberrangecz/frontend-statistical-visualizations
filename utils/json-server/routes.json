@@ -1,10 +1,10 @@
 {
-  "/kypo-rest-training/api/v1/visualizations/training-definitions/:definitionId": "/instances",
-  "/kypo-rest-training/api/v1/visualizations/training-instances/clustering:params": "/clustering",
-  "/kypo-rest-training/api/v1/clusters/training-definitions/:id/wrong-answers:params": "/clusters",
-  "/kypo-rest-training/api/v1/clusters/training-definitions/:id/hints:params": "/clusters2",
-  "/kypo-rest-training/api/v1/clusters/training-definitions/:id/n-dimensional:params": "/radarChart",
-  "/kypo-rest-training/api/v1/clusters/training-definitions/:id/wrong-answers/sse:params": "/sse1",
-  "/kypo-rest-training/api/v1/clusters/training-definitions/:id/hints/sse:params": "/sse2",
-  "/kypo-rest-training/api/v1/clusters/training-definitions/:id/n-dimensional/sse:params": "/sseNDim"
+    "/kypo-rest-training/api/v1/visualizations/training-definitions/:definitionId": "/instances",
+    "/kypo-rest-training/api/v1/visualizations/training-instances/clustering:params": "/clustering",
+    "/kypo-rest-training/api/v1/clusters/training-definitions/:id/wrong-answers:params": "/clusters",
+    "/kypo-rest-training/api/v1/clusters/training-definitions/:id/hints:params": "/clusters2",
+    "/kypo-rest-training/api/v1/clusters/training-definitions/:id/n-dimensional:params": "/radarChart",
+    "/kypo-rest-training/api/v1/clusters/training-definitions/:id/wrong-answers/sse:params": "/sse1",
+    "/kypo-rest-training/api/v1/clusters/training-definitions/:id/hints/sse:params": "/sse2",
+    "/kypo-rest-training/api/v1/clusters/training-definitions/:id/n-dimensional/sse:params": "/sseNDim"
 }

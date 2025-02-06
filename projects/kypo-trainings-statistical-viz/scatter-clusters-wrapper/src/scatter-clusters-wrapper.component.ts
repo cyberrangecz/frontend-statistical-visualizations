@@ -7,7 +7,7 @@ import {
   OnChanges,
   SimpleChanges,
 } from '@angular/core';
-import { TrainingInstanceStatistics } from '@muni-kypo-crp/statistical-visualizations/internal';
+import { TrainingInstanceStatistics } from '@cyberrangecz-platform/statistical-visualizations/internal';
 import * as d3 from 'd3';
 
 @Component({

@@ -1,24 +1,24 @@
 import {
+  ChangeDetectionStrategy,
   Component,
-  OnInit,
-  Input,
-  OnChanges,
-  SimpleChanges,
-  Output,
   EventEmitter,
   HostListener,
-  ChangeDetectionStrategy,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
 } from '@angular/core';
 import * as d3 from 'd3';
-import { TrainingInstanceStatistics } from '@muni-kypo-crp/statistical-visualizations/internal';
-import { LevelAnswers } from '@muni-kypo-crp/statistical-visualizations/internal';
 import {
   AxesCreationService,
   LegendCreationService,
+  LevelAnswers,
+  Participant,
   SvgConfigurationService,
   TooltipCreationService,
-} from '@muni-kypo-crp/statistical-visualizations/internal';
-import { Participant } from '@muni-kypo-crp/statistical-visualizations/internal';
+  TrainingInstanceStatistics,
+} from '@cyberrangecz-platform/statistical-visualizations/internal';
 import * as levenshtein from 'fast-levenshtein';
 
 @Component({

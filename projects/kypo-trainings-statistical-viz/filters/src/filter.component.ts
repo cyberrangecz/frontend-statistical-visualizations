@@ -1,17 +1,16 @@
 import {
-  Component,
-  OnInit,
-  Input,
-  Output,
-  EventEmitter,
-  OnChanges,
-  SimpleChanges,
-  HostListener,
   ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  HostListener,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
 } from '@angular/core';
 import * as d3 from 'd3';
-import { TrainingInstanceStatistics } from '@muni-kypo-crp/statistical-visualizations/internal';
-import { IFilter } from '@muni-kypo-crp/statistical-visualizations/internal';
+import { IFilter, TrainingInstanceStatistics } from '@cyberrangecz-platform/statistical-visualizations/internal';
 
 @Component({
   selector: 'kypo-filter',

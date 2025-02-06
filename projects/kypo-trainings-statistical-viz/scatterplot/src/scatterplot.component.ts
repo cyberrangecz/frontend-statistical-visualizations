@@ -10,15 +10,17 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import * as d3 from 'd3';
-import { TrainingInstanceStatistics } from '@muni-kypo-crp/statistical-visualizations/internal';
-import { Participant } from '@muni-kypo-crp/statistical-visualizations/internal';
-import { Level, IFilter } from '@muni-kypo-crp/statistical-visualizations/internal';
 import {
   AxesCreationService,
+  IFilter,
   LegendCreationService,
+  Level,
+  Participant,
   SvgConfigurationService,
   TooltipCreationService,
-} from '@muni-kypo-crp/statistical-visualizations/internal';
+  TrainingInstanceStatistics,
+} from '@cyberrangecz-platform/statistical-visualizations/internal';
+
 @Component({
   selector: 'kypo-scatterplot',
   templateUrl: './scatterplot.component.html',
