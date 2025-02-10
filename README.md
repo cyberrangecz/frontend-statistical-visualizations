@@ -1,4 +1,4 @@
-# KYPO Trainings Statistical Visualizations
+# CyberRangeᶜᶻ Platform Trainings Statistical Visualizations
 
 This dashboard serves for display and exploration of collected data from multiple training instances in a single training definition.
 

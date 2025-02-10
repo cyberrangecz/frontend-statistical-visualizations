@@ -1,7 +1,7 @@
 {
     "compileOnSave": false,
     "compilerOptions": {
-        "baseUrl": "./projects/kypo-trainings-statistical-viz",
+        "baseUrl": "./projects/trainings-statistical-visualizations",
         "outDir": "./dist/out-tsc",
         "sourceMap": true,
         "declaration": false,
