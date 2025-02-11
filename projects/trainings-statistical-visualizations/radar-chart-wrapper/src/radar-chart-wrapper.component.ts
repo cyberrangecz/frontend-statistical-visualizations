@@ -43,7 +43,7 @@ export class RadarChartWrapperComponent implements OnChanges, AfterContentChecke
   }
 
   getBBox() {
-    const box = document.querySelector('#radarchartSvgPlaceholder kypo-clustering-visualization') as HTMLElement | null;
+    const box = document.querySelector('#radarchartSvgPlaceholder crczp-clustering-visualization') as HTMLElement | null;
     //console.log(box.getBoundingClientRect());
 
     if (box != null) {

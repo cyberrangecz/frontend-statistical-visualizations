@@ -34,7 +34,7 @@ export class ScatterClustersWrapperComponent implements OnChanges, AfterContentC
   }
 
   ngAfterContentChecked() {
-    this.cardHeight = document.querySelector('kypo-clustering-visualization').getBoundingClientRect().height;
+    this.cardHeight = document.querySelector('crczp-clustering-visualization').getBoundingClientRect().height;
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -63,13 +63,13 @@ export class ScatterClustersWrapperComponent implements OnChanges, AfterContentC
       missingFeatures = items.filter((value) => value.hide).map((val) => val.feature);
 
     // completely hide line chart for the missing view
-    d3.select('#scatterClusterDiv .clustering-feature-' + feature + ' kypo-viz-clustering-line-chart').style(
+    d3.select('#scatterClusterDiv .clustering-feature-' + feature + ' crczp-viz-clustering-line-chart').style(
       'display',
       missingFeatures.includes(feature) ? 'none' : 'block',
     );
 
     // change styling of main plot to ensure the chart div does not interfere with other elements
-    d3.select('#scatterClusterDiv .clustering-feature-' + feature + ' kypo-viz-clustering-scatter-plot')
+    d3.select('#scatterClusterDiv .clustering-feature-' + feature + ' crczp-viz-clustering-scatter-plot')
       .style('opacity', missingFeatures.includes(feature) ? '0' : '1')
       .style('pointer-events', missingFeatures.includes(feature) ? 'none' : 'initial');
 

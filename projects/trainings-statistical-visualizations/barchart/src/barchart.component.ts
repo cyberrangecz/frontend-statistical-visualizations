@@ -1575,7 +1575,7 @@ export class BarchartComponent implements OnInit, OnChanges {
     if (selectedLevel == null) {
       this.selectedLevelId.emit(null);
     } else {
-      d3.select('kypo-bubblechart').style('display', 'inline');
+      d3.select('crczp-bubblechart').style('display', 'inline');
       this.selectedLevelId.emit(this.selectedLevel);
     }
   }
