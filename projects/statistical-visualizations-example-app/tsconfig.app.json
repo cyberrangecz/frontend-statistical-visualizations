@@ -1,0 +1,22 @@
+{
+    "extends": "../../tsconfig.json",
+    "compilerOptions": {
+        "outDir": "../../out-tsc/app",
+        "types": [],
+        "paths": {
+            "@crczp/statistical-visualizations": [
+                "../statistical-visualizations/src/public_api.ts"
+            ],
+            "@crczp/statistical-visualizations/*": [
+                "../statistical-visualizations/*/src/public_api.ts"
+            ]
+        }
+    },
+    "files": [
+        "src/main.ts",
+        "src/polyfills.ts"
+    ],
+    "include": [
+        "src/**/*.d.ts"
+    ]
+}

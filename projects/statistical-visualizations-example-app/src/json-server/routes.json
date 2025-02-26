@@ -1,0 +1,10 @@
+{
+    "/training/api/v1/visualizations/training-definitions/:definitionId": "/instances",
+    "/training/api/v1/visualizations/training-instances/clustering:params": "/clustering",
+    "/training/api/v1/clusters/training-definitions/:id/wrong-answers:params": "/clusters",
+    "/training/api/v1/clusters/training-definitions/:id/hints:params": "/clusters2",
+    "/training/api/v1/clusters/training-definitions/:id/n-dimensional:params": "/radarChart",
+    "/training/api/v1/clusters/training-definitions/:id/wrong-answers/sse:params": "/sse1",
+    "/training/api/v1/clusters/training-definitions/:id/hints/sse:params": "/sse2",
+    "/training/api/v1/clusters/training-definitions/:id/n-dimensional/sse:params": "/sseNDim"
+}

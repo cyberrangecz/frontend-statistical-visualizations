@@ -3,65 +3,65 @@
     "version": 1,
     "newProjectRoot": "projects",
     "projects": {
-        "trainings-statistical-visualizations": {
-            "root": "projects/trainings-statistical-visualizations",
-            "sourceRoot": "projects/trainings-statistical-visualizations/src",
+        "statistical-visualizations": {
+            "root": "projects/statistical-visualizations",
+            "sourceRoot": "projects/statistical-visualizations/src",
             "projectType": "library",
-            "prefix": "viz-statistical",
+            "prefix": "crczp",
             "architect": {
                 "build": {
                     "builder": "@angular-devkit/build-angular:ng-packagr",
                     "options": {
-                        "tsConfig": "projects/trainings-statistical-visualizations/tsconfig.lib.json",
-                        "project": "projects/trainings-statistical-visualizations/ng-package.json"
+                        "tsConfig": "projects/statistical-visualizations/tsconfig.lib.json",
+                        "project": "projects/statistical-visualizations/ng-package.json"
                     },
                     "configurations": {
                         "production": {
-                            "tsConfig": "projects/trainings-statistical-visualizations/tsconfig.lib.prod.json"
+                            "tsConfig": "projects/statistical-visualizations/tsconfig.lib.prod.json"
                         }
                     }
                 },
                 "test": {
                     "builder": "@angular-devkit/build-angular:karma",
                     "options": {
-                        "main": "projects/trainings-statistical-visualizations/src/test.ts",
-                        "tsConfig": "projects/trainings-statistical-visualizations/tsconfig.spec.json",
-                        "karmaConfig": "projects/trainings-statistical-visualizations/karma.conf.js"
+                        "main": "projects/statistical-visualizations/src/test.ts",
+                        "tsConfig": "projects/statistical-visualizations/tsconfig.spec.json",
+                        "karmaConfig": "projects/statistical-visualizations/karma.conf.js"
                     }
                 },
                 "lint": {
                     "builder": "@angular-eslint/builder:lint",
                     "options": {
                         "lintFilePatterns": [
-                            "projects/trainings-statistical-visualizations/**/*.ts",
-                            "projects/trainings-statistical-visualizations/**/*.component.html"
+                            "projects/statistical-visualizations/**/*.ts",
+                            "projects/statistical-visualizations/**/*.component.html"
                         ]
                     }
                 }
             }
         },
-        "trainings-statistical-visualizations-example": {
-            "root": "projects/trainings-statistical-visualizations-example",
-            "sourceRoot": "projects/trainings-statistical-visualizations-example/src",
+        "statistical-visualizations-example": {
+            "root": "projects/statistical-visualizations-example-app",
+            "sourceRoot": "projects/statistical-visualizations-example-app/src",
             "projectType": "application",
             "architect": {
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
-                        "outputPath": "dist/trainings-statistical-visualizations-example",
-                        "index": "projects/trainings-statistical-visualizations-example/src/index.html",
-                        "main": "projects/trainings-statistical-visualizations-example/src/main.ts",
-                        "polyfills": "projects/trainings-statistical-visualizations-example/src/polyfills.ts",
-                        "tsConfig": "projects/trainings-statistical-visualizations-example/tsconfig.app.json",
+                        "outputPath": "dist/statistical-visualizations-example",
+                        "index": "projects/statistical-visualizations-example-app/src/index.html",
+                        "main": "projects/statistical-visualizations-example-app/src/main.ts",
+                        "polyfills": "projects/statistical-visualizations-example-app/src/polyfills.ts",
+                        "tsConfig": "projects/statistical-visualizations-example-app/tsconfig.app.json",
                         "assets": [
-                            "projects/trainings-statistical-visualizations-example/src/favicon.ico",
-                            "projects/trainings-statistical-visualizations-example/src/assets"
+                            {
+                                "glob": "**/*",
+                                "input": "node_modules/@crczp/theme/assets",
+                                "output": "assets/"
+                            }
                         ],
                         "styles": [
-                            "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-                            "projects/trainings-statistical-visualizations-example/src/theme.scss",
-                            "projects/trainings-statistical-visualizations-example/src/variables.scss",
-                            "projects/trainings-statistical-visualizations-example/src/styles.scss"
+                            "node_modules/@crczp/theme/theming/apply-all.scss"
                         ],
                         "scripts": [],
                         "vendorChunk": true,
@@ -94,8 +94,8 @@
                             ],
                             "fileReplacements": [
                                 {
-                                    "replace": "projects/trainings-statistical-visualizations-example/src/environments/environment.ts",
-                                    "with": "projects/trainings-statistical-visualizations-example/src/environments/environment.prod.ts"
+                                    "replace": "projects/statistical-visualizations-example-app/src/environments/environment.ts",
+                                    "with": "projects/statistical-visualizations-example-app/src/environments/environment.prod.ts"
                                 }
                             ]
                         },
@@ -108,8 +108,8 @@
                             ],
                             "fileReplacements": [
                                 {
-                                    "replace": "projects/trainings-statistical-visualizations-example/src/environments/environment.ts",
-                                    "with": "projects/trainings-statistical-visualizations-example/src/environments/environment.local.ts"
+                                    "replace": "projects/statistical-visualizations-example-app/src/environments/environment.ts",
+                                    "with": "projects/statistical-visualizations-example-app/src/environments/environment.local.ts"
                                 }
                             ]
                         }
@@ -119,37 +119,37 @@
                 "serve": {
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "options": {
-                        "buildTarget": "trainings-statistical-visualizations-example:build"
+                        "buildTarget": "statistical-visualizations-example:build"
                     },
                     "configurations": {
                         "production": {
-                            "buildTarget": "trainings-statistical-visualizations-example:build:production"
+                            "buildTarget": "statistical-visualizations-example:build:production"
                         },
                         "local": {
-                            "buildTarget": "trainings-statistical-visualizations-example:build:local"
+                            "buildTarget": "statistical-visualizations-example:build:local"
                         }
                     }
                 },
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "buildTarget": "trainings-statistical-visualizations-example:build"
+                        "buildTarget": "statistical-visualizations-example:build"
                     }
                 },
                 "test": {
                     "builder": "@angular-devkit/build-angular:karma",
                     "options": {
-                        "main": "projects/trainings-statistical-visualizations-example/src/test.ts",
+                        "main": "projects/statistical-visualizations-example-app/src/test.ts",
                         "karmaConfig": "./karma.conf.js",
-                        "polyfills": "projects/trainings-statistical-visualizations-example/src/polyfills.ts",
-                        "tsConfig": "projects/trainings-statistical-visualizations-example/tsconfig.spec.json",
+                        "polyfills": "projects/statistical-visualizations-example-app/src/polyfills.ts",
+                        "tsConfig": "projects/statistical-visualizations-example-app/tsconfig.spec.json",
                         "scripts": [],
                         "styles": [
-                            "projects/trainings-statistical-visualizations-example/src/styles.css"
+                            "projects/statistical-visualizations-example-app/src/styles.css"
                         ],
                         "assets": [
-                            "projects/trainings-statistical-visualizations-example/src/assets",
-                            "projects/trainings-statistical-visualizations-example/src/favicon.ico"
+                            "projects/statistical-visualizations-example-app/src/assets",
+                            "projects/statistical-visualizations-example-app/src/favicon.ico"
                         ]
                     }
                 },
@@ -157,14 +157,14 @@
                     "builder": "@angular-eslint/builder:lint",
                     "options": {
                         "lintFilePatterns": [
-                            "projects/trainings-statistical-visualizations-example/**/*.ts",
-                            "projects/trainings-statistical-visualizations-example/**/*.component.html"
+                            "projects/statistical-visualizations-example-app/**/*.ts",
+                            "projects/statistical-visualizations-example-app/**/*.component.html"
                         ]
                     }
                 }
             }
         },
-        "trainings-statistical-visualizations-example-e2e": {
+        "statistical-visualizations-example-e2e": {
             "root": "e2e",
             "sourceRoot": "e2e",
             "projectType": "application",
@@ -173,7 +173,7 @@
                     "builder": "@angular-devkit/build-angular:protractor",
                     "options": {
                         "protractorConfig": "./protractor.conf.js",
-                        "devServerTarget": "trainings-statistical-visualizations-example:serve:development"
+                        "devServerTarget": "statistical-visualizations-example:serve:development"
                     }
                 }
             }

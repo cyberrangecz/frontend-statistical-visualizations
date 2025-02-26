@@ -1,21 +1,14 @@
 {
-    "compileOnSave": false,
+    "extends": "../../tsconfig.json",
     "compilerOptions": {
-        "baseUrl": "./projects/statistical-visualizations",
-        "outDir": "./dist/out-tsc",
-        "sourceMap": true,
-        "declaration": false,
-        "downlevelIteration": true,
-        "experimentalDecorators": true,
-        "allowSyntheticDefaultImports": true,
-        "esModuleInterop": true,
-        "moduleResolution": "node",
-        "importHelpers": true,
+        "outDir": "../../out-tsc/lib",
         "target": "es2020",
-        "module": "es2020",
+        "declaration": true,
+        "inlineSources": true,
+        "types": [],
         "lib": [
-            "es2018",
-            "dom"
+            "dom",
+            "es2018"
         ],
         "paths": {
             "@crczp/statistical-visualizations/barchart": [
@@ -51,7 +44,12 @@
         }
     },
     "angularCompilerOptions": {
-        "fullTemplateTypeCheck": true,
-        "strictInjectionParameters": true
-    }
+        "skipTemplateCodegen": true,
+        "strictMetadataEmit": true,
+        "enableResourceInlining": true
+    },
+    "exclude": [
+        "test.ts",
+        "**/*.spec.ts"
+    ]
 }
